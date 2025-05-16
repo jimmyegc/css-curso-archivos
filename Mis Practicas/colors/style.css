@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 45px 0;
+  /* color:crimson; */
+  background: rgb(0,0,0);
+  background: rgb(255,255,255);
+  background: rgb(125 ,255, 125);
+  background: rgb(255, 0, 0);
+  background: #ff0000;
+  background: hsl(220, 100%, 40%); /* hue saturation lightness */
+}
+
+.title {
+  text-align: center;
+}

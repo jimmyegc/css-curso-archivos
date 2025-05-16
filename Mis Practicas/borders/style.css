@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.box {
+  background: orangered;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  margin-top: 40px;
+  /* border: width style color; */
+  
+  /* border: 10px groove brown; */
+
+  /*  
+  border-width: 10px;
+  border-style: dashed;
+  border-color: brown; 
+  */
+
+  /* border-width: top right bottom left; */
+  border-width: 5px 10px; /* arriba y abajo, izquierda derecha */
+  border-style: groove dashed;
+  border-color: blue brown yellow crimson; 
+
+  border-top: 10px solid brown;
+  border-right: 5px dashed green;
+  border-bottom: 8px double black;
+  border-left: 8px dotted steelblue;
+
+
+}
+
+.img {
+  display: block;
+  width: 400px;  
+  /* height: 400px;
+  object-fit: cover; */
+  margin: 80px auto;
+  border: 20px groove purple;
+  border-radius: 30px 10px 20px 2px;
+
+  /* border-top-left-radius: 50px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 100px; */
+
+  /* https://border-radius.com/ */ 
+
+}
+
+.card {  
+  margin: 20px auto;
+  width: 400px;
+  height: auto;
+  padding: 20px 0;
+  background-color: steelblue;
+  border: 1px solid; 
+}
+
+.img2 {
+  display: block;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 20px auto;
+  border-radius: 50%;
+}
+
+.cta {
+  background-color: crimson;
+  border-radius: 3px;
+  padding: 15px 0;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+  display: block;
+  width: 150px;
+  margin: 20px auto;
+}
+
+.cta:hover {
+  background-color: white;
+  color: crimson;
+}
+
+.title {
+  text-align: center;
+  color: white
+  font-family: Arial;
+}
