@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #9ab1f6;
+  font-family: "Raleway", sans-serif;
+}
+
+.container {
+  background: white;
+  width: 70%;  
+  height: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  text-align: right;  
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.img {
+  width: 250px;
+}
+
+p {
+  text-align: justify;
+}
+
+.copy {
+  padding: 10px 0;
+  /* letter-spacing: 5px;
+  word-spacing: 30px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  line-height: 40px; */  
+  font-style: italic;
+
+}
+
+.cta {
+  color: #000;
+  text-decoration: underline;
+  text-decoration-style: wavy;  
+  text-decoration-color: crimson;
+  border: 1px solid;
+  padding: 10px 25px;
+}
+
+.bold {
+  color: crimson;
+  font-weight: bold;
+}
+
+body {
+  background: white;
+  font-family: "Raleway", sans-serif;
+}
+
+.card {
+   /* background: #2a265f; */
+  background-image: linear-gradient(#2a265fad, #2a265fc4), url(./img/background.jpg);
+  background-size: cover;
+  background-position: center;
+   width: 400px;
+   color: white;
+   margin: 40px auto;
+   border-radius: 10px;
+   padding: 20px;
+   box-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+}
+
+.title {
+  font-size: 30px;
+  border-bottom: 3px solid white;
+  padding: 7px;
+  margin-bottom: 30px;
+}
+
+.text {
+   font-weight: 300;
+   margin-bottom: 15px;
+   line-height: 1.5;
+   text-transform: capitalize;
+}
+
+.cta {
+  display: inline-block;
+  color: white; 
+  text-decoration: none;
+  border: 1px solid #fff;
+  padding: 15px 25px;
+  border-radius: 3px;
+}
+
