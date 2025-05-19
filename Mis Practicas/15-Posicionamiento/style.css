@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+body { 
+  font-family: 'Arial', sans-serif;
+   background: #fafafa;
+   height: 300vh;
+}
+
+.container {
+  width: 450px;
+  height: 530px;
+  margin: 20px auto;
+  border: 5px solid crimson;
+  position: relative;
+}
+
+.box {
+  background-color: steelblue;
+  color:white;
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+  margin-left: 20px;
+  text-align: center;
+  line-height: 100px;
+  font-weight: bold;
+}
+
+.static {
+  position: static;  
+  top: 50px;
+  left: 50px;
+}
+
+.relative {
+  background-color: crimson;
+  position: relative;
+  /* top: 10px;
+  left: 50%;   */
+}
+
+.absolute {
+  position: absolute;
+  background-color: purple;
+  top: 0;
+  right: 0;
+  margin: 0;  
+  z-index: -1;
+}
+
+.fixed {
+  background: tomato; 
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  margin: 0;  
+}

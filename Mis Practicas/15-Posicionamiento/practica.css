@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Ralewey:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+body {
+  font-family: 'Ralewey', sans-serif;
+  min-height: 200vh;
+}
+
+.hero {
+  height: 100vh;
+  background-image: linear-gradient(180deg, hsla(219, 67%, 46%, 0.5) 0%, hsla(239, 73%, 41%, 0.5) 100%), 
+  url(img/hero2.jpg);
+  background-position: center;
+  background-size: cover;
+  padding-top: .1px;
+  position: relative;
+}
+
+.container-text {
+  text-align: center;
+  margin-top: 150px;  
+  color: white;
+}
+
+.hero__title {
+  font-size: 4rem;
+  
+}
+
+.hero__copy {
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 20px 0;
+}
+
+.hero__cta {
+  display: inline-block;
+  background: white;
+  text-decoration: none;
+  color: #257dc2;
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.hero__cta:hover {
+  background: #257dc2;
+  color: white;
+}
+
+.hero__wave {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
