@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.container-spiderman {
+    width: 400px;
+    height: 400px;
+    background: steelblue;
+    margin: 40px auto;
+    overflow: hidden;         
+}
+
+.spiderman {
+  width: 200px;
+  margin: 0 auto;
+  display: block;  
+  animation: moverSpiderman 3s infinite,
+    bg 2s infinite;
+}
+
+@keyframes moverSpiderman {
+/*   from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0);
+  } */
+  0% {
+    transform: translateY(-50px);
+  }
+  30% {
+    transform: translateY(0) rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);    
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: translateY(-50px)
+  }
+}
+
+@keyframes bg {
+  from {
+    background: crimson;
+  }
+  to {
+    background: steelblue;
+  }
+}
+
+.cuadrado {
+  width: 200px;
+  height: 200px;
+  background-color: salmon;
+  margin: 40px auto;
+  overflow: hidden;
+  animation-name: animaciones;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: reverse;
+  animation-direction: alternate;
+}
+
+@keyframes animaciones {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.5) translate(100%);
+  }
+}

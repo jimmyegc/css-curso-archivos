@@ -1,0 +1,47 @@
+:root {
+  --color: crimson;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+.title {
+  font-size: 3rem;
+  color: crimson;
+  margin: 40px 0;
+  text-align: center;
+  font-family: monospace;
+}
+
+/* @media <media-type> and (expresion) */
+
+@media print {
+  .title {
+    color: steelblue;
+    font-size: 5rem;
+    text-align: right;
+    font-family: cursive;
+  }
+}
+
+/* https://whatismyviewport.com/ */
+
+@media (max-width: 1278px) {
+  .title {
+    font-size: 4rem;
+    background-color: black;
+    color: salmon;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .title {
+    color: steelblue;
+    background: coral;
+    height: 100vh;
+  }
+}
+

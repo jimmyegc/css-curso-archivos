@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.cuadrado{
+    width: 400px;
+    height: 400px;
+    background: steelblue;
+    margin: 40px auto;
+    overflow: hidden;
+    animation-name:animaciones;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    /* n | infinite */
+    animation-direction: reverse;
+    /* normal | reverse | alternate | alternate-reverse */
+    animation-fill-mode: forwards;
+    /* backwars | normal | forwards | both */
+    animation-delay: 2s;
+    animation-play-state: paused;
+    /* running | paused */
+
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    /* animation: 4s 2s infinite alternate animaciones; */
+}
+
+.cuadrado:hover{
+    animation-play-state: running;
+}
+
+@keyframes animaciones {
+    0%{
+        transform: rotate(0) ;
+    }
+    100%{
+        transform: rotate(360deg) scale(1.3);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.spiderman{
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+    /* background: yellow; */
+    animation: animacion1 3s infinite;
+}
+
+@keyframes animacion1 {
+    0%{
+        transform: translateY(-50px);
+    }
+    30%{
+        transform: translateY(0) rotate(5deg);
+    }
+    50%{
+        transform: rotate(-5deg);
+    }
+    75%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: translateY(-50px);
+    }
+}
