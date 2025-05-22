@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2c2c2c;
+  background-color: #151a20;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  padding: 1em 2em;
+  background-color: #151a20;
+  border: none;
+  color: #f0f0f0;
+  border-radius: 1000px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  height: 107%;
+  width: 102%;
+  border-radius: 1000px;
+  background-image: linear-gradient(to bottom right, #008cff, #e100ff);
+  z-index: -1;
+}
+
+button:hover {
+  z-index: 0;
+  box-shadow: 40px 0 100px #008cff75, -40px 0 100px #e100ff75;
+}
