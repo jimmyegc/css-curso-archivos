@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botón reutilizable con Tailwind CDN</title>
+  <!-- Tailwind v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Nada aquí, usaremos JS para simular apply */
+  </style>
+</head>
+<body class="flex flex-col gap-4 items-center justify-center h-screen bg-gray-100">
+
+  <button class="btn">Botón 1</button>
+  <button class="btn">Botón 2</button>
+  <button class="btn">Botón 3</button>
+
+  <script>
+    // Clases de Tailwind para la utilidad "btn"
+    const btnClasses = [
+      'bg-green-500',
+      'text-white',
+      'px-4',
+      'py-2',
+      'rounded-xl',
+      'font-mono',
+      'hover:bg-white',
+      'hover:text-green-500',
+      'shadow-lg',
+      'transition-colors',
+      'duration-300'
+    ];
+
+    // Aplica las clases a todos los elementos con la clase "btn"
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.classList.add(...btnClasses);
+    });
+  </script>
+
+</body>
+</html>
