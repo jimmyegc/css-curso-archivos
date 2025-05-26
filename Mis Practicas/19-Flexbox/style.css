@@ -5,19 +5,26 @@
 }
 
 .container {
-  width: 90%;
-  max-width: 600px;
+  width: 450;
+  /* max-width: 600px; */
   height: 600px;
   outline: 2px solid black;    
   margin: 30px auto;
   
   display: flex;  
+  /* flex-direction: column;
+  flex-wrap: wrap; */
+  
+  /* flex-flow: direction wrap <- Shorhand */;
+  /* flex-flow: column wrap;*/
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .item {
+  width: 90px;
   --height: 90px;
-  background: tomato;
-  width: var(--height);
+  background: tomato;  
   height: var(--height);
   line-height: var(--height);
   color:white;
