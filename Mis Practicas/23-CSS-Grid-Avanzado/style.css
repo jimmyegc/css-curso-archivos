@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.grid {
+  width: 90%;
+  /* max-width: 600px; */
+  height: 600px;
+  margin: 30px auto;
+  outline: 3px solid black;
+  display: grid;
+  /* grid-template-columns: [inicial] 1fr [final];
+  grid-template-rows: [linea-inicial] 1fr [linea-final]; */
+  /* grid-template-columns: [cabecera-start principal-start] 1fr 1fr 1fr 1fr [cabecera-end principal-end];
+  grid-template-rows: [cabecera-start] 1fr [cabecera-end principal-sstart] 1fr [principal-end]  1fr ; */
+  
+  /* grid-template-columns: repeat(4, [column-start] 1fr [column-end]); */
+  /* grid-template-rows: repeat(3, [fila-start] 1fr [fila-end]); */
+
+ /*  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "header header header header"
+    "main main main sidebar"
+    "footer footer footer footer"; */
+
+  /*   grid-template-columns: min-content max-content;
+  grid-template-rows: min-content max-content; */
+/*   grid-template-columns: fit-content(200px); */
+
+  /* grid-template-columns: minmax(80px, 300px) minmax(20px, 80px); */
+
+  /*grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+
+  /* grid-template-columns: repeat(auto-fit, minmax(max-content, 300px)); */
+/*   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr); */
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 150px);
+  
+  /* justify-items: start|end|center|stretch; */
+  /* align-items: start|end|center|stretch; */
+  /* align-items: center; */
+  
+  /* place-items: align-items/justify-items; (columns, rows) */
+  /*place-items: start stretch;
+  place-items: center;*/
+
+    /*justify-content: space-between; */
+    /* align-content: center;    */
+    
+    /*grid: rows/columns; */
+    /* grid: 50% 25% 25% / repeat(3, 1fr); */
+    /* order: 1;*/ 
+
+    /* place-content: align-content justify-content */
+    place-content: center;
+    
+}
+
+.grid__item {
+  padding: 20px 0;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.grid :nth-child(1) {
+  background-color: slateblue;  
+  /*align-self: center;
+  justify-self: start;*/
+  
+  /*place-self: align justify; */
+  place-self: start end;
+
+/*   grid-column: header-start/header-end;
+  grid-row: header-start/header-end */
+}
+.grid :nth-child(2) {
+  background-color: crimson;  
+/*   grid-column: main-start/main-end;
+  grid-row: main-start/main-end; */
+}
+.grid :nth-child(3) {
+  background-color: chocolate;
+/*   grid-column: sidebar-start/sidebar-end;
+  grid-row: sidebar-start/sidebar-end; */
+}
+.grid :nth-child(4) {
+  background-color: purple;
+/*   grid-column: footer-start/footer-end;
+  grid-row: footer-start/footer-end */
+}
