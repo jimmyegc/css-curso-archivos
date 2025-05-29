@@ -1,0 +1,32 @@
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card__picture {  
+  width: 400px;
+  height: 400px;  
+  clip-path: inset(10% 5% 5% 5% round 10px);
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.card__img {
+  width: 100%;  
+}
+
+.main {
+  display: flex;
+  height: 100vh;
+}
+
+.clip-path {
+  margin: auto;
+  width: 700px;
+  height: 400px;
+  /* background: crimson; */
+  background: linear-gradient(crimson, blue);
+  clip-path: url(#recorte);
+  /* clip-path: circle(50% at 0 100%); */ /* circle(50% at 50% 50%);  */  
+}
