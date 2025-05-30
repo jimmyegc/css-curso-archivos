@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f1f1f1;
+  font-family: 'Inter', sans-serif;    
+  height: 100vh;
+  display: grid;
+  gap: 2em;
+  align-content: start;
+  justify-content: center;
+  padding: 2em 0;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  background-color: #673ab7;
+  color: white;
+  padding: 13px 30px;
+  border-radius: 50px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn--opacity::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: .3;
+  clip-path: circle(0 at center);
+  transition: clip-path .3s;
+}
+
+.btn--opacity:hover::before {
+  clip-path: circle(100% at center);
+}
+
+.btn--bg {
+  background-color: white;
+  color: #673ab7;
+}
+
+.btn--bg::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #673ab7;  
+  clip-path: circle(0 at top left);
+  transition: clip-path .3s;
+}
+
+.btn--bg:hover::before {
+ clip-path: circle(150% at top left);
+}
+
+.btn--bg:hover {
+  color: white;
+}
+
+.btn__text {
+  position: relative;
+  z-index: 1;
+}
+
+.link {
+  display: inline-block;
+  color: #673ab7;
+  text-decoration: none;
+  font-size: 1.5rem;
+  justify-self: start;
+}
+
+.link::after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  height: 3px;
+  background-color: #673ab7;
+  /* clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%); */
+  clip-path: circle(0 at center);
+  transition: clip-path .3s;
+}
+
+.link:hover::after {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: circle(100% at center);
+}
+
+
