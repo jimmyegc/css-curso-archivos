@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind</title>
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-slate-300 py-12">
+
+  <article class="w-72 bg-white mx-auto rounded-xl p-4 flex flex-col gap-8 md:flex-row md:w-2/3 max-w-lg">
+    
+    <figure class="md:w-1/3">
+      <img src="img/profile.jpg" alt="Coronel Sanders" class="rounded-xl object-cover h-full block">
+    </figure>
+
+    <div class="flex-1">
+      <h2 class="text-2xl font-bold md:text-3xl">Harland David Sanders</h2>
+      <p class="text-zinc-600 text-lg">Coronel Sanders</p>
+      
+      <article class="mt-4 bg-zinc-100 rounded-sm p-3 hidden md:flex justify-evenly">
+        
+        <div>
+          <h3 class="text-zinc-600 font-bold">Articles</h3>
+          <p class="text-2xl font font-bold">34</p>
+        </div>
+
+        <div>
+          <h3 class="text-zinc-600 font-bold">Followers</h3>
+          <p class="text-2xl font font-bold">980</p>
+        </div>
+        
+        <div>
+          <h3 class="text-zinc-600 font-bold">Rating</h3>
+          <p class="text-2xl font font-bold">9</p>
+        </div>
+
+      </article>
+
+      <div class="grid gap-4 mt-6 md:grid-flow-col">
+        <a href="#" class="text-zinc-700 px-8 py-4 border-zin-400 border-2 text-center rounded-lg">Chat</a>
+        <a href="#" class="text-white bg-red-600 px-8 py-4 border-red-400 border-2 text-center rounded-lg" >Follow</a>
+      </div>
+    </div>    
+  </article>  
+</body>
+</html>
