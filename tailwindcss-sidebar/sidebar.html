@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar con Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1e293b",
+              accent: "#0ea5e9",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <aside
+        class="w-20 hover:w-64 bg-primary text-white transition-all duration-300 flex flex-col items-center py-6 shadow-lg"
+      >
+        <!-- Avatar / Perfil -->
+        <div class="relative group mb-10">
+          <img
+            src="https://i.pravatar.cc/100"
+            class="w-10 h-10 rounded-full ring-2 ring-accent"
+            alt="Avatar"
+          />
+          <!-- Menú de perfil -->
+          <div
+            class="absolute left-16 top-0 w-40 bg-white text-black rounded-md shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+          >
+            <ul class="py-2 text-sm">
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                  >Mi Perfil</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                  >Configuración</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                  >Cerrar sesión</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Links de navegación -->
+        <nav class="flex flex-col space-y-4 w-full px-2">
+          <a
+            href="#"
+            class="flex items-center space-x-3 p-2 rounded-md hover:bg-accent"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 12l2-2m0 0l7-7 7 7M13 5v6h6m4 8H5a2 2 0 01-2-2V7a2 2 0 012-2h3"
+              ></path>
+            </svg>
+            <span class="hidden group-hover:inline">Inicio</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 p-2 rounded-md hover:bg-accent"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 4v16m8-8H4"
+              ></path>
+            </svg>
+            <span class="hidden group-hover:inline">Agregar</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 p-2 rounded-md hover:bg-accent"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"
+              ></path>
+            </svg>
+            <span class="hidden group-hover:inline">Lista</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 p-2 rounded-md hover:bg-accent"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 3h18v18H3V3z"
+              ></path>
+            </svg>
+            <span class="hidden group-hover:inline">Dashboard</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Contenido -->
+      <main class="flex-1 p-8">
+        <h1 class="text-3xl font-bold">Bienvenido</h1>
+        <p class="mt-4 text-gray-600">Aquí va el contenido principal.</p>
+      </main>
+    </div>
+  </body>
+</html>
