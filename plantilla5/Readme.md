@@ -1,0 +1,357 @@
+Perfecto, aquí tienes un **kit UI base completo** con todos los componentes que mencionaste, usando una paleta de colores coherente, espaciados uniformes y estilos profesionales.
+
+Puedes copiar y pegar este código en un archivo `.html` y abrirlo en tu navegador para verlo funcionando.
+
+---
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kit UI Base - NMDA</title>
+    <style>
+      :root {
+        /* Paleta de colores */
+        --color-primary: #4a90e2;
+        --color-primary-dark: #357abd;
+        --color-secondary: #50e3c2;
+        --color-secondary-dark: #3bb89f;
+        --color-success: #7ed321;
+        --color-danger: #e94e77;
+        --color-warning: #f5a623;
+        --color-info: #17a2b8;
+        --color-light: #f9f9f9;
+        --color-dark: #29285a;
+
+        /* Espaciados y bordes */
+        --spacing-xs: 4px;
+        --spacing-sm: 8px;
+        --spacing-md: 16px;
+        --spacing-lg: 24px;
+        --spacing-xl: 32px;
+        --border-radius: 8px;
+        --font-family: "Montserrat", sans-serif;
+      }
+
+      /* Reset y base */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: var(--font-family);
+        background-color: var(--color-light);
+        color: var(--color-dark);
+        margin: 0;
+        padding: var(--spacing-lg);
+        line-height: 1.5;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin-bottom: var(--spacing-md);
+      }
+      p {
+        margin-bottom: var(--spacing-md);
+      }
+
+      /* Contenedor centrado */
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      /* Botones */
+      .btn {
+        display: inline-block;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        border: none;
+        text-align: center;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        user-select: none;
+        margin: 0 var(--spacing-xs) var(--spacing-xs) 0;
+      }
+      .btn-primary {
+        background-color: var(--color-primary);
+        color: white;
+      }
+      .btn-primary:hover {
+        background-color: var(--color-primary-dark);
+      }
+      .btn-secondary {
+        background-color: var(--color-secondary);
+        color: white;
+      }
+      .btn-secondary:hover {
+        background-color: var(--color-secondary-dark);
+      }
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+      }
+      .btn-outline:hover {
+        background-color: var(--color-primary);
+        color: white;
+      }
+      .btn-default {
+        background-color: white;
+        border: 1px solid #ccc;
+        color: var(--color-dark);
+      }
+      .btn-default:hover {
+        background-color: #eee;
+      }
+
+      /* Alertas */
+      .alert {
+        border-radius: var(--border-radius);
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+        color: white;
+        font-weight: 600;
+      }
+      .alert-success {
+        background-color: var(--color-success);
+      }
+      .alert-danger {
+        background-color: var(--color-danger);
+      }
+      .alert-warning {
+        background-color: var(--color-warning);
+        color: #222;
+      }
+      .alert-info {
+        background-color: var(--color-info);
+      }
+
+      /* Pills */
+      .pill {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin: 0 var(--spacing-xs) var(--spacing-xs) 0;
+        user-select: none;
+      }
+      .pill-primary {
+        background-color: var(--color-primary);
+        color: white;
+      }
+      .pill-secondary {
+        background-color: var(--color-secondary);
+        color: white;
+      }
+      .pill-success {
+        background-color: var(--color-success);
+        color: white;
+      }
+      .pill-danger {
+        background-color: var(--color-danger);
+        color: white;
+      }
+
+      /* Breadcrumbs */
+      .breadcrumb {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+        margin-bottom: var(--spacing-lg);
+        padding-left: 0;
+      }
+      .breadcrumb li {
+        margin-right: 0.5rem;
+      }
+      .breadcrumb li + li:before {
+        content: "›";
+        margin-right: 0.5rem;
+        color: var(--color-secondary);
+      }
+      .breadcrumb a {
+        text-decoration: none;
+        color: var(--color-primary);
+        font-weight: 600;
+      }
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+      .breadcrumb li:last-child {
+        color: var(--color-dark);
+        font-weight: 700;
+      }
+
+      /* Tabla */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: var(--spacing-lg);
+        font-size: 1rem;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: var(--spacing-sm);
+        text-align: left;
+      }
+      th {
+        background-color: var(--color-secondary);
+        color: white;
+      }
+      tbody tr:hover {
+        background-color: #f1f1f1;
+      }
+
+      /* Card */
+      .card {
+        background: white;
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+        margin-bottom: var(--spacing-lg);
+      }
+
+      /* Menú desplegable simple */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-bottom: var(--spacing-lg);
+      }
+      .dropdown-button {
+        cursor: pointer;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-primary);
+        background: var(--color-primary);
+        color: white;
+        font-weight: 600;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background: white;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        border-radius: var(--border-radius);
+        margin-top: 4px;
+        min-width: 160px;
+        z-index: 100;
+      }
+      .dropdown-content a {
+        display: block;
+        padding: var(--spacing-sm) var(--spacing-md);
+        text-decoration: none;
+        color: var(--color-dark);
+        font-weight: 500;
+      }
+      .dropdown-content a:hover {
+        background-color: var(--color-light);
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Kit UI Base - NMDA</h1>
+
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb">
+        <ul class="breadcrumb">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Usuarios</a></li>
+          <li>Perfil</li>
+        </ul>
+      </nav>
+
+      <!-- Alertas -->
+      <div class="alert alert-success">Operación completada con éxito.</div>
+      <div class="alert alert-warning">
+        Advertencia: revisa los datos ingresados.
+      </div>
+      <div class="alert alert-danger">
+        Error: no se pudo guardar la información.
+      </div>
+      <div class="alert alert-info">
+        Información: nuevos cambios disponibles.
+      </div>
+
+      <!-- Botones -->
+      <div>
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-outline">Outline</button>
+        <button class="btn btn-default">Default</button>
+      </div>
+
+      <!-- Pills -->
+      <div>
+        <span class="pill pill-primary">Nuevo</span>
+        <span class="pill pill-secondary">En proceso</span>
+        <span class="pill pill-success">Éxito</span>
+        <span class="pill pill-danger">Error</span>
+      </div>
+
+      <!-- Dropdown -->
+      <div class="dropdown">
+        <button class="dropdown-button">Menú desplegable</button>
+        <div class="dropdown-content" role="menu">
+          <a href="#">Opción 1</a>
+          <a href="#">Opción 2</a>
+          <a href="#">Opción 3</a>
+        </div>
+      </div>
+
+      <!-- Tabla -->
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Juan Pérez</td>
+            <td>juan@mail.com</td>
+            <td><span class="pill pill-primary">Activo</span></td>
+          </tr>
+          <tr>
+            <td>Ana Gómez</td>
+            <td>ana@mail.com</td>
+            <td><span class="pill pill-secondary">Pendiente</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Card -->
+      <div class="card">
+        <h2>Título de la Card</h2>
+        <p>
+          Contenido de ejemplo dentro de una tarjeta con padding, sombra y
+          bordes redondeados.
+        </p>
+        <button class="btn btn-primary">Acción</button>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+---
+
+### Cómo usarlo:
+
+- Cambia las variables CSS del `:root` para adaptar la paleta a tu marca.
+- Duplica y adapta los componentes según tu necesidad.
+- Este kit es responsive y accesible, y tiene las bases UX para que sea intuitivo y limpio.

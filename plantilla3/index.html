@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo Estético</title>
+    <style>
+      :root {
+        --primary: #ec5c2c;
+        --secondary: #29285a;
+        --neutral: #f9f9f9;
+        --text-dark: #29285a;
+        --text-light: #fff;
+        --success: #28a745;
+        --error: #dc3545;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        background: var(--neutral);
+        color: var(--text-dark);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 2rem;
+      }
+
+      /* Botones */
+      .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: var(--text-light);
+      }
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+
+      /* Card */
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <h1>Bienvenido</h1>
+      <p>Este es un ejemplo de diseño limpio y profesional.</p>
+      <button class="btn btn-primary">Acción Principal</button>
+      <button class="btn btn-outline">Acción Secundaria</button>
+    </header>
+
+    <section class="container">
+      <div class="card">
+        <h2>Título de la Card</h2>
+        <p>Contenido de ejemplo para mostrar una estructura clara.</p>
+      </div>
+    </section>
+  </body>
+</html>

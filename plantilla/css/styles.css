@@ -1,0 +1,149 @@
+/* ================================
+   🎨 Variables de diseño
+================================ */
+:root {
+  /* Colores */
+  --color-primary: #2C3E50;
+  --color-secondary: #34495E;
+  --color-accent: #E67E22;
+  --color-neutral: #ECF0F1;
+  --color-text-dark: #2C3E50;
+  --color-text-light: #FFFFFF;
+
+  /* Escala de espaciado */
+  --space-xxs: 0.25rem; /* 4px */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 0.75rem;  /* 12px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2rem;     /* 32px */
+  --space-xxl: 3rem;    /* 48px */
+
+  /* Tipografía */
+  --font-xs: 0.75rem;  /* 12px */
+  --font-sm: 0.875rem; /* 14px */
+  --font-md: 1rem;     /* 16px */
+  --font-lg: 1.25rem;  /* 20px */
+  --font-xl: 1.5rem;   /* 24px */
+  --font-xxl: 2rem;    /* 32px */
+}
+
+/* ================================
+   🔤 Estilos globales
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--font-md);
+  background-color: var(--color-neutral);
+  color: var(--color-text-dark);
+  line-height: 1.5;
+}
+
+/* Contenedor global */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* ================================
+   🖼 Header & Navbar
+================================ */
+.header {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: var(--space-md);
+}
+
+.nav-links a {
+  color: var(--color-text-light);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   📦 Secciones & Cards
+================================ */
+.section {
+  padding: var(--space-xxl) 0;
+}
+
+.card {
+  background-color: var(--color-neutral);
+  border: 2px solid var(--color-primary);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  box-shadow: 0 8px 16px rgba(44, 62, 80, 0.1);
+  margin-top: var(--space-lg);
+}
+
+.card-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.card-text {
+  font-size: var(--font-md);
+}
+
+/* ================================
+   🔘 Botones
+================================ */
+.button {
+  background-color: var(--color-accent);
+  color: var(--color-text-light);
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: var(--font-md);
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #cf6d17;
+}
+
+/* ================================
+   📜 Footer
+================================ */
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  text-align: center;
+  padding: var(--space-md) 0;
+}
+
+/* ================================
+   📱 Responsive
+================================ */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}

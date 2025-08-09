@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sitio Profesional</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-primary: #0d6efd;
+        --color-secondary: #6c757d;
+        --color-accent: #ffc107;
+        --color-bg: #f8f9fa;
+        --color-text: #212529;
+        --radius: 8px;
+        --spacing: 16px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.5;
+        padding: var(--spacing);
+      }
+      h1 {
+        font-size: 32px;
+        margin-bottom: var(--spacing);
+      }
+      p {
+        font-size: 16px;
+        margin-bottom: var(--spacing);
+      }
+      .card {
+        background: white;
+        border-radius: var(--radius);
+        padding: var(--spacing);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: var(--radius);
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .btn-primary {
+        background: var(--color-primary);
+        color: white;
+      }
+      .btn-outline {
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bienvenido</h1>
+    <p>Este es un ejemplo de sitio siguiendo bases de diseño profesional.</p>
+
+    <div class="card">
+      <h2>Título de tarjeta</h2>
+      <p>
+        Texto de ejemplo dentro de la tarjeta. Espaciado uniforme y tipografía
+        consistente.
+      </p>
+      <a href="#" class="btn btn-primary">Acción</a>
+      <a href="#" class="btn btn-outline">Secundario</a>
+    </div>
+  </body>
+</html>
