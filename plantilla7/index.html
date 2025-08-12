@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Botones NMDA - Variables HSL</title>
+<style>
+  :root {
+    /* Paleta NMDA con % incluidos */
+    --primary-hue: 15;
+    --primary-sat: 82%;
+    --primary-light: 45%;
+    --primary-light-light: 55%;
+    --primary-light-dark: 35%;
+
+    --secondary-hue: 241;
+    --secondary-sat: 39%;
+    --secondary-light: 35%;
+    --secondary-light-light: 45%;
+    --secondary-light-dark: 25%;
+
+    --outline-color: hsl(15, 82%, 45%);
+    --default-bg: hsl(0, 0%, 95%);
+    --default-text: hsl(0, 0%, 20%);
+
+    --disabled-bg: hsl(0, 0%, 80%);
+    --disabled-text: hsl(0, 0%, 50%);
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: hsl(0, 0%, 98%);
+    padding: 40px;
+    text-align: center;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 10px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent;
+    min-width: 140px;
+  }
+
+  /* Primary */
+  .btn-primary {
+    background-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
+    color: white;
+    border-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light-dark));
+  }
+  .btn-primary:hover {
+    background-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light-light));
+  }
+  .btn-primary:active {
+    background-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light-dark));
+  }
+
+  /* Secondary */
+  .btn-secondary {
+    background-color: hsl(var(--secondary-hue), var(--secondary-sat), var(--secondary-light));
+    color: white;
+    border-color: hsl(var(--secondary-hue), var(--secondary-sat), var(--secondary-light-dark));
+  }
+  .btn-secondary:hover {
+    background-color: hsl(var(--secondary-hue), var(--secondary-sat), var(--secondary-light-light));
+  }
+  .btn-secondary:active {
+    background-color: hsl(var(--secondary-hue), var(--secondary-sat), var(--secondary-light-dark));
+  }
+
+  /* Outline */
+  .btn-outline {
+    background-color: transparent;
+    color: var(--outline-color);
+    border-color: var(--outline-color);
+  }
+  .btn-outline:hover {
+    background-color: var(--outline-color);
+    color: white;
+  }
+  .btn-outline:active {
+    background-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light-dark));
+    border-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light-dark));
+  }
+
+  /* Default */
+  .btn-default {
+    background-color: var(--default-bg);
+    color: var(--default-text);
+    border-color: hsl(0, 0%, 80%);
+  }
+  .btn-default:hover {
+    background-color: hsl(0, 0%, 90%);
+  }
+  .btn-default:active {
+    background-color: hsl(0, 0%, 75%);
+  }
+
+  /* Disabled */
+  .btn-disabled {
+    background-color: var(--disabled-bg);
+    color: var(--disabled-text);
+    border-color: var(--disabled-bg);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+  <h1>Botones NMDA con variables CSS HSL</h1>
+  <button class="btn-primary">Primary</button>
+  <button class="btn-secondary">Secondary</button>
+  <button class="btn-outline">Outline</button>
+  <button class="btn-default">Default</button>
+  <button class="btn-disabled" disabled>Disabled</button>
+</body>
+</html>

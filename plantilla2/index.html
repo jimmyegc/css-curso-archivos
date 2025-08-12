@@ -17,6 +17,13 @@
         --color-text: #212529;
         --radius: 8px;
         --spacing: 16px;
+        --space-xxs: 0.25rem; /* 4px */
+        --space-xs: 0.5rem; /* 8px */
+        --space-sm: 0.75rem; /* 12px */
+        --space-md: 1rem; /* 16px */
+        --space-lg: 1.5rem; /* 24px */
+        --space-xl: 2rem; /* 32px */
+        --space-xxl: 3rem; /* 48px */
       }
       * {
         box-sizing: border-box;
@@ -38,13 +45,28 @@
         font-size: 16px;
         margin-bottom: var(--spacing);
       }
+
+      .container {
+        padding: var(--space-xl); /* 32px interno */
+        margin-bottom: var(--space-xxl); /* 48px hacia abajo */
+      }
+
       .card {
+        background: white;
+        border-radius: var(--radius);
+        padding: var(--space-lg); /* 24px interno */
+        margin-top: var(--space-lg); /* 24px entre cards */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+      }
+
+      /*       .card {
         background: white;
         border-radius: var(--radius);
         padding: var(--spacing);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         max-width: 300px;
-      }
+      } */
       .btn {
         display: inline-block;
         padding: 8px 16px;
@@ -61,6 +83,34 @@
         color: var(--color-primary);
         background: transparent;
       }
+
+      .btn-xxs {
+        padding: var(--space-xxs);
+      }
+
+      .btn-xs {
+        padding: var(--space-xs);
+      }
+
+      .btn-sm {
+        padding: var(--space-sm);
+      }
+
+      .btn-md {
+        padding: var(--space-md);
+      }
+
+      .btn-lg {
+        padding: var(--space-lg);
+      }
+
+      .btn-xl {
+        padding: var(--space-xl);
+      }
+
+      .btn-xxl {
+        padding: var(--space-xxl);
+      }
     </style>
   </head>
   <body>
@@ -75,6 +125,16 @@
       </p>
       <a href="#" class="btn btn-primary">Acción</a>
       <a href="#" class="btn btn-outline">Secundario</a>
+    </div>
+
+    <div>
+      <a class="btn btn-outline btn-xxs">click</a>
+      <a class="btn btn-outline btn-xs">click</a>
+      <a class="btn btn-outline btn-sm">click</a>
+      <a class="btn btn-outline btn-md">click</a>
+      <a class="btn btn-outline btn-lg">click</a>
+      <a class="btn btn-outline btn-xl">click</a>
+      <a class="btn btn-outline btn-xxl">click</a>
     </div>
   </body>
 </html>

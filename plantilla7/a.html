@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ejemplo HSL con variables CSS definitivo</title>
+<style>
+  :root {
+    /* Variables con unidades ya incluidas */
+    --primary-hue: 15;
+    --primary-sat: 82%;
+    --primary-light: 45%;
+
+    --primary-light-light: 55%;
+    --primary-light-dark: 35%;
+
+    --gray-hue: 0;
+    --gray-sat: 0%;
+    --gray-light: 92%;
+    --gray-light-dark: 82%;
+
+    --text-light-light: 100%;
+    --text-dark-light: 20%;
+  }
+
+  body {
+    background-color: hsl(var(--gray-hue), var(--gray-sat), var(--gray-light));
+    color: hsl(0, 0%, var(--text-dark-light));
+    font-family: Arial, sans-serif;
+    padding: 50px;
+    text-align: center;
+    margin: 0;
+  }
+
+  button {
+    background-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
+    color: hsl(0, 0%, var(--text-light-light));
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light-light));
+  }
+
+  button:active {
+    background-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light-dark));
+  }
+</style>
+</head>
+<body>
+  <button>Botón Primary</button>
+</body>
+</html>

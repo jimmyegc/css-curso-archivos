@@ -1,0 +1,128 @@
+:root {
+  /* Valores puros sin % para saturación y lightness */
+  --primary-hue: 15;
+  --primary-sat: 82;      /* sin % */
+  --primary-light-base: 45;
+  --primary-light-light: 55;
+  --primary-light-dark: 35;
+
+  --secondary-hue: 241;
+  --secondary-sat: 39;
+  --secondary-light-base: 35;
+  --secondary-light-light: 45;
+  --secondary-light-dark: 25;
+
+  --third-hue: 16;
+  --third-sat: 80;
+  --third-light-base: 50;
+  --third-light-light: 60;
+  --third-light-dark: 40;
+
+  --gray-hue: 0;
+  --gray-sat: 0;
+  --gray-light-base: 92;
+  --gray-light-dark: 82;
+
+  --text-light-hue: 0;
+  --text-light-sat: 0;
+  --text-light-light: 100;
+
+  --text-dark-hue: 0;
+  --text-dark-sat: 0;
+  --text-dark-light: 20;
+
+  /* Variables definitivas de color */
+  --primary: hsl(var(--primary-hue), var(--primary-sat)%, var(--primary-light-base)%);
+  --primary-light: hsl(var(--primary-hue), var(--primary-sat)%, var(--primary-light-light)%);
+  --primary-dark: hsl(var(--primary-hue), var(--primary-sat)%, var(--primary-light-dark)%);
+
+  --secondary: hsl(var(--secondary-hue), var(--secondary-sat)%, var(--secondary-light-base)%);
+  --secondary-light: hsl(var(--secondary-hue), var(--secondary-sat)%, var(--secondary-light-light)%);
+  --secondary-dark: hsl(var(--secondary-hue), var(--secondary-sat)%, var(--secondary-light-dark)%);
+
+  --third: hsl(var(--third-hue), var(--third-sat)%, var(--third-light-base)%);
+  --third-light: hsl(var(--third-hue), var(--third-sat)%, var(--third-light-light)%);
+  --third-dark: hsl(var(--third-hue), var(--third-sat)%, var(--third-light-dark)%);
+
+  --gray: hsl(var(--gray-hue), var(--gray-sat)%, var(--gray-light-base)%);
+  --gray-dark: hsl(var(--gray-hue), var(--gray-sat)%, var(--gray-light-dark)%);
+
+  --text-light: hsl(var(--text-light-hue), var(--text-light-sat)%, var(--text-light-light)%);
+  --text-dark: hsl(var(--text-dark-hue), var(--text-dark-sat)%, var(--text-dark-light)%);
+}
+
+/* Estilos base */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--gray);
+  color: var(--text-dark);
+  text-align: center;
+  padding: 50px;
+}
+
+/* Botones genéricos */
+button {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.2s ease;
+}
+
+/* Primary */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-light);
+  border: 1px solid red;
+}
+.btn-primary:hover {
+  background-color: var(--primary-light);
+}
+.btn-primary:active {
+  background-color: var(--primary-dark);
+}
+
+/* Secondary */
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+.btn-secondary:hover {
+  background-color: var(--secondary-light);
+}
+.btn-secondary:active {
+  background-color: var(--secondary-dark);
+}
+
+/* Third */
+.btn-third {
+  background-color: var(--third);
+  color: var(--text-light);
+}
+.btn-third:hover {
+  background-color: var(--third-light);
+}
+.btn-third:active {
+  background-color: var(--third-dark);
+}
+
+/* Gray */
+.btn-gray {
+  background-color: var(--gray-dark);
+  color: var(--text-dark);
+}
+.btn-gray:hover {
+  background-color: var(--gray);
+}
+.btn-gray:active {
+  background-color: var(--gray-dark);
+}
+
+/* Contenedor ejemplo */
+.container {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+}

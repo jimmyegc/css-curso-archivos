@@ -1,0 +1,72 @@
+:root {
+  --primary-color: hsl(15, 83%, 55%);
+  --secondary-color: #29285A;
+  --third-color: #F18C6B;
+  --gray-color: #f9f9f9;
+  --font-stack: 'Montserrat', sans-serif;
+
+  --text-light: #ffffff;
+  --text-dark: #333333;
+}
+
+/* Estilos base */
+.btn {
+  display: inline-block;
+  font-family: var(--font-stack);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+/* Default */
+.btn-default {
+  background-color: var(--gray-color);
+  color: var(--text-dark);
+}
+.btn-default:hover {
+  background-color: #e1e1e1;
+}
+
+/* Primary */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+.btn-primary:hover {
+  background-color: #d35024;
+}
+
+/* Secondary */
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+}
+.btn-secondary:hover {
+  background-color: #1d1c4a;
+}
+
+/* Outline */
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Disabled */
+.btn:disabled,
+.btn-disabled {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+  border: none;
+  opacity: 0.7;
+}
