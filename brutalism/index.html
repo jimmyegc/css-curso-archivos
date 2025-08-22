@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brutalism CSS UI Kit</title>
+  <meta name="description" content="Sistema de diseño brutalism puro CSS con componentes básicos." />
+  <!--
+    Brutalism CSS UI Kit (BUI)
+    Autor: Tú ;)
+    Licencia: MIT
+
+    ✦ Filosofía
+    - Tipografía fuerte, bordes gruesos, sombras duras, colores vibrantes.
+    - 0 dependencias. Sólo HTML + CSS + un poco de JS opcional para componentes interactivos.
+
+    ✦ Uso rápido
+    - Copia este archivo y reusa el <style> o expórtalo a styles/bui.css.
+    - Cambia variables en :root para personalizar tema.
+    - Alterna tema: document.documentElement.setAttribute('data-theme', 'dark'|'light')
+  -->
+  <style>
+    /* ------------------------------
+       Variables & Reset
+       ------------------------------ */
+    :root{
+      --bui-font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      --bui-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+      /* Paleta brutalista (ajústala a tu marca) */
+      --bui-bg: #fffef7;
+      --bui-ink: #111111;
+      --bui-ink-muted: #3b3b3b;
+      --bui-border: #000000;
+
+      --bui-primary: #00E5FF;   /* cian eléctrico */
+      --bui-secondary: #FF3B30; /* rojo intenso */
+      --bui-accent: #FFD60A;    /* amarillo neón */
+      --bui-success: #10b981;   /* verde */
+      --bui-warning: #f59e0b;   /* ámbar */
+      --bui-danger: #ef4444;    /* rojo */
+      --bui-info: #3b82f6;      /* azul */
+
+      --bui-radius: 0.75rem;
+      --bui-gap: 1rem;
+      --bui-pad: 0.9rem;
+      --bui-border-w: 3px;
+      --bui-shadow: 6px 6px 0 0 var(--bui-border);
+      --bui-transition: 140ms cubic-bezier(.2,.9,.2,1);
+      --bui-focus: 3px dashed var(--bui-ink);
+      --bui-focus-offset: 2px;
+      --bui-kbd: #fafafa;
+
+      --bui-code-bg: #111;
+      --bui-code-ink: #eee;
+    }
+
+    html[data-theme="dark"]{
+      --bui-bg: #0f0f0f;
+      --bui-ink: #f5f5f5;
+      --bui-ink-muted: #b5b5b5;
+      --bui-border: #f5f5f5;
+      --bui-primary: #38bdf8;
+      --bui-secondary: #fb7185;
+      --bui-accent: #fde047;
+      --bui-shadow: 6px 6px 0 0 var(--bui-border);
+      --bui-kbd: #1a1a1a;
+      --bui-code-bg: #0b0b0b;
+      --bui-code-ink: #f0f0f0;
+    }
+
+    *, *::before, *::after{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin:0;
+      background: var(--bui-bg);
+      color: var(--bui-ink);
+      font-family: var(--bui-font);
+      line-height: 1.5;
+    }
+    img{ max-width: 100%; display: block; }
+    a{ color: inherit; text-underline-offset: 3px; }
+    :focus-visible{ outline: var(--bui-focus); outline-offset: var(--bui-focus-offset); }
+
+    /* ------------------------------
+       Layout helpers
+       ------------------------------ */
+    .container{ max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; }
+    .stack{ display: grid; gap: var(--bui-gap); }
+    .grid{ display: grid; gap: var(--bui-gap); grid-template-columns: repeat(12, 1fr); }
+    .card{
+      background: var(--bui-bg);
+      border: var(--bui-border-w) solid var(--bui-border);
+      border-radius: var(--bui-radius);
+      padding: var(--bui-pad);
+      box-shadow: var(--bui-shadow);
+    }
+    .title{ font-size: clamp(1.8rem, 1.2rem + 2vw, 3rem); font-weight: 900; letter-spacing: .5px; }
+    .subtitle{ font-weight: 700; }
+    .muted{ color: var(--bui-ink-muted); }
+    .kbd{ font-family: var(--bui-font-mono); background: var(--bui-kbd); border: 2px solid var(--bui-border); padding: 0 .4rem; border-radius: .4rem; }
+
+    /* ------------------------------
+       Badges
+       ------------------------------ */
+    .badge{
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .3rem .6rem;
+      border: var(--bui-border-w) solid var(--bui-border);
+      border-radius: .5rem;
+      font-weight: 800; text-transform: uppercase; letter-spacing: .4px; font-size: .8rem;
+      box-shadow: var(--bui-shadow);
+    }
+    .badge.primary{ background: var(--bui-primary); }
+    .badge.secondary{ background: var(--bui-secondary); }
+    .badge.accent{ background: var(--bui-accent); }
+
+    /* ------------------------------
+       Buttons
+       ------------------------------ */
+    .btn{
+      --bg: transparent; --ink: var(--bui-ink);
+      display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+      padding: .8rem 1.1rem; border-radius: .7rem;
+      border: var(--bui-border-w) solid var(--bui-border);
+      background: var(--bg); color: var(--ink);
+      font-weight: 900; letter-spacing: .3px; text-transform: uppercase;
+      box-shadow: var(--bui-shadow);
+      cursor: pointer; transition: transform var(--bui-transition);
+    }
+    .btn:active{ transform: translate(2px, 2px); box-shadow: 4px 4px 0 0 var(--bui-border); }
+    .btn.block{ width: 100%; }
+    .btn.sm{ padding: .55rem .8rem; font-size: .9rem; }
+    .btn.lg{ padding: 1rem 1.3rem; font-size: 1.05rem; }
+
+    .btn.primary{ --bg: var(--bui-primary); }
+    .btn.secondary{ --bg: var(--bui-secondary); }
+    .btn.accent{ --bg: var(--bui-accent); }
+    .btn.ghost{ background: transparent; }
+    .btn.outline{ background: transparent; border-style: dashed; }
+    .btn.danger{ --bg: var(--bui-danger); }
+
+    /* Icon slot (emoji o SVG) */
+    .btn .icon{ font-size: 1.1em; line-height: 1; }
+
+    /* ------------------------------
+       Forms
+       ------------------------------ */
+    .field{ display: grid; gap: .4rem; }
+    .label{ font-weight: 800; text-transform: uppercase; font-size: .9rem; }
+    .control{
+      display: inline-flex; align-items: center; gap: .6rem;
+      border: var(--bui-border-w) solid var(--bui-border);
+      border-radius: .7rem; background: var(--bui-bg);
+      padding: .7rem .8rem; box-shadow: var(--bui-shadow);
+    }
+    .input, .select, .textarea{
+      all: unset; width: 100%; font: inherit; color: inherit;
+    }
+    .hint{ font-size: .86rem; color: var(--bui-ink-muted); }
+
+    .control.error{ background: color-mix(in oklab, var(--bui-danger) 10%, var(--bui-bg)); }
+    .error-text{ color: var(--bui-danger); font-weight: 700; }
+
+    .checkbox, .radio{ width: 1.1rem; height: 1.1rem; border: var(--bui-border-w) solid var(--bui-border); background: var(--bui-bg); display: inline-grid; place-items: center; }
+    .checkbox input, .radio input{ appearance: none; width: .8rem; height: .8rem; background: transparent; border: var(--bui-border-w) solid var(--bui-border); }
+    .checkbox input:checked{ background: var(--bui-accent); }
+    .radio{ border-radius: 999px; }
+    .radio input{ border-radius: 999px; }
+    .radio input:checked{ background: var(--bui-primary); }
+
+    .switch{ position: relative; width: 46px; height: 26px; border: var(--bui-border-w) solid var(--bui-border); border-radius: 26px; box-shadow: var(--bui-shadow); background: var(--bui-bg); }
+    .switch input{ appearance:none; width:100%; height:100%; margin:0; }
+    .switch .knob{ position:absolute; top:2px; left:2px; width:20px; height:20px; background: var(--bui-accent); border: var(--bui-border-w) solid var(--bui-border); border-radius: 999px; transition: left var(--bui-transition); }
+    .switch input:checked + .knob{ left: calc(100% - 22px); background: var(--bui-primary); }
+
+    /* ------------------------------
+       Alerts
+       ------------------------------ */
+    .alert{
+      display: grid; grid-template-columns: auto 1fr auto; gap: .8rem; align-items: start;
+      border: var(--bui-border-w) solid var(--bui-border);
+      border-radius: var(--bui-radius);
+      padding: .9rem; box-shadow: var(--bui-shadow);
+      background: var(--bui-bg);
+    }
+    .alert .title{ font-size: 1.1rem; }
+    .alert .icon{ font-size: 1.3rem; }
+    .alert.success{ background: color-mix(in oklab, var(--bui-success) 16%, var(--bui-bg)); }
+    .alert.info{ background: color-mix(in oklab, var(--bui-info) 16%, var(--bui-bg)); }
+    .alert.warning{ background: color-mix(in oklab, var(--bui-warning) 20%, var(--bui-bg)); }
+    .alert.danger{ background: color-mix(in oklab, var(--bui-danger) 20%, var(--bui-bg)); }
+
+    /* ------------------------------
+       Modal
+       ------------------------------ */
+    .modal-backdrop{ position: fixed; inset: 0; background: rgba(0,0,0,.5); display:none; z-index: 999; }
+    .modal[open] + .modal-backdrop{ display:block; }
+
+    dialog.modal{
+      position: fixed;
+      z-index: 1000;
+      width: min(620px, 92vw);
+      border: var(--bui-border-w) solid var(--bui-border);
+      border-radius: var(--bui-radius);
+      background: var(--bui-bg);
+      color: var(--bui-ink);
+      padding: 0; box-shadow: var(--bui-shadow);
+    }
+    .modal header, .modal footer{ padding: var(--bui-pad); border-bottom: var(--bui-border-w) solid var(--bui-border); }
+    .modal footer{ border-top: var(--bui-border-w) solid var(--bui-border); border-bottom: 0; display:flex; gap:.6rem; justify-content:flex-end; }
+    .modal .body{ padding: var(--bui-pad); }
+
+    /* ------------------------------
+       Table
+       ------------------------------ */
+    .table-wrap{ overflow-x:auto; border: var(--bui-border-w) solid var(--bui-border); border-radius: var(--bui-radius); box-shadow: var(--bui-shadow); }
+    table.bui{
+      border-collapse: separate; border-spacing: 0; width: 100%; background: var(--bui-bg);
+    }
+    table.bui th, table.bui td{
+      padding: .8rem 1rem; border-bottom: var(--bui-border-w) solid var(--bui-border);
+    }
+    table.bui thead th{ background: var(--bui-accent); text-align:left; position: sticky; top:0; }
+    table.bui tbody tr:hover{ background: color-mix(in oklab, var(--bui-primary) 18%, var(--bui-bg)); }
+    table.bui tbody tr:last-child td{ border-bottom: 0; }
+    table.bui .actions{ display:flex; gap:.5rem; }
+
+    /* ------------------------------
+       Tooltip (CSS-only)
+       ------------------------------ */
+    .tip{ position: relative; border-bottom: 3px dotted currentColor; cursor: help; }
+    .tip[data-tip]::after{
+      content: attr(data-tip);
+      position: absolute; left: 0; bottom: 120%; white-space: nowrap;
+      background: var(--bui-bg); border: var(--bui-border-w) solid var(--bui-border);
+      padding: .4rem .6rem; border-radius: .5rem; box-shadow: var(--bui-shadow);
+      transform: translateY(6px); opacity:0; pointer-events:none; transition: opacity var(--bui-transition), transform var(--bui-transition);
+    }
+    .tip:hover::after{ opacity:1; transform: translateY(0); }
+
+    /* ------------------------------
+       Code block (doc/demo)
+       ------------------------------ */
+    pre{
+      background: var(--bui-code-bg); color: var(--bui-code-ink);
+      padding: 1rem; border-radius: .6rem; overflow:auto;
+      border: var(--bui-border-w) solid var(--bui-border);
+      box-shadow: var(--bui-shadow);
+    }
+
+    /* Demo layout */
+    .demo-grid{ display:grid; gap: var(--bui-gap); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  </style>
+</head>
+<body>
+  <div class="container stack">
+    <header class="stack">
+      <div class="badge accent">BUI • Brutalism</div>
+      <h1 class="title">Brutalism CSS UI Kit</h1>
+      <p class="muted">Componentes básicos listos para usar: botones, formularios, alertas, modal y tablas. Cambia el tema, los colores y el grosor de borde desde <code>:root</code>.</p>
+      <div style="display:flex; gap:.6rem; align-items:center; flex-wrap: wrap;">
+        <button class="btn accent" id="toggle-theme"><span class="icon">🌓</span> Tema</button>
+        <button class="btn primary" id="open-modal"><span class="icon">🪟</span> Abrir modal</button>
+        <span class="badge secondary">v0.1</span>
+      </div>
+    </header>
+
+    <!-- Botones -->
+    <section class="card stack">
+      <h2 class="subtitle">Botones</h2>
+      <div class="demo-grid">
+        <button class="btn primary">Primario</button>
+        <button class="btn secondary">Secundario</button>
+        <button class="btn accent">Acento</button>
+        <button class="btn danger">Peligro</button>
+        <button class="btn ghost">Ghost</button>
+        <button class="btn outline">Outline</button>
+        <button class="btn primary sm">Pequeño</button>
+        <button class="btn primary lg block">Grande Block</button>
+        <button class="btn primary"><span class="icon">⚡</span>Con icono</button>
+      </div>
+    </section>
+
+    <!-- Formularios -->
+    <section class="card stack">
+      <h2 class="subtitle">Formularios</h2>
+      <div class="grid" style="grid-template-columns: repeat(12, 1fr); gap: var(--bui-gap);">
+        <div class="stack" style="grid-column: span 6;">
+          <div class="field">
+            <label class="label" for="nombre">Nombre</label>
+            <div class="control">
+              <input id="nombre" class="input" type="text" placeholder="Ada Lovelace" />
+            </div>
+            <div class="hint">Usa tu nombre completo.</div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="email">Email</label>
+            <div class="control error">
+              <input id="email" class="input" type="email" placeholder="ada@lovelace.dev" aria-invalid="true" />
+            </div>
+            <div class="error-text">El correo no es válido.</div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="mensaje">Mensaje</label>
+            <div class="control">
+              <textarea id="mensaje" class="textarea" rows="4" placeholder="Escribe aquí..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack" style="grid-column: span 6;">
+          <div class="field">
+            <label class="label" for="pais">País</label>
+            <div class="control">
+              <select id="pais" class="select">
+                <option>México</option>
+                <option>Argentina</option>
+                <option>Colombia</option>
+                <option>Chile</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="label">Preferencias</span>
+            <label class="control" style="display:inline-flex; align-items:center; gap:.6rem;">
+              <span class="checkbox"><input type="checkbox" checked aria-label="Noticias" /></span>
+              Noticias
+            </label>
+            <label class="control" style="display:inline-flex; align-items:center; gap:.6rem;">
+              <span class="checkbox"><input type="checkbox" aria-label="Actualizaciones" /></span>
+              Actualizaciones
+            </label>
+          </div>
+
+          <div class="field">
+            <span class="label">Plan</span>
+            <label class="control" style="display:inline-flex; align-items:center; gap:.6rem;">
+              <span class="radio"><input type="radio" name="plan" checked aria-label="Básico"/></span>
+              Básico
+            </label>
+            <label class="control" style="display:inline-flex; align-items:center; gap:.6rem;">
+              <span class="radio"><input type="radio" name="plan" aria-label="Pro"/></span>
+              Pro
+            </label>
+          </div>
+
+          <div class="field">
+            <span class="label">Notificaciones</span>
+            <label class="switch">
+              <input type="checkbox" id="notif" />
+              <span class="knob"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn primary">Enviar</button>
+        <span class="hint">Tip: Presiona <kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">S</kbd> para guardar.</span>
+      </div>
+    </section>
+
+    <!-- Alertas -->
+    <section class="card stack">
+      <h2 class="subtitle">Alertas</h2>
+      <div class="stack">
+        <div class="alert success">
+          <div class="icon">✅</div>
+          <div>
+            <div class="title">¡Listo!</div>
+            <div>Tu acción se realizó correctamente.</div>
+          </div>
+          <button class="btn ghost sm" onclick="this.closest('.alert').remove()">Cerrar</button>
+        </div>
+        <div class="alert info">
+          <div class="icon">ℹ️</div>
+          <div>
+            <div class="title">Información</div>
+            <div>Puedes pasar el cursor por <span class="tip" data-tip="Tooltip brutalista">este texto</span>.</div>
+          </div>
+          <button class="btn ghost sm" onclick="this.closest('.alert').remove()">Cerrar</button>
+        </div>
+        <div class="alert warning">
+          <div class="icon">⚠️</div>
+          <div>
+            <div class="title">Precaución</div>
+            <div>Revisa los campos marcados antes de continuar.</div>
+          </div>
+          <button class="btn ghost sm" onclick="this.closest('.alert').remove()">Cerrar</button>
+        </div>
+        <div class="alert danger">
+          <div class="icon">⛔</div>
+          <div>
+            <div class="title">Error</div>
+            <div>Ocurrió un problema inesperado.</div>
+          </div>
+          <button class="btn ghost sm" onclick="this.closest('.alert').remove()">Cerrar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabla -->
+    <section class="card stack">
+      <h2 class="subtitle">Tabla</h2>
+      <div class="table-wrap">
+        <table class="bui">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Rol</th>
+              <th>Email</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mariana</td>
+              <td>Diseño</td>
+              <td>mariana@estudio.mx</td>
+              <td class="actions">
+                <button class="btn sm outline">Editar</button>
+                <button class="btn sm danger">Eliminar</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Diego</td>
+              <td>Frontend</td>
+              <td>diego@estudio.mx</td>
+              <td class="actions">
+                <button class="btn sm outline">Editar</button>
+                <button class="btn sm danger">Eliminar</button>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Ana</td>
+              <td>PM</td>
+              <td>ana@estudio.mx</td>
+              <td class="actions">
+                <button class="btn sm outline">Editar</button>
+                <button class="btn sm danger">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <dialog class="modal" id="demo-modal" aria-labelledby="modal-title">
+      <header>
+        <div class="title" id="modal-title">Modal Brutalista</div>
+      </header>
+      <div class="body stack">
+        <p>Este modal usa <code>&lt;dialog&gt;</code> con borde grueso y sombra dura.</p>
+        <div class="field">
+          <label class="label" for="modal-input">Ejemplo</label>
+          <div class="control">
+            <input id="modal-input" class="input" type="text" placeholder="Texto dentro del modal" />
+          </div>
+        </div>
+      </div>
+      <footer>
+        <button class="btn ghost" id="close-modal">Cancelar</button>
+        <button class="btn primary">Confirmar</button>
+      </footer>
+    </dialog>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+
+    <!-- Notas de implementación -->
+    <section class="card stack">
+      <h2 class="subtitle">Cómo personalizar</h2>
+      <ol class="stack" style="padding-left:1.2rem;">
+        <li>Edita variables en <code>:root</code> para colores y grosor de borde.</li>
+        <li>Duplica variantes de <code>.btn</code> cambiando <code>--bg</code> y <code>color</code>.</li>
+        <li>Para inputs con error, agrega <code>.error</code> al contenedor <code>.control</code> y un <code>.error-text</code> debajo.</li>
+        <li>El modal se maneja con JS usando <code>HTMLDialogElement</code>.</li>
+      </ol>
+      <pre><code>/* Ejemplo: cambiar el color primario */
+:root{ --bui-primary: #EC5C2C; /* naranja nmda */ }
+/* Bordes aún más brutales */
+:root{ --bui-border-w: 4px; }</code></pre>
+    </section>
+
+    <footer class="muted">Hecho con <span class="tip" data-tip="Estética brutalista">💥</span> — Sin frameworks.</footer>
+  </div>
+
+  <script>
+    // Toggle theme
+    document.getElementById('toggle-theme').addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    // Modal open/close
+    const modal = document.getElementById('demo-modal');
+    const backdrop = document.getElementById('modal-backdrop');
+    const openDialog = () => modal.showModal ? modal.showModal() : modal.setAttribute('open','');
+    const closeDialog = () => modal.close ? modal.close() : modal.removeAttribute('open');
+    document.getElementById('open-modal').addEventListener('click', openDialog);
+    document.getElementById('close-modal').addEventListener('click', closeDialog);
+    backdrop.addEventListener('click', closeDialog);
+
+    // Cierra modal con Escape (dialog lo maneja, agregamos solo estética)
+    modal.addEventListener('close', ()=>{ /* hook opcional */ });
+  </script>
+</body>
+</html>
