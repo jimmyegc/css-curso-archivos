@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brutalism UI Kit con Tailwind 4</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+<style>
+  /* Variables personalizadas */
+  :root{
+    --bui-primary: #00E5FF;
+    --bui-secondary: #FF3B30;
+    --bui-accent: #FFD60A;
+    --bui-success: #10b981;
+    --bui-warning: #f59e0b;
+    --bui-danger: #ef4444;
+    --bui-info: #3b82f6;
+    --bui-border-w: 3px;
+    --bui-radius: 0.75rem;
+    --bui-shadow: 6px 6px 0 0 #000;
+    --bui-pad: 0.9rem;
+    --bui-gap: 1rem;
+  }
+
+  /* Modal backdrop */
+  .modal-backdrop{
+    @apply fixed inset-0 bg-black/50 hidden z-50;
+  }
+  dialog[open] + .modal-backdrop{
+    display:block;
+  }
+
+  /* Código pre */
+  pre{
+    @apply p-4 rounded-md overflow-auto border-4 shadow-lg;
+    background: #111;
+    color: #eee;
+  }
+</style>
+</head>
+<body class="bg-[#fffef7] text-[#111] font-sans p-6">
+
+<h1 class="text-3xl font-extrabold mb-4">🎨 Brutalism UI Kit</h1>
+
+<!-- Botones -->
+<h2 class="text-xl font-bold mb-2">Botones</h2>
+<div class="flex gap-4 mb-6">
+  <button class="px-4 py-2 uppercase font-extrabold border-[var(--bui-border-w)] border-black rounded-[var(--bui-radius)] shadow-[var(--bui-shadow)] bg-[var(--bui-primary)]">Primario</button>
+  <button class="px-4 py-2 uppercase font-extrabold border-[var(--bui-border-w)] border-black rounded-[var(--bui-radius)] shadow-[var(--bui-shadow)] bg-[var(--bui-secondary)]">Secundario</button>
+  <button class="px-4 py-2 uppercase font-extrabold border-[var(--bui-border-w)] border-black rounded-[var(--bui-radius)] shadow-[var(--bui-shadow)] bg-[var(--bui-accent)]">Accent</button>
+</div>
+
+<!-- Inputs -->
+<h2 class="text-xl font-bold mb-2">Inputs</h2>
+<div class="grid gap-2 mb-6">
+  <input type="text" placeholder="Escribe algo..." class="w-full p-[var(--bui-pad)] border-[var(--bui-border-w)] border-black rounded-[var(--bui-radius)] shadow-[var(--bui-shadow)]"/>
+</div>
+
+<!-- Alertas -->
+<h2 class="text-xl font-bold mb-2">Alertas</h2>
+<div class="grid gap-2 mb-6">
+  <div class="grid grid-cols-[auto_1fr_auto] gap-2 items-start p-[var(--bui-pad)] border-[var(--bui-border-w)] border-black rounded-[var(--bui-radius)] shadow-[var(--bui-shadow)] bg-[var(--bui-success)] text-black">✅ Operación exitosa</div>
+  <div class="grid grid-cols-[auto_1fr_auto] gap-2 items-start p-[var(--bui-pad)] border-[var(--bui-border-w)] border-black rounded-[var(--bui-radius)] shadow-[var(--bui-shadow)] bg-[var(--bui-danger)] text-white">❌ Algo salió mal</div>
+</div>
+
+<!-- Tabla -->
+<h2 class="text-xl font-bold mb-2">Tabla</h2>
+<div class="overflow-x-auto border-[var(--bui-border-w)] border-black rounded-[var(--bui-radius)] shadow-[var(--bui-shadow)] mb-6">
+  <table class="min-w-full border-separate border-spacing-0">
+    <thead class="bg-[var(--bui-accent)] sticky top-0">
+      <tr>
+        <th class="px-4 py-2 border-b-[var(--bui-border-w)] border-black text-left">ID</th>
+        <th class="px-4 py-2 border-b-[var(--bui-border-w)] border-black text-left">Nombre</th>
+        <th class="px-4 py-2 border-b-[var(--bui-border-w)] border-black text-left">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="hover:bg-[var(--bui-primary)/20]">
+        <td class="px-4 py-2 border-b-[var(--bui-border-w)] border-black">1</td>
+        <td class="px-4 py-2 border-b-[var(--bui-border-w)] border-black">Ana</td>
+        <td class="px-4 py-2 border-b-[var(--bui-border-w)] border-black">Activo</td>
+      </tr>
+      <tr class="hover:bg-[var(--bui-primary)/20]">
+        <td class="px-4 py-2 border-b-[var(--bui-border-w)] border-black">2</td>
+        <td class="px-4 py-2 border-b-[var(--bui-border-w)] border-black">Pedro</td>
+        <td class="px-4 py-2 border-b-[var(--bui-border-w)] border-black">Inactivo</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal -->
+<h2 class="text-xl font-bold mb-2">Modal</h2>
+<button id="openModal" class="px-4 py-2 uppercase font-extrabold border-[var(--bui-border-w)] border-black rounded-[var(--bui-radius)] shadow-[var(--bui-shadow)] bg-[var(--bui-primary)] mb-2">Abrir modal</button>
+
+<dialog id="modal" class="modal fixed z-50 w-[92vw] max-w-[620px] border-[var(--bui-border-w)] border-black rounded-[var(--bui-radius)] shadow-[var(--bui-shadow)] p-0">
+  <header class="p-[var(--bui-pad)] border-b-[var(--bui-border-w)] border-black">Modal Brutalista</header>
+  <div class="body p-[var(--bui-pad)]">Este es un modal con estilo brutalism.</div>
+  <footer class="flex justify-end gap-2 p-[var(--bui-pad)] border-t-[var(--bui-border-w)] border-black">
+    <button id="closeModal" class="px-4 py-2 uppercase font-extrabold border-[var(--bui-border-w)] border-black rounded-[var(--bui-radius)] shadow-[var(--bui-shadow)] bg-[var(--bui-danger)]">Cerrar</button>
+  </footer>
+</dialog>
+<div class="modal-backdrop"></div>
+
+<script>
+  const modal = document.getElementById("modal");
+  const backdrop = document.querySelector(".modal-backdrop");
+  document.getElementById("openModal").addEventListener("click", () => {
+    modal.showModal();
+    backdrop.style.display = 'block';
+  });
+  document.getElementById("closeModal").addEventListener("click", () => {
+    modal.close();
+    backdrop.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>

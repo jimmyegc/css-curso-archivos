@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎨 Brutalism UI Kit con Tailwind 4</title>
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-white text-black font-sans p-8">
+
+  <h1 class="text-4xl font-extrabold border-4 border-black p-4 inline-block mb-8">
+    🎨 Brutalism UI Kit
+  </h1>
+
+  <!-- Botones -->
+  <h2 class="text-2xl font-bold mt-6 mb-4">Botones</h2>
+  <button class="bg-yellow-300 border-4 border-black px-6 py-3 font-bold shadow-[6px_6px_0px_black] hover:translate-x-1 hover:translate-y-1 transition">
+    Botón primario
+  </button>
+
+  <!-- Inputs -->
+  <h2 class="text-2xl font-bold mt-8 mb-4">Inputs</h2>
+  <input 
+    class="w-80 p-3 border-4 border-black font-bold focus:outline-none shadow-[6px_6px_0px_black]" 
+    placeholder="Escribe algo..." 
+  />
+
+  <!-- Alertas -->
+  <h2 class="text-2xl font-bold mt-8 mb-4">Alertas</h2>
+  <div class="bg-green-300 border-4 border-black p-4 mb-3 font-bold shadow-[6px_6px_0px_black]">
+    ✅ Operación exitosa
+  </div>
+  <div class="bg-red-300 border-4 border-black p-4 font-bold shadow-[6px_6px_0px_black]">
+    ❌ Algo salió mal
+  </div>
+
+  <!-- Tabla -->
+  <h2 class="text-2xl font-bold mt-8 mb-4">Tabla</h2>
+  <table class="border-4 border-black shadow-[6px_6px_0px_black]">
+    <thead>
+      <tr class="bg-yellow-200 border-b-4 border-black">
+        <th class="px-6 py-3 border-r-4 border-black">ID</th>
+        <th class="px-6 py-3 border-r-4 border-black">Nombre</th>
+        <th class="px-6 py-3">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white">
+        <td class="px-6 py-3 border-r-4 border-t-4 border-black">1</td>
+        <td class="px-6 py-3 border-r-4 border-t-4 border-black">Ana</td>
+        <td class="px-6 py-3 border-t-4 border-black">Activo</td>
+      </tr>
+      <tr class="bg-gray-100">
+        <td class="px-6 py-3 border-r-4 border-t-4 border-black">2</td>
+        <td class="px-6 py-3 border-r-4 border-t-4 border-black">Pedro</td>
+        <td class="px-6 py-3 border-t-4 border-black">Inactivo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <h2 class="text-2xl font-bold mt-8 mb-4">Modal</h2>
+  <button 
+    class="bg-pink-300 border-4 border-black px-6 py-3 font-bold shadow-[6px_6px_0px_black] hover:translate-x-1 hover:translate-y-1 transition" 
+    id="openModal">
+    Abrir modal
+  </button>
+
+  <dialog id="modal" class="p-6 border-4 border-black shadow-[8px_8px_0px_black]">
+    <h3 class="text-xl font-extrabold mb-4">Modal Brutalista</h3>
+    <p class="mb-4">Este es un modal con estilo brutalism.</p>
+    <button 
+      class="bg-blue-300 border-4 border-black px-4 py-2 font-bold shadow-[4px_4px_0px_black]" 
+      id="closeModal">
+      Cerrar
+    </button>
+  </dialog>
+
+  <script>
+    const modal = document.getElementById("modal");
+    document.getElementById("openModal").addEventListener("click", () => {
+      if (modal.showModal) {
+        modal.showModal();
+      } else {
+        modal.setAttribute("open", "");
+      }
+    });
+    document.getElementById("closeModal").addEventListener("click", () => {
+      modal.close();
+    });
+  </script>
+</body>
+</html>

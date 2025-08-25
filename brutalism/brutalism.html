@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎨 Brutalism UI Kit con Tailwind v4</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <style>
+    /* Tailwind v4 personalizado para sombras y tamaños exactos */
+    @layer utilities {
+      .shadow-bui { box-shadow: 6px 6px 0 0 var(--tw-border-color); }
+      .translate-bui:active { transform: translate(2px,2px); }
+    }
+  </style>
+</head>
+<body class="bg-[#fffef7] text-[#111111] font-sans min-h-screen p-8">
+
+  <div class="container mx-auto space-y-8">
+
+    <h1 class="text-4xl font-extrabold">🎨 Brutalism UI Kit</h1>
+
+    <!-- Botones -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold">Botones</h2>
+      <button class="inline-flex items-center justify-center gap-2 px-4 py-3 border-4 border-black rounded-xl shadow-bui font-extrabold uppercase bg-transparent text-black active:translate-bui">Botón primario</button>
+      <button class="inline-flex items-center justify-center gap-2 px-4 py-3 border-4 border-black rounded-xl shadow-bui font-extrabold uppercase bg-[#00E5FF] text-black active:translate-bui">Primary</button>
+      <button class="inline-flex items-center justify-center gap-2 px-4 py-3 border-4 border-black rounded-xl shadow-bui font-extrabold uppercase bg-[#FF3B30] text-black active:translate-bui">Secondary</button>
+      <button class="inline-flex items-center justify-center gap-2 px-4 py-3 border-4 border-black rounded-xl shadow-bui font-extrabold uppercase bg-[#FFD60A] text-black active:translate-bui">Accent</button>
+    </section>
+
+    <!-- Inputs -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold">Inputs</h2>
+      <div class="flex flex-col gap-1">
+        <label class="font-extrabold uppercase text-sm">Nombre</label>
+        <input class="border-4 border-black rounded-xl px-3 py-2 shadow-bui w-full text-black bg-[#fffef7]" placeholder="Escribe algo...">
+      </div>
+    </section>
+
+    <!-- Alertas -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold">Alertas</h2>
+      <div class="grid grid-cols-[auto_1fr_auto] gap-2 items-start border-4 border-black rounded-xl px-4 py-3 shadow-bui bg-[color-mix(in_oklab,_#10b981_16%,_#fffef7)]">
+        <span class="text-xl">✅</span>
+        <span class="font-bold">Operación exitosa</span>
+      </div>
+      <div class="grid grid-cols-[auto_1fr_auto] gap-2 items-start border-4 border-black rounded-xl px-4 py-3 shadow-bui bg-[color-mix(in_oklab,_#ef4444_20%,_#fffef7)]">
+        <span class="text-xl">❌</span>
+        <span class="font-bold">Algo salió mal</span>
+      </div>
+    </section>
+
+    <!-- Tabla -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold">Tabla</h2>
+      <div class="overflow-x-auto border-4 border-black rounded-xl shadow-bui">
+        <table class="min-w-full border-separate border-spacing-0">
+          <thead class="bg-[#FFD60A] sticky top-0">
+            <tr>
+              <th class="border-b-4 border-black px-4 py-2 text-left">ID</th>
+              <th class="border-b-4 border-black px-4 py-2 text-left">Nombre</th>
+              <th class="border-b-4 border-black px-4 py-2 text-left">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-[color-mix(in_oklab,_#00E5FF_18%,_#fffef7)]">
+              <td class="border-b-4 border-black px-4 py-2">1</td>
+              <td class="border-b-4 border-black px-4 py-2">Ana</td>
+              <td class="border-b-4 border-black px-4 py-2">Activo</td>
+            </tr>
+            <tr class="hover:bg-[color-mix(in_oklab,_#00E5FF_18%,_#fffef7)]">
+              <td class="border-b-4 border-black px-4 py-2">2</td>
+              <td class="border-b-4 border-black px-4 py-2">Pedro</td>
+              <td class="border-b-4 border-black px-4 py-2">Inactivo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold">Modal</h2>
+      <button id="openModal" class="inline-flex items-center justify-center gap-2 px-4 py-3 border-4 border-black rounded-xl shadow-bui font-extrabold uppercase bg-[#00E5FF] text-black active:translate-bui">Abrir modal</button>
+
+      <dialog id="modal" class="modal fixed z-50 w-[min(620px,92vw)] border-4 border-black rounded-xl bg-[#fffef7] text-black shadow-bui p-0">
+        <header class="border-b-4 border-black p-4 font-extrabold text-xl">Modal Brutalista</header>
+        <div class="body p-4">
+          <p>Este es un modal con estilo brutalism.</p>
+        </div>
+        <footer class="border-t-4 border-black border-b-0 flex gap-2 justify-end p-4">
+          <button id="closeModal" class="inline-flex items-center justify-center gap-2 px-4 py-3 border-4 border-black rounded-xl shadow-bui font-extrabold uppercase bg-[#FF3B30] text-black active:translate-bui">Cerrar</button>
+        </footer>
+      </dialog>
+      <div id="modalBackdrop" class="fixed inset-0 bg-black/50 hidden z-40"></div>
+    </section>
+
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    const backdrop = document.getElementById("modalBackdrop");
+    document.getElementById("openModal").addEventListener("click", () => {
+      modal.showModal();
+      backdrop.classList.remove("hidden");
+    });
+    document.getElementById("closeModal").addEventListener("click", () => {
+      modal.close();
+      backdrop.classList.add("hidden");
+    });
+  </script>
+</body>
+</html>
