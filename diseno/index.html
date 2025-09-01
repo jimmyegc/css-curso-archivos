@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page - Cliente</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-md fixed w-full top-0 z-50">
+    <nav class="container mx-auto flex justify-between items-center py-4 px-6">
+      <a href="#" class="text-xl font-bold text-primary">LOGO</a>
+      <ul class="flex space-x-6">
+        <li><a href="#inicio" class="hover:text-primary">Inicio</a></li>
+        <li><a href="#servicios" class="hover:text-primary">Servicios</a></li>
+        <li><a href="#nosotros" class="hover:text-primary">Nosotros</a></li>
+        <li><a href="#contacto" class="hover:text-primary">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="h-screen flex items-center justify-center bg-gray-100">
+    <div class="text-center px-6">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">Título impactante para tu cliente</h1>
+      <p class="text-lg md:text-xl mb-6">Subtítulo claro que explica el servicio.</p>
+      <a href="#contacto" class="bg-primary text-white px-6 py-3 rounded-lg shadow hover:bg-opacity-90">Contáctanos</a>
+    </div>
+  </section>
+
+  <!-- Sección 1 -->
+  <section id="servicios" class="py-20 bg-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-12">Nuestros Servicios</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 shadow rounded-lg">
+          <h3 class="font-bold text-xl mb-4">Servicio 1</h3>
+          <p>Descripción breve del servicio.</p>
+        </div>
+        <div class="p-6 shadow rounded-lg">
+          <h3 class="font-bold text-xl mb-4">Servicio 2</h3>
+          <p>Descripción breve del servicio.</p>
+        </div>
+        <div class="p-6 shadow rounded-lg">
+          <h3 class="font-bold text-xl mb-4">Servicio 3</h3>
+          <p>Descripción breve del servicio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 2 -->
+  <section id="nosotros" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-12">Sobre Nosotros</h2>
+      <p class="max-w-2xl mx-auto">Un texto que explique quiénes son, su experiencia, visión o valores.</p>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-20 bg-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-12">Contáctanos</h2>
+      <form class="max-w-lg mx-auto space-y-4">
+        <input type="text" placeholder="Nombre" class="w-full border rounded p-3">
+        <input type="email" placeholder="Correo" class="w-full border rounded p-3">
+        <textarea placeholder="Mensaje" class="w-full border rounded p-3"></textarea>
+        <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg shadow hover:bg-opacity-90">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p>&copy; 2025 Nombre del Cliente. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

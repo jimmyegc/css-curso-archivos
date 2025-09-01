@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jimmy García - Perfil Profesional</title>
+  <!-- Tailwind 4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">        
+    
+    @theme {        
+      --color-coral: #F97316;          /* Botones y acentos */
+      --color-midnight: #1E293B;       /* Textos principales y títulos */
+      --color-mint: #10B981;           /* Acentos sutiles, iconos o links */
+      --color-lavender: #F3F4F6;       /* Fondo muy suave para secciones (opcional) */
+      --color-pastelYellow: #F8FAFC;   /* Fondo principal general */
+      --color-lightCyan: #FFFFFF;      /* Fondos de tarjetas y secciones */
+      --color-fuchsia: #F97316;        /* Reemplazamos fucsia por coral para consistencia */
+      --color-orange: #F97316;         /* Reemplazamos naranja por coral para consistencia */
+      --color-turquoise: #10B981;      /* Reemplazamos turquesa por verde menta suave */
+    }
++
+              
+  </style>
+</head>
+
+<body class="bg-gray-50 text-midnight font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md p-8 text-center">
+    <h1 class="text-4xl font-bold text-midnight mb-2">Jimmy García</h1>
+    <p class="text-lg text-gray-500">Desarrollador Full Stack creativo y profesional</p>
+    <a href="#contacto" class="mt-4 inline-block bg-coral text-white px-6 py-3 rounded-lg font-semibold hover:bg-midnight hover:text-coral transition-colors duration-200">Contáctame</a>
+  </header>
+
+  <!-- Sobre mí -->
+  <section class="p-12 bg-gray-50 text-midnight">
+    <h2 class="text-3xl font-bold mb-4 text-midnight">Sobre mí</h2>
+    <p class="text-lg leading-relaxed text-gray-500">
+      Soy un desarrollador apasionado por crear soluciones digitales que combinen funcionalidad, creatividad y profesionalismo.
+      Me especializo en React, Node.js y tecnologías modernas, siempre buscando experiencias únicas para los usuarios.
+    </p>
+  </section>
+
+  <!-- Proyectos destacados -->
+  <section class="p-12 bg-gray-50">
+    <h2 class="text-3xl font-bold mb-6 text-midnight text-center">Proyectos Destacados</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200">
+        <h3 class="text-xl font-semibold mb-2 text-midnight">Sistema de Inventario</h3>
+        <p class="text-gray-500">Plataforma completa para controlar inventarios, ventas y puntos de venta de forma eficiente.</p>
+        <a href="#" class="text-coral mt-3 inline-block font-bold hover:text-midnight transition-colors duration-200">Ver más</a>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200">
+        <h3 class="text-xl font-semibold mb-2 text-midnight">Aplicación Web para Eventos</h3>
+        <p class="text-gray-500">Gestión de asistentes, mesas, merchandising y gafetes con interfaz amigable y moderna.</p>
+        <a href="#" class="text-coral mt-3 inline-block font-bold hover:text-midnight transition-colors duration-200">Ver más</a>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200">
+        <h3 class="text-xl font-semibold mb-2 text-midnight">Sistema de Facturación</h3>
+        <p class="text-gray-500">Automatización de facturas y control administrativo para empresas de todos los tamaños.</p>
+        <a href="#" class="text-coral mt-3 inline-block font-bold hover:text-midnight transition-colors duration-200">Ver más</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="p-12 text-center bg-gray-50">
+    <h2 class="text-3xl font-bold mb-4 text-midnight">Contáctame</h2>
+    <p class="mb-6 text-gray-500">¿Quieres trabajar juntos en un proyecto creativo? ¡Hablemos!</p>
+    <a href="mailto:hola@jimmygarcia.dev" class="px-6 py-3 rounded-lg font-semibold bg-coral text-white hover:bg-midnight hover:text-coral transition-colors duration-200 inline-block">Enviar correo</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white shadow-t text-center p-6 mt-12">
+    <p class="text-gray-500">&copy; 2025 Jimmy García. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+
+
+</html>

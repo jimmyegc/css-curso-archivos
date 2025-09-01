@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page - Cliente</title>
+  <style>
+    /* === Tokens globales === */
+    :root {
+      --color-primary: #EC5C2C;
+      --color-secondary: #29285A;
+      --color-accent: #F18C6B;
+      --color-bg: #f9f9f9;
+      --color-text: #333333;
+
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 2rem;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-heading);
+      color: var(--color-secondary);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* === Navbar === */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    header nav a {
+      margin-left: var(--space-md);
+      font-weight: bold;
+    }
+
+    header nav a:hover {
+      color: var(--color-primary);
+    }
+
+    /* === Hero === */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: var(--space-lg);
+      background: var(--color-bg);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin-bottom: var(--space-md);
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+      padding: var(--space-md) var(--space-lg);
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent);
+    }
+
+    /* === Secciones === */
+    section {
+      padding: 5rem var(--space-lg);
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+
+    .card {
+      background: white;
+      padding: var(--space-md);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* === Formulario === */
+    form input,
+    form textarea {
+      width: 100%;
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    /* === Footer === */
+    footer {
+      background: var(--color-secondary);
+      color: white;
+      padding: var(--space-md);
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">LOGO</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <h1>Título impactante para el cliente</h1>
+    <p>Subtítulo breve que describe el servicio o producto ofrecido.</p>
+    <a href="#contacto" class="btn-primary">Contáctanos</a>
+  </section>
+
+  <!-- Sección de Servicios -->
+  <section id="servicios">
+    <h2>Nuestros Servicios</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Servicio 1</h3>
+        <p>Descripción breve.</p>
+      </div>
+      <div class="card">
+        <h3>Servicio 2</h3>
+        <p>Descripción breve.</p>
+      </div>
+      <div class="card">
+        <h3>Servicio 3</h3>
+        <p>Descripción breve.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Nosotros -->
+  <section id="nosotros" style="background: var(--color-bg);">
+    <h2>Sobre Nosotros</h2>
+    <p>Un párrafo corto que hable de la empresa.</p>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contáctanos</h2>
+    <form>
+      <input type="text" placeholder="Nombre">
+      <input type="email" placeholder="Correo">
+      <textarea placeholder="Mensaje"></textarea>
+      <button type="submit" class="btn-primary">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Nombre del Cliente. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+
+</html>
