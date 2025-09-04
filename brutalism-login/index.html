@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Brutalista 🧱 + Perrito</title>
+  <style>
+    :root {
+      --bg: #f6f6f6;
+      /* fondo claro, casi papel */
+      --ink: #111;
+      /* tinta negra */
+      --accent: #e8ff3d;
+      /* amarillo fosforescente */
+      --accent-2: #1affd5;
+      /* cian chillón */
+      --danger: #ff3b3b;
+      /* rojo brutal */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font: 16px/1.35 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    /* --- Layout principal estilo poster brutalista --- */
+    .wrap {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: 1fr min(560px, 92vw) 1fr;
+      grid-template-rows: auto 1fr auto;
+      gap: 24px;
+      padding: 24px;
+    }
+
+    .marquee {
+      grid-column: 1/-1;
+      border: 4px solid var(--ink);
+      background: var(--accent);
+      padding: 10px 14px;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .5px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+
+    .marquee span {
+      white-space: nowrap;
+    }
+
+    .panel {
+      grid-column: 2;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* --- Tarjeta del formulario con estética brutalista --- */
+    .card {
+      position: relative;
+      border: 4px solid var(--ink);
+      background: #fff;
+      padding: 28px;
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+
+    .card h1 {
+      font-size: 40px;
+      margin: 0 0 8px;
+      line-height: 1;
+      text-transform: uppercase;
+      font-weight: 1000;
+      letter-spacing: .5px;
+    }
+
+    .sub {
+      font-size: 14px;
+      margin: 0 0 16px;
+      opacity: .9;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .4px;
+    }
+
+    .input {
+      appearance: none;
+      width: 100%;
+      padding: 14px 12px;
+      border: 3px solid var(--ink);
+      outline: 4px solid transparent;
+      background: #fff;
+      font-weight: 700;
+    }
+
+    .input:focus {
+      outline-color: var(--accent-2);
+      outline-offset: 3px;
+    }
+
+    .row {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .btn {
+      border: 4px solid var(--ink);
+      padding: 14px 18px;
+      text-transform: uppercase;
+      font-weight: 1000;
+      background: var(--accent);
+      box-shadow: 6px 6px 0 var(--ink);
+      cursor: pointer;
+    }
+
+    .btn:active {
+      transform: translate(4px, 4px);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .foot {
+      grid-column: 1/-1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    /* --- Sticker del perrito (humor) --- */
+    .sticker {
+      position: relative;
+      margin-top: 6px;
+      border: 5px solid var(--ink);
+      background: var(--accent-2);
+      padding: 8px;
+      transform: rotate(-2deg);
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+
+    .sticker img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 4px solid var(--ink);
+      filter: contrast(110%) saturate(110%);
+    }
+
+    /* Globito de diálogo */
+    .bubble {
+      position: absolute;
+      left: -12px;
+      top: -16px;
+      background: #fff;
+      border: 4px solid var(--ink);
+      padding: 8px 10px;
+      font-weight: 900;
+      transform: rotate(-4deg);
+      z-index: 10;
+    }
+
+    .bubble:after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 100%;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-top-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .bubble:before {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 100%;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-top-color: #fff;
+    }
+
+    /* Etiquetas tipo ticket */
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      background: #fff;
+      border: 3px dashed var(--ink);
+      font-weight: 900;
+    }
+
+    /* Responsivo */
+    @media (min-width: 760px) {
+      .panel {
+        grid-template-columns: 1.2fr .8fr;
+        align-items: start;
+      }
+
+      .sticker {
+        margin-left: -6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap" aria-labelledby="titulo">
+    <div class="marquee" role="img" aria-label="Banner brutalista">
+      <span>ACCESO ULTRA SECRETO</span>
+      <span>•</span>
+      <span>SÓLO GENTE COOL</span>
+      <span>•</span>
+      <span>NO TOCAR LA PANCITA</span>
+    </div>
+
+    <section class="panel">
+      <!-- Formulario -->
+      <article class="card" aria-label="Tarjeta de inicio de sesión">
+        <h1 id="titulo">Inicia sesión</h1>
+        <p class="sub">Demuestra que no eres un gato caminando sobre el teclado.</p>
+
+        <form action="#" method="post">
+          <div class="row">
+            <label for="email">Correo</label>
+            <input id="email" name="email" type="email" class="input" placeholder="tu@correo.com" required />
+          </div>
+          <div class="row">
+            <label for="pass">Contraseña</label>
+            <input id="pass" name="password" type="password" class="input" placeholder="••••••••" required />
+          </div>
+          <button class="btn" type="submit">Entrar ↵</button>
+
+          <div class="foot">
+            <span class="tag">modo invitado disponible</span>
+            <a href="#" style="color:inherit">¿Olvidaste tu contraseña?</a>
+          </div>
+        </form>
+      </article>
+
+      <!-- Sticker cómico con la imagen del perrito -->
+      <aside class="sticker" aria-label="Sticker del perrito">
+        <div class="bubble">¡Alto!<br>Acceso sólo con croquetas</div>
+        <!--
+          Coloca tu imagen en la misma carpeta y renómbrala a "perrito.png".
+          Si prefieres otro nombre, cambia el atributo src de la etiqueta <img>.
+        -->
+        <img src="perrito.jpg" alt="Cachorro panza arriba en una jaula posando gracioso" />
+      </aside>
+    </section>
+
+    <footer class="marquee" style="background:var(--accent-2)">
+      <span>© 2025 • Diseño Brutalista • Hecho con HTML + CSS</span>
+    </footer>
+  </main>
+</body>
+
+</html>
