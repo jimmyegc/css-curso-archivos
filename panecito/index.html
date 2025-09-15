@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panecito - Panadería Tradicional</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-white text-gray-900">
+
+  <!-- Navbar -->
+  <header class="bg-pink-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+      <img src="logo.png" alt="Panecito Logo" class="h-12">
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#productos" class="hover:text-gray-200">Productos</a></li>
+          <li><a href="#nosotros" class="hover:text-gray-200">Nosotros</a></li>
+          <li><a href="#contacto" class="hover:text-gray-200">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center h-screen" style="background-image: url('hero-image.jpg');">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="relative z-10 flex items-center justify-center h-full text-center text-white">
+      <div>
+        <h1 class="text-5xl font-bold mb-4">El Sabor de la Tradición</h1>
+        <p class="text-xl mb-6">Disfruta de nuestros panes frescos y deliciosos, elaborados con amor y dedicación.</p>
+        <a href="#productos" class="bg-pink-700 hover:bg-pink-800 text-white py-2 px-6 rounded-full">Explorar
+          Productos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos" class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-12">Nuestros Productos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Producto 1 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="producto1.jpg" alt="Producto 1" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Concha de Vainilla</h3>
+            <p class="text-gray-700 mb-4">Deliciosa concha rellena de crema de vainilla, perfecta para acompañar tu
+              café.</p>
+            <span class="text-lg font-bold text-pink-600">$20.00</span>
+          </div>
+        </div>
+        <!-- Producto 2 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="producto2.jpg" alt="Producto 2" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Pan de Chocolate</h3>
+            <p class="text-gray-700 mb-4">Suave pan relleno de chocolate, ideal para un antojo dulce en cualquier
+              momento.</p>
+            <span class="text-lg font-bold text-pink-600">$25.00</span>
+          </div>
+        </div>
+        <!-- Producto 3 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="producto3.jpg" alt="Producto 3" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Galletas de Mantequilla</h3>
+            <p class="text-gray-700 mb-4">Crujientes galletas de mantequilla, elaboradas con ingredientes de la mejor
+              calidad.</p>
+            <span class="text-lg font-bold text-pink-600">$15.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosotros -->
+  <section id="nosotros" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold mb-8">¿Quiénes Somos?</h2>
+      <p class="text-lg text-gray-700 mb-6">En Panecito, nos dedicamos a la elaboración de pan tradicional mexicano con
+        más de 10 años de experiencia. Nuestra misión es ofrecer productos frescos y de calidad, elaborados con amor y
+        dedicación.</p>
+      <p class="text-lg text-gray-700">Creemos en la importancia de compartir momentos especiales en familia, por eso
+        nuestro eslogan es: <strong>"Compartiendo en Familia"</strong>.</p>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold mb-8">Contacto</h2>
+      <p class="text-lg text-gray-700 mb-4">¿Tienes alguna pregunta o deseas realizar un pedido? No dudes en ponerte en
+        contacto con nosotros.</p>
+      <p class="text-lg text-gray-700 mb-4">Correo electrónico: <a href="mailto:panecitocontacto@gmail.com"
+          class="text-pink-600">panecitocontacto@gmail.com</a></p>
+      <p class="text-lg text-gray-700">Teléfono: <span class="text-pink-600">+52 55 1234 5678</span></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-pink-600 text-white py-6">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p>&copy; 2025 Panecito. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
