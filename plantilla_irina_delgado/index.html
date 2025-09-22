@@ -1,0 +1,166 @@
+<!--
+Archivo 1: index.html
+Archivo 2: styles.css (más abajo). Copia styles.css a un archivo separado llamado styles.css
+-->
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi App — Landing</title>
+  <!-- Font: Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-jQDf6wZf2KqYbQ6Y0eQxRZ+I3d1pQ1qE6v7yq9kPqj1zF1m0Y9qf5b9Gg1Yf1n3z" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">nmda</div>
+      <nav class="top-actions">
+        <a class="btn btn-ghost" href="#features">Funciones</a>
+        <a class="btn btn-ghost" href="#testimonials">Testimonios</a>
+        <a class="btn" href="#cta">Descargar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title">Simplifica tu día. Haz más con menos esfuerzo.</h1>
+          <p class="hero-subtitle">Nuestra app te ayuda a organizar tareas, colaborar con tu equipo y seguir el progreso
+            en una sola plataforma intuitiva.</p>
+          <div class="hero-ctas">
+            <a class="download-btn appstore" href="#" aria-label="App Store">
+              <i class="fa-brands fa-apple"></i>
+              <span>
+                <small>Descargar en</small>
+                App Store
+              </span>
+            </a>
+            <a class="download-btn playstore" href="#" aria-label="Google Play">
+              <i class="fa-brands fa-google-play"></i>
+              <span>
+                <small>Consíguela en</small>
+                Google Play
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <!-- Espacio para una imagen o mockup -->
+          <div class="phone-mockup">
+            <div class="screen">
+              <svg width="200" height="400" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <rect x="4" y="4" width="192" height="392" rx="28" fill="#fff" stroke="#e9e9ef" />
+                <rect x="20" y="40" width="160" height="320" rx="16" fill="#f6f7fb" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title">¿Por qué elegirla?</h2>
+        <p class="section-sub">Tres razones para confiar en nuestra app.</p>
+        <div class="features-grid">
+          <article class="feature">
+            <i class="fa-solid fa-bolt feature-icon" aria-hidden="true"></i>
+            <h3 class="feature-title">Rápida y eficiente</h3>
+            <p class="feature-desc">Carga instantánea y flujos optimizados para que completes tareas más rápido.</p>
+          </article>
+
+          <article class="feature">
+            <i class="fa-solid fa-shield-halved feature-icon" aria-hidden="true"></i>
+            <h3 class="feature-title">Seguridad</h3>
+            <p class="feature-desc">Tus datos protegidos con cifrado y prácticas modernas de seguridad.</p>
+          </article>
+
+          <article class="feature">
+            <i class="fa-solid fa-users feature-icon" aria-hidden="true"></i>
+            <h3 class="feature-title">Colaboración</h3>
+            <p class="feature-desc">Comparte proyectos, asigna tareas y comunica a tu equipo en tiempo real.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">Lo que dicen nuestros usuarios</h2>
+        <div class="testimonials-grid">
+          <blockquote class="testimonial">
+            <p>"La mejor herramienta que hemos probado para la gestión diaria. Nos ha ahorrado tiempo y trabajo."</p>
+            <footer>— Ana G. <span class="stars" aria-hidden="true"><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-regular fa-star"></i></span></footer>
+          </blockquote>
+
+          <blockquote class="testimonial">
+            <p>"Interfaz limpia y funcionalidades precisas. Ideal para equipos pequeños y medianos."</p>
+            <footer>— Carlos M. <span class="stars" aria-hidden="true"><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i></span></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2 class="cta-title">Listo para empezar?</h2>
+          <p class="cta-sub">Descarga la app y transforma tu productividad hoy mismo.</p>
+        </div>
+        <div class="cta-ctas">
+          <a class="download-btn appstore large" href="#">
+            <i class="fa-brands fa-apple"></i>
+            <span>
+              <small>Descargar en</small>
+              App Store
+            </span>
+          </a>
+          <a class="download-btn playstore large" href="#">
+            <i class="fa-brands fa-google-play"></i>
+            <span>
+              <small>Consíguela en</small>
+              Google Play
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> nmda — Todos los derechos reservados</div>
+      <div class="footer-links"><a href="#">Privacidad</a><a href="#">Términos</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript mínimo para año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NMDA Solutions - Desarrollo Web y Software</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Contador regresivo (ejemplo: 7 días desde hoy)
+    document.addEventListener("DOMContentLoaded", () => {
+      const endDate = new Date();
+      endDate.setDate(endDate.getDate() + 7);
+      const countdown = document.getElementById("countdown");
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
+
+        if (distance <= 0) {
+          countdown.innerHTML = "¡Promoción terminada!";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    });
+  </script>
+</head>
+
+<body class="font-sans text-gray-800 bg-gray-50">
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-r from-[#29285A] to-[#EC5C2C] text-white py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Impulsa tu negocio con un sitio web profesional</h1>
+      <p class="text-lg md:text-xl mb-6">Diseñamos y desarrollamos páginas web modernas que convierten visitantes en
+        clientes.</p>
+      <a href="#contacto"
+        class="bg-white text-[#29285A] font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-200">Cotiza tu
+        proyecto</a>
+    </div>
+  </section>
+
+  <!-- PLANES -->
+  <section class="py-20 bg-white" id="planes">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6">Planes y precios</h2>
+      <p class="mb-6 text-gray-600">🔥 ¡Promoción disponible por tiempo limitado!</p>
+      <div id="countdown" class="text-2xl font-bold text-[#EC5C2C] mb-12"></div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 border rounded-2xl shadow hover:shadow-lg">
+          <h3 class="font-semibold text-xl mb-4">Básico</h3>
+          <p class="text-3xl font-bold mb-4">$4,999 MXN</p>
+          <ul class="text-left space-y-2 mb-6">
+            <li>✅ Hasta 5 secciones</li>
+            <li>✅ Diseño responsivo</li>
+            <li>✅ SEO básico</li>
+          </ul>
+          <a href="#contacto" class="bg-[#29285A] text-white px-6 py-3 rounded-lg">Elegir plan</a>
+        </div>
+        <div class="p-8 border-2 border-[#EC5C2C] rounded-2xl shadow-lg">
+          <h3 class="font-semibold text-xl mb-4">Profesional</h3>
+          <p class="text-3xl font-bold mb-4">$8,999 MXN</p>
+          <ul class="text-left space-y-2 mb-6">
+            <li>✅ Hasta 10 secciones</li>
+            <li>✅ Integración de WhatsApp</li>
+            <li>✅ Optimización avanzada</li>
+            <li>✅ 30 días de soporte</li>
+          </ul>
+          <a href="#contacto" class="bg-[#EC5C2C] text-white px-6 py-3 rounded-lg">Plan recomendado</a>
+        </div>
+        <div class="p-8 border rounded-2xl shadow hover:shadow-lg">
+          <h3 class="font-semibold text-xl mb-4">Premium</h3>
+          <p class="text-3xl font-bold mb-4">$14,999 MXN</p>
+          <ul class="text-left space-y-2 mb-6">
+            <li>✅ Ecommerce completo</li>
+            <li>✅ Blog y catálogo</li>
+            <li>✅ SEO profesional</li>
+            <li>✅ Soporte 90 días</li>
+          </ul>
+          <a href="#contacto" class="bg-[#29285A] text-white px-6 py-3 rounded-lg">Elegir plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="py-20 bg-gray-100" id="contacto">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6">Solicita tu cotización gratis</h2>
+      <p class="mb-8 text-gray-600">Déjanos tus datos y te contactamos en menos de 24 horas.</p>
+      <form class="grid gap-4 text-left bg-white p-8 rounded-2xl shadow">
+        <input type="text" placeholder="Nombre" class="p-3 rounded border">
+        <input type="email" placeholder="Correo electrónico" class="p-3 rounded border">
+        <input type="text" placeholder="Teléfono" class="p-3 rounded border">
+        <textarea placeholder="Cuéntanos de tu proyecto" rows="4" class="p-3 rounded border"></textarea>
+        <button type="submit" class="bg-[#EC5C2C] text-white px-6 py-3 rounded-lg font-semibold">Enviar
+          solicitud</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#29285A] text-white py-8 relative">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>&copy; 2025 NMDA Solutions. Todos los derechos reservados.</p>
+      <div class="space-x-4">
+        <a href="tel:+525527885779" class="hover:underline">📞 +52 55 2788 5779</a>
+        <a href="mailto:contacto@nmdasolutions.com" class="hover:underline">✉ contacto@nmdasolutions.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/525527885779?text=Hola,%20quiero%20una%20cotización%20para%20mi%20proyecto" target="_blank"
+    class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition">
+    💬
+  </a>
+
+</body>
+
+</html>
