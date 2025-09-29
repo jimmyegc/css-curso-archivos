@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing - Dark & Light Mode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              light: '#2563EB',  // azul vivo en light
+              dark: '#1E3A8A',   // azul medio en dark
+            },
+            base: {
+              light: '#F9FAFB',  // fondo claro
+              dark: '#0B1120',   // fondo oscuro
+            },
+            accent: {
+              light: '#F59E0B',  // dorado cálido en light
+              dark: '#FACC15',   // dorado vibrante en dark
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      /* texto */
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      /* títulos */
+    }
+  </style>
+</head>
+
+<body class="bg-base-light text-gray-900 dark:bg-base-dark dark:text-gray-100 font-sans transition-colors duration-300">
+
+  <!-- Toggle -->
+  <div class="absolute top-4 right-4">
+    <button id="themeToggle"
+      class="px-4 py-2 rounded-md bg-primary-light dark:bg-primary-dark text-white hover:opacity-90 transition">
+      🌗 Toggle
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+      Hola, soy <span class="text-primary-light dark:text-primary-dark">Jimmy García</span>
+    </h1>
+    <p class="max-w-2xl text-gray-600 dark:text-gray-300 mb-8">
+      Desarrollador Full Stack con más de 20 años de experiencia creando soluciones tecnológicas.
+      Apasionado por el aprendizaje continuo y los retos que transforman ideas en proyectos reales.
+    </p>
+    <div class="bg-primary-light dark:bg-primary-dark px-6 py-4 rounded-xl shadow-lg max-w-lg mb-8">
+      <p class="text-lg font-medium text-white">
+        Construyo aplicaciones escalables y eficientes 🚀
+      </p>
+    </div>
+    <div class="flex gap-4">
+      <a href="#proyectos"
+        class="bg-accent-light dark:bg-accent-dark text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:opacity-90 transition">
+        Ver Proyectos
+      </a>
+      <a href="#cv"
+        class="bg-primary-light dark:bg-primary-dark text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:opacity-90 transition">
+        Descargar CV
+      </a>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO -->
+  <section id="proyectos" class="py-20 px-6 bg-gray-100 dark:bg-gray-900 transition-colors">
+    <h2 class="text-3xl font-bold text-center mb-12">Portafolio</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- Card -->
+      <div class="bg-white dark:bg-base-dark border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-6">
+        <h3 class="font-semibold text-lg mb-2 text-primary-light dark:text-accent-dark">Proyecto 1</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">Descripción breve del proyecto.</p>
+        <a href="#" class="text-accent-light dark:text-accent-dark font-medium">Ver más →</a>
+      </div>
+      <!-- Card -->
+      <div class="bg-white dark:bg-base-dark border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-6">
+        <h3 class="font-semibold text-lg mb-2 text-primary-light dark:text-accent-dark">Proyecto 2</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">Descripción breve del proyecto.</p>
+        <a href="#" class="text-accent-light dark:text-accent-dark font-medium">Ver más →</a>
+      </div>
+      <!-- Card -->
+      <div class="bg-white dark:bg-base-dark border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-6">
+        <h3 class="font-semibold text-lg mb-2 text-primary-light dark:text-accent-dark">Proyecto 3</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">Descripción breve del proyecto.</p>
+        <a href="#" class="text-accent-light dark:text-accent-dark font-medium">Ver más →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary-light dark:bg-primary-dark text-white py-6 mt-12">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 gap-4">
+      <p class="text-sm">&copy; 2025 Jimmy García. Todos los derechos reservados.</p>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-accent-light dark:hover:text-accent-dark">GitHub</a>
+        <a href="#" class="hover:text-accent-light dark:hover:text-accent-dark">LinkedIn</a>
+        <a href="#" class="hover:text-accent-light dark:hover:text-accent-dark">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle dark/light
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
+
+</body>
+
+</html>
