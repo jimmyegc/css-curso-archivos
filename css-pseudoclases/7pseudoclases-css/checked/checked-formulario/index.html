@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudoclase checked medio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+<body> 
+
+    <section class="plan-selector">
+
+        <header class="plan-selector__header">
+            <h1 class="plan-selector__title">Elige tu Plan</h1>
+            <p class="plan-selector__subtitle">Selecciona la opción que mejor se adapte a tus necesidades.</p>
+        </header>
+
+        <div class="plan-selector__grid">
+
+            <article class="plan-selector__item">
+
+                <input type="radio" name="subscription_plan" id="plan-basico" class="plan-selector__input" checked>
+                
+                <label for="plan-basico" class="plan-selector__label">
+
+                    <div class="plan-selector__top">
+                        <h2 class="plan-selector__name">Básico</h2>
+                        <div class="plan-selector__indicator"></div>
+                    </div>
+
+                    <p class="plan-selector__price">$10<span class="plan-selector__period">/mes</span></p>
+
+                    <ul class="plan-selector__features">
+                        <li class="plan-selector__feature">1 Usuario</li>
+                        <li class="plan-selector__feature">10 GB de Almacenamiento</li>
+                        <li class="plan-selector__feature">Soporte por Email</li>
+                    </ul>
+
+                </label>
+            </article>
+
+            <article class="plan-selector__item">
+                <input type="radio" name="subscription_plan" id="plan-profesional" class="plan-selector__input">
+                <label for="plan-profesional" class="plan-selector__label">
+                    <div class="plan-selector__top">
+                        <h2 class="plan-selector__name">Profesional</h2>
+                        <div class="plan-selector__indicator"></div>
+                    </div>
+                    <p class="plan-selector__price">$25<span class="plan-selector__period">/mes</span></p>
+                    <ul class="plan-selector__features">
+                        <li class="plan-selector__feature">5 Usuarios</li>
+                        <li class="plan-selector__feature">100 GB de Almacenamiento</li>
+                        <li class="plan-selector__feature">Soporte Prioritario</li>
+                    </ul>
+                </label>
+            </article>
+
+            <article class="plan-selector__item">
+                <input type="radio" name="subscription_plan" id="plan-empresarial" class="plan-selector__input">
+                <label for="plan-empresarial" class="plan-selector__label">
+                    <div class="plan-selector__top">
+                        <h2 class="plan-selector__name">Empresarial</h2>
+                        <div class="plan-selector__indicator"></div>
+                    </div>
+                    <p class="plan-selector__price">$50<span class="plan-selector__period">/mes</span></p>
+                    <ul class="plan-selector__features">
+                        <li class="plan-selector__feature">Usuarios Ilimitados</li>
+                        <li class="plan-selector__feature">1 TB de Almacenamiento</li>
+                        <li class="plan-selector__feature">Soporte 24/7</li>
+                    </ul>
+                </label>
+            </article>
+
+        </div>
+    </section>
+
+</body>
+</html>
+

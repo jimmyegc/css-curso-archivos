@@ -1,0 +1,34 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --color-principal: royalblue;
+    --font-principal: 2rem;
+    --fondo-pagina: white;
+}
+
+:root[data-theme="dark"]{
+    --color-principal: white;
+    --font-principal: 4rem;
+    --fondo-pagina: black;
+}
+
+body {
+    background: var(--fondo-pagina);
+    font-family: 'Inter', sans-serif;
+    padding: 60px;
+}
+
+
+.title{
+    text-align: center;
+
+    font-size: var(--font-principal);
+    color: var(--color-principal);
+}
+

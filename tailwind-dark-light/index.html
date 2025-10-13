@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" class="dark"> <!-- empieza en dark por defecto -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo Themes — Tailwind CDN</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+
+  <!-- Variables CSS: light (root), dark (html.dark), brand1 ([data-theme="brand1"]) -->
+  <style>
+    :root {
+      /* light theme (default) - use rgb values for colors you'll use with opacity/arbitrary) */
+      --color-bg: 255 255 255;
+      --color-surface: 249 250 251;
+      /* #f9fafb */
+      --color-primary: 79 70 229;
+      /* indigo-600 */
+      --color-primary-hover: 99 102 241;
+      --color-text: 17 24 39;
+      /* #111827 */
+      --color-text-muted: 107 114 128;
+      /* #6b7280 */
+      --color-border: 229 231 235;
+      /* #e5e7eb */
+    }
+
+    html.dark {
+      /* dark theme */
+      --color-bg: 15 23 42;
+      /* #0f172a */
+      --color-surface: 30 41 59;
+      /* #1e293b */
+      --color-primary: 129 140 248;
+      /* indigo-400 */
+      --color-primary-hover: 165 180 252;
+      --color-text: 249 250 251;
+      /* #f9fafb */
+      --color-text-muted: 148 163 184;
+      /* #94a3b8 */
+      --color-border: 51 65 85;
+      /* #334155 */
+    }
+
+    /* brand1 theme override (applied with data-theme="brand1" on html) */
+    [data-theme="brand1"] {
+      --color-bg: 255 255 255;
+      --color-surface: 254 246 243;
+      /* soft cream */
+      --color-primary: 236 92 44;
+      /* nmda orange */
+      --color-primary-hover: 244 123 80;
+      --color-text: 26 26 26;
+      --color-text-muted: 115 115 115;
+      --color-border: 229 231 235;
+    }
+
+    /* small helper classes that use the variables (optional) */
+    .theme-bg {
+      background-color: rgb(var(--color-bg));
+    }
+
+    .theme-surface {
+      background-color: rgb(var(--color-surface));
+    }
+
+    .theme-text {
+      color: rgb(var(--color-text));
+    }
+
+    .theme-text-muted {
+      color: rgb(var(--color-text-muted));
+    }
+
+    .theme-border {
+      border-color: rgb(var(--color-border));
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6 bg-[rgb(var(--color-bg))]">
+
+  <div class="w-full max-w-md">
+    <!-- Controls -->
+    <div class="flex items-center justify-between mb-6 gap-3">
+      <div class="flex gap-2">
+        <button id="toggle-theme"
+          class="px-3 py-2 rounded-lg border theme-border text-[rgb(var(--color-text))] bg-[rgb(var(--color-surface))] hover:opacity-90">
+          Toggle dark
+        </button>
+
+        <button id="apply-brand"
+          class="px-3 py-2 rounded-lg border theme-border text-[rgb(var(--color-text))] bg-[rgb(var(--color-surface))] hover:opacity-90">
+          Toggle brand1
+        </button>
+      </div>
+
+      <!-- small preview of primary color -->
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full" id="primary-preview"
+          style="background: rgb(var(--color-primary)); box-shadow: 0 1px 4px rgba(0,0,0,0.12)"></div>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="rounded-2xl border theme-border p-6 shadow-xl bg-[rgb(var(--color-surface))]">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-[rgb(var(--color-text))]">Tienda Django + Tailwind</h3>
+        <div class="text-sm theme-text-muted">Ejemplo multi-tema</div>
+      </div>
+
+      <p class="text-sm theme-text-muted mb-4">
+        Este demo usa variables CSS + utilidades arbitrarias de Tailwind (CDN). Cambia entre light/dark y un tema de
+        marca.
+      </p>
+
+      <div class="flex gap-3">
+        <!-- button that uses primary variable via arbitrary utility -->
+        <button
+          class="flex-1 px-4 py-2 rounded-lg font-semibold text-white bg-[rgb(var(--color-primary))] hover:bg-[rgb(var(--color-primary-hover))]">
+          Comprar ahora
+        </button>
+
+        <button class="px-4 py-2 rounded-lg border theme-border text-[rgb(var(--color-text))] bg-[transparent]">
+          Ver
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JS: toggles for dark mode and brand1
+    const html = document.documentElement;
+    const toggleBtn = document.getElementById('toggle-theme');
+    const brandBtn = document.getElementById('apply-brand');
+    const primaryPreview = document.getElementById('primary-preview');
+
+    // update preview color (use computed variable)
+    function updatePreview() {
+      const val = getComputedStyle(html).getPropertyValue('--color-primary').trim();
+      // if value is like "79 70 229" => use rgb(...)
+      if (val.includes(' ')) {
+        primaryPreview.style.background = `rgb(${val})`;
+      } else {
+        primaryPreview.style.background = val;
+      }
+    }
+
+    // initial preview
+    updatePreview();
+
+    toggleBtn.addEventListener('click', () => {
+      // toggle dark class and remove brand (so themes don't conflict)
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+      } else {
+        html.classList.add('dark');
+        html.removeAttribute('data-theme');
+      }
+      updatePreview();
+    });
+
+    brandBtn.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'brand1') {
+        html.removeAttribute('data-theme');
+        // keep current dark state as-is (we don't force light)
+      } else {
+        html.setAttribute('data-theme', 'brand1');
+        // remove dark to allow brand colors to take full precedence; optional
+        html.classList.remove('dark');
+      }
+      updatePreview();
+    });
+
+    // Optional: persist settings (light/dark or brand) in localStorage
+    // load saved
+    (function loadSaved() {
+      const savedTheme = localStorage.getItem('site-theme'); // 'dark'|'light'|'brand1'
+      if (savedTheme === 'dark') html.classList.add('dark');
+      if (savedTheme === 'brand1') {
+        html.setAttribute('data-theme', 'brand1');
+        html.classList.remove('dark');
+      }
+      updatePreview();
+    })();
+
+    // Save current on changes
+    toggleBtn.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'brand1') {
+        localStorage.setItem('site-theme', 'brand1');
+      } else if (html.classList.contains('dark')) {
+        localStorage.setItem('site-theme', 'dark');
+      } else {
+        localStorage.setItem('site-theme', 'light');
+      }
+    });
+
+    brandBtn.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'brand1') {
+        localStorage.setItem('site-theme', 'brand1');
+      } else if (html.classList.contains('dark')) {
+        localStorage.setItem('site-theme', 'dark');
+      } else {
+        localStorage.setItem('site-theme', 'light');
+      }
+    });
+  </script>
+</body>
+
+</html>

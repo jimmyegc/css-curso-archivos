@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body{
+    font-family: Inter;
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+}
+
+.btn{
+    width: max-content;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    background-color: purple;
+    padding: 1.3rem 2rem;
+    transition: transform .1s;
+
+    &:hover{
+        transform: scale(1.02);
+    }
+}
+
+.btn--danger{
+    background-color: darkred;
+}
+
+
+.rocket{
+    width: 300px;
+    transform-origin: bottom left;
+
+    transition: transform 1s;
+}
+
+.rocket:target{
+    transform: scale(.3);
+}

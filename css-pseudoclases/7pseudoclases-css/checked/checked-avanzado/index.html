@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle de Tema con Atributos de Datos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+<body>
+
+    <main class="settings-panel">
+
+        <h1 class="settings-panel__title">Configuración</h1>
+
+        <section class="settings-panel__option">
+
+            <span class="theme-toggle__label-text">Modo Oscuro</span>
+
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switcher" class="theme-toggle__input">
+                <label for="theme-switcher" class="theme-toggle__switch"></label>
+            </div>
+            
+        </section>
+
+    </main>
+
+    <script>
+        // 1. Obtener los elementos del DOM
+        const themeToggle = document.getElementById('theme-switcher');
+        const rootElement = document.documentElement; 
+
+        // 2. Función para aplicar el tema
+        function applyTheme(theme) {
+            rootElement.setAttribute('data-theme', theme);
+            themeToggle.checked = (theme === 'dark');
+        }
+
+        // 3. Función para guardar el tema en localStorage
+        function saveThemePreference(theme) {
+            localStorage.setItem('theme', theme);
+        }
+
+        // 4. Lógica que se ejecuta cuando se hace clic en el interruptor
+        themeToggle.addEventListener('change', () => {
+            const newTheme = themeToggle.checked ? 'dark' : 'light';
+            applyTheme(newTheme);
+            saveThemePreference(newTheme);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light'; 
+            applyTheme(savedTheme);
+        });
+    </script>
+
+</body>
+</html>
+

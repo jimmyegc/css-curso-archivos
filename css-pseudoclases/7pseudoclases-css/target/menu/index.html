@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Lateral BEM con CSS Puro</title>
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+<body>
+ 
+    <nav id="main-menu" class="off-canvas">
+
+        <div class="off-canvas__header">
+            <h2 class="off-canvas__title">Menú</h2>
+            <a href="#" class="off-canvas__close">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </a>
+        </div>
+
+        <ul class="off-canvas__nav">
+
+            <li class="off-canvas__item">
+                <a href="#" class="off-canvas__link">Inicio</a>
+            </li>
+
+            <li class="off-canvas__item">
+                <a href="#" class="off-canvas__link">Servicios</a>
+            </li>
+
+            <li class="off-canvas__item">
+                <a href="#" class="off-canvas__link">Sobre Nosotros</a>
+            </li>
+
+            <li class="off-canvas__item">
+                <a href="#" class="off-canvas__link">Contacto</a>
+            </li>
+
+        </ul>
+        
+    </nav>
+
+    <!-- Cuándo tocamos este overlay se desactiva el menú -->
+    <a href="#" class="overlay"></a>
+
+    <div class="page">
+        <header class="page__header">
+            <div class="page__header-container">
+                <a href="#main-menu" class="page__menu-toggle">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </a>
+                <h1 class="page__title">Página Principal</h1>
+            </div>
+        </header>
+
+    </div>
+
+</body>
+</html>
+

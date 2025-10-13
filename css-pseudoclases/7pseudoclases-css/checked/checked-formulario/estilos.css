@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+    color: #374151;
+}
+
+
+.plan-selector {
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding:4rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.plan-selector__header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.plan-selector__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.plan-selector__subtitle {
+    color: #6b7280;
+    margin-top: 0.5rem;
+}
+
+.plan-selector__grid {
+    display: grid;
+    gap: 2rem;
+}
+
+
+.plan-selector__input {
+    display: none;
+}
+
+.plan-selector__label {
+    display: block;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.plan-selector__label:hover {
+    border-color: #3b82f6;
+}
+
+.plan-selector__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.plan-selector__name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.plan-selector__indicator {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+    border: 2px solid #d1d5db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan-selector__indicator::after {
+    content: '';
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    background-color: #3b82f6;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.plan-selector__price {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.plan-selector__period {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.plan-selector__features {
+    list-style: none;
+    color: #4b5563;
+}
+
+.plan-selector__feature {
+    margin-top: 0.5rem;
+}
+
+/*   Cuando el input está seleccionado, 
+    aplicamos estilos a su label hermano */
+.plan-selector__input:checked + 
+.plan-selector__label {
+    transform: scale(1.05);
+    border-color: #3b82f6;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Mostramos el círculo interior del indicador cuando 
+está seleccionado */
+.plan-selector__input:checked + 
+.plan-selector__label 
+.plan-selector__indicator::after {
+    transform: scale(1);
+}
+
+
+@media (min-width: 850px) {
+    .plan-selector__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .plan-selector__title {
+        font-size: 2.5rem;
+    }
+}
