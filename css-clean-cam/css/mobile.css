@@ -1,0 +1,128 @@
+/* Main Styling */
+h4 { 
+  padding-bottom: 20px;
+}
+
+/* Utility Classes */
+.display-1 { 
+  font-size: 50px; 
+}
+
+/* Header */
+#main-header {
+  position: relative; /* importante para que ::before se posicione dentro */
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Fondo degradado con imagen */
+#main-header::before {
+  content: ""; /* sin esto no aparece */
+  position: absolute;
+  inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
+  background: 
+    linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2)),
+    url(../img/background.jpg) center center / cover no-repeat;
+  width: 100%;
+  z-index: -1; /* detrás del contenido */
+}
+
+/* Contenido encima del fondo */
+#showcase {
+  position: relative;
+  z-index: 1;
+  float: none;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.65);
+  padding-top: 20px;
+}
+
+/* Navbar */
+#navbar {
+  padding-bottom: 0px;
+  text-align: center;
+}
+
+
+#navbar .logo {
+  float: none;
+  /* padding-top: 16px;
+  font-size: 25px; */
+}
+
+#navbar ul {
+  /* list-style: none; */
+  float: none;
+  display: inline-block;
+}
+
+/* #navbar ul li {
+  float: left;
+}
+
+#navbar ul li a {
+  display: block;
+  padding: 20px;
+  text-align: center;
+}
+
+#navbar ul li a:hover,
+#navbar ul li a.current {
+  text-decoration: underline;
+} */
+
+/* Showcase */
+#showcase {
+  float: none;
+  width: 100%;  
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.65);  
+  padding-top: 20px;
+}
+
+#showcase p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Features */
+#features {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.features-row .card-left {
+  float: none;
+  width: 100%;
+  padding: 10px;
+}
+
+.features-row .card-right {
+  float: none;
+  width: 100%;
+  padding: 10px;
+}
+
+.features-row .card-left img,
+.features-row .card-right img {
+  height: 90px;
+  padding-bottom: 10px;
+}
+
+/* Contact */
+#contact {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#contact form {
+  width: 80%;
+}
+
+/* Footer */
+#main-footer {
+  background: #FEF9FB;
+  text-align: center;
+  padding:30px;
+}
