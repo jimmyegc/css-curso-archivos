@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Jimmy García</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0E0E0E;
+      --primary: #00FFF0;
+      --accent: #FF00A8;
+      --secondary: #F5F5F5;
+      --highlight: #FFE600;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--secondary);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-start pt-32 px-6">
+
+
+  <article
+    class="w-full max-h-[25rem] overflow-hidden relative group rounded-2xl border-4 border-var(--primary) shadow-[8px_8px_0_var(--accent)] hover:scale-105 transition-transform duration-300 animate-glow">
+
+    <!-- Imagen -->
+    <div class="aspect-video w-full overflow-hidden relative rounded-xl">
+      <img src="https://neo-brutalism-ui-library.vercel.app/assets/neo-brutalism-image3-mobile-d82bcf61.jpg"
+        alt="Proyecto" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+
+      <!-- Info -->
+      <div
+        class="absolute bottom-0 left-0 w-full p-4 bg-[#141414]/50 backdrop-blur-md border-t-4 border-var(--primary) opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <h3 class="text-var(--primary) text-lg font-extrabold animate-slide-up">Landing Page Brutalista</h3>
+        <p class="text-var(--secondary) text-sm mt-1 animate-slide-up">HTML + Tailwind + Neon Glow</p>
+        <a href="#"
+          class="mt-2 inline-block text-sm text-var(--accent) underline hover:text-var(--primary) transition-colors animate-slide-up">Ver
+          más →</a>
+      </div>
+    </div>
+
+  </article>
+
+</body>
+
+</html>

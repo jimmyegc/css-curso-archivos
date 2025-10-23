@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Jimmy García</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0E0E0E;
+      --primary: #00FFF0;
+      --accent: #FF00A8;
+      --secondary: #F5F5F5;
+      --highlight: #FFE600;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--secondary);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-start pt-32 px-6">
+  ---
+  import type { IExperiences } from "@types";
+  const {
+  title,
+  details,
+  showIconMore,
+  openFirst = false,
+  } = Astro.props as IExperiences;
+  ---
+
+  <section class="reveal px-6 py-16">
+    <h2 class={`text-3xl md:text-4xl font-extrabold mb-12 ${!showIconMore ? "mt-6" : "" } text-var(--primary)
+      uppercase`}>
+      {title}
+    </h2>
+
+    <ol
+      class="relative space-y-8 before:absolute before:-ml-px before:h-full before:w-1 before:rounded-lg before:bg-var(--primary)">
+      {details.map((item, index) => {
+      const isOpenByDefault = openFirst && index === 0;
+      const baseId = `${title.trim().toLowerCase().replace(/\s+/g, "-")}-${index}`;
+
+      return (
+      <li key={`content-${baseId}`} class="relative flex items-start gap-4">
+
+        {/* Punto del timeline */}
+        <span class="w-4 h-4 rounded-full bg-var(--accent) shadow-[0_0_8px_var(--accent)]" aria-hidden="true" />
+
+        {/* Contenido */}
+        <div class="w-full -mt-2">
+          <button type="button" data-tl-btn={`content-${baseId}`} id={`btn-${baseId}`}
+            aria-controls={`content-${baseId}`} aria-expanded={isOpenByDefault ? "true" : "false" }
+            class="flex w-full items-center justify-between text-left cursor-pointer group px-4 py-3 rounded-lg border-4 border-var(--primary) bg-[#141414] shadow-[6px_6px_0_var(--accent)] hover:scale-105 transition-transform duration-300">
+            <div>
+              <time class="block text-xs font-bold text-var(--secondary)">
+                {item.startDate && item.endDate && <span>{item.startDate} - {item.endDate}</span>}
+              </time>
+              <h3 class="text-lg md:text-xl font-extrabold text-var(--primary)">{item.name}</h3>
+            </div>
+
+            {showIconMore && (
+            <svg class="chev w-5 h-5 transition-transform duration-300 text-var(--secondary)"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            )}
+          </button>
+
+          <div id={`content-${baseId}`} class={`mt-2 text-sm text-var(--secondary) transition-all duration-300
+            ease-in-out ${isOpenByDefault ? "" : "hidden" } px-4 py-3 rounded-lg border-4 border-var(--accent)
+            bg-[#1A1A1A] shadow-[4px_4px_0_var(--primary)]`} role="region" aria-labelledby={`btn-${baseId}`}>
+            <p class="text-var(--accent) font-bold">{item.location}</p>
+            <ul class="list-disc list-inside mt-1 space-y-1">
+              {item.description.map((desc, idx) => (
+              <li key={idx}>{desc}</li>
+              ))}
+            </ul>
+            {item.idCard && (
+            <a href={item.urlCard} target="_blank"
+              class="mt-1 inline-block text-var(--primary) font-bold no-underline hover:underline">
+              {item.idCard}
+            </a>
+            )}
+          </div>
+        </div>
+      </li>
+      );
+      })}
+    </ol>
+  </section>
+
+  <style>
+    /* Rotación del SVG cuando está expandido */
+    button[data-tl-btn][aria-expanded="true"] .chev {
+      transform: rotate(180deg);
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    function initTimeline() {
+      document.querySelectorAll("[data-tl-btn]").forEach((btn) => {
+        const id = btn.dataset.tlBtn;
+        const content = document.getElementById(id);
+        if (!content) return;
+
+        const isOpenByDefault = !content.classList.contains("hidden");
+        btn.setAttribute("aria-expanded", isOpenByDefault ? "true" : "false");
+
+        if (!btn.dataset.listenerAttached) {
+          btn.addEventListener("click", () => {
+            const hiddenNow = content.classList.toggle("hidden");
+            btn.setAttribute("aria-expanded", hiddenNow ? "false" : "true");
+          });
+          btn.dataset.listenerAttached = "true";
+        }
+      });
+
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            } else {
+              entry.target.classList.remove("show");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      reveals.forEach((el) => observer.observe(el));
+    }
+
+    document.addEventListener("DOMContentLoaded", initTimeline);
+    document.addEventListener("astro:after-swap", initTimeline);
+  </script>
+
+
+</body>
+
+</html>

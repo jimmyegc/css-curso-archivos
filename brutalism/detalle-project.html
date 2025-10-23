@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Proyecto - Landing Page Brutalista</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0E0E0E;
+      --primary: #00FFF0;
+      --accent: #FF00A8;
+      --secondary: #F5F5F5;
+      --highlight: #FFE600;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--secondary);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav
+    class="w-full flex justify-between items-center p-6 border-b-4 border-var(--primary) bg-[#141414] shadow-[6px_6px_0_var(--accent)] fixed top-0 left-0 z-50">
+    <div class="text-2xl font-extrabold text-var(--primary) hover:text-var(--accent) transition-colors cursor-pointer">
+      Jimmy García</div>
+    <ul class="flex gap-8 uppercase font-bold text-var(--secondary)">
+      <li><a href="#" class="hover:text-var(--accent) transition-colors">Home</a></li>
+      <li><a href="#projects" class="hover:text-var(--accent) transition-colors">Projects</a></li>
+      <li><a href="#contact" class="hover:text-var(--accent) transition-colors">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Proyecto Hero -->
+  <section class="pt-32 px-6 max-w-5xl mx-auto">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-var(--primary) uppercase mb-4">Landing Page Brutalista</h1>
+    <p class="text-gray-300 text-lg mb-6">Proyecto de ejemplo que demuestra un diseño neo-brutalista con colores neon,
+      tipografía bold y sombras duras.</p>
+    <div class="flex gap-4">
+      <a href="#"
+        class="bg-var(--primary) text-black font-bold px-6 py-3 border-4 border-black rounded-xl hover:translate-x-1 hover:translate-y-1 transition-transform">Ver
+        Live</a>
+      <a href="#"
+        class="bg-var(--accent) text-black font-bold px-6 py-3 border-4 border-black rounded-xl hover:translate-x-1 hover:translate-y-1 transition-transform">Código</a>
+    </div>
+  </section>
+
+  <!-- Imagen / Preview -->
+  <section class="mt-10 px-6 max-w-5xl mx-auto">
+    <div
+      class="bg-var(--primary) border-4 border-black rounded-2xl shadow-[10px_10px_0_var(--accent)] h-96 flex items-center justify-center">
+      <span class="text-black font-extrabold text-3xl">IMAGEN DEL PROYECTO</span>
+    </div>
+  </section>
+
+  <!-- Descripción y Tecnologías -->
+  <section class="mt-10 px-6 max-w-5xl mx-auto flex flex-col md:flex-row gap-10">
+    <div class="flex-1">
+      <h2 class="text-3xl font-bold text-var(--primary) mb-4">Descripción</h2>
+      <p class="text-gray-300 mb-4">
+        Este proyecto es un ejemplo de cómo aplicar el estilo neo-brutalista en interfaces modernas. Se utiliza
+        tipografía bold, colores neon y bordes gruesos para generar impacto visual.
+      </p>
+      <p class="text-gray-300">
+        La estructura está diseñada para ser responsive y destacar la interacción con botones, animaciones de hover y
+        efectos de sombras duras.
+      </p>
+    </div>
+    <div class="flex-1">
+      <h2 class="text-3xl font-bold text-var(--primary) mb-4">Tecnologías</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-2">
+        <li>HTML5 + Tailwind CSS</li>
+        <li>JavaScript ES6</li>
+        <li>Animaciones CSS / Hover Effects</li>
+        <li>Diseño Neo-Brutalista</li>
+        <li>Responsive Design</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Otros proyectos -->
+  <section class="mt-16 px-6 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-var(--primary) uppercase mb-6">Otros Proyectos</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div
+        class="bg-[#141414] border-4 border-var(--secondary) rounded-2xl shadow-[6px_6px_0_var(--accent)] p-6 flex flex-col justify-between hover:translate-y-1 transition-transform">
+        <h3 class="text-2xl font-bold text-var(--primary) mb-2">App SaaS Moderna</h3>
+        <p class="text-gray-300">Interfaz minimalista con interacción brutalista y animaciones neon.</p>
+      </div>
+      <div
+        class="bg-[#141414] border-4 border-var(--secondary) rounded-2xl shadow-[6px_6px_0_var(--accent)] p-6 flex flex-col justify-between hover:translate-y-1 transition-transform">
+        <h3 class="text-2xl font-bold text-var(--primary) mb-2">Portfolio Interactivo</h3>
+        <p class="text-gray-300">Muestra de proyectos con un estilo brutal y vibrante.</p>
+      </div>
+      <div
+        class="bg-[#141414] border-4 border-var(--secondary) rounded-2xl shadow-[6px_6px_0_var(--accent)] p-6 flex flex-col justify-between hover:translate-y-1 transition-transform">
+        <h3 class="text-2xl font-bold text-var(--primary) mb-2">Blog Creativo</h3>
+        <p class="text-gray-300">Proyectos y experimentos de diseño brutalista y tecnología.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="w-64">
+      <label class="block text-var(--primary) font-bold mb-2 uppercase">Selecciona una opción</label>
+      <div class="relative">
+        <select
+          class="w-full bg-[#141414] text-var(--secondary) font-bold border-4 border-var(--primary) rounded-xl shadow-[6px_6px_0_var(--accent)] appearance-none px-4 py-3 cursor-pointer hover:border-var(--accent) focus:outline-none focus:ring-2 focus:ring-var(--primary) transition-all">
+          <option value="">-- Elegir --</option>
+          <option value="opcion1">Opción 1</option>
+          <option value="opcion2">Opción 2</option>
+          <option value="opcion3">Opción 3</option>
+        </select>
+        <!-- Icono de flecha -->
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+          <svg class="w-5 h-5 text-var(--primary)" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer
+    class="mt-20 border-t-4 border-var(--primary) bg-[#141414] shadow-[6px_6px_0_var(--accent)] p-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-var(--secondary) font-bold">&copy; 2025 Jimmy García</p>
+    <div class="flex gap-6 text-var(--primary)">
+      <a href="#" class="hover:text-var(--accent) transition-colors">GitHub</a>
+      <a href="#" class="hover:text-var(--accent) transition-colors">LinkedIn</a>
+      <a href="#" class="hover:text-var(--accent) transition-colors">Twitter</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>

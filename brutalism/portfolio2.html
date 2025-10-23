@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jimmy García - Full Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0E0E0E;
+      --primary: #00FFF0;
+      --accent: #FF00A8;
+      --secondary: #F5F5F5;
+      --highlight: #FFE600;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--secondary);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <nav
+    class="w-full flex justify-between items-center p-6 border-b-4 border-var(--primary) bg-[#141414] shadow-[6px_6px_0_var(--accent)] fixed top-0 left-0 z-50">
+    <!-- Logo -->
+    <div class="text-2xl font-extrabold text-var(--primary) hover:text-var(--accent) transition-colors cursor-pointer">
+      Jimmy García</div>
+
+    <!-- Menu desktop -->
+    <ul class="hidden md:flex gap-8 uppercase font-bold text-var(--secondary)">
+      <li><a href="#" class="hover:text-var(--accent) transition-colors">Home</a></li>
+      <li><a href="#projects" class="hover:text-var(--accent) transition-colors">Projects</a></li>
+      <li><a href="#contact" class="hover:text-var(--accent) transition-colors">Contact</a></li>
+    </ul>
+
+    <!-- Botón hamburguesa -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-var(--primary) hover:text-var(--accent) focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menu móvil -->
+  <div id="mobile-menu"
+    class="hidden fixed top-0 left-0 w-full h-screen bg-[#141414] flex flex-col items-center justify-center gap-10 uppercase font-bold text-var(--secondary) z-40">
+    <a href="#" class="text-3xl hover:text-var(--accent) transition-colors">Home</a>
+    <a href="#projects" class="text-3xl hover:text-var(--accent) transition-colors">Projects</a>
+    <a href="#contact" class="text-3xl hover:text-var(--accent) transition-colors">Contact</a>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+
+  <!-- Navbar -->
+  <!--   <nav
+    class="w-full flex justify-between items-center p-6 border-b-4 border-var(--primary) bg-[#141414] shadow-[6px_6px_0_var(--accent)] fixed top-0 left-0 z-50">
+    <div class="text-2xl font-extrabold text-var(--primary) hover:text-var(--accent) transition-colors cursor-pointer">
+      Jimmy García</div>
+    <ul class="flex gap-8 uppercase font-bold text-var(--secondary)">
+      <li><a href="#hero" class="hover:text-var(--accent) transition-colors">Home</a></li>
+      <li><a href="#projects" class="hover:text-var(--accent) transition-colors">Projects</a></li>
+      <li><a href="#contact" class="hover:text-var(--accent) transition-colors">Contact</a></li>
+    </ul>
+  </nav> -->
+
+  <!-- Hero -->
+  <section id="hero" class="flex-1 flex items-center justify-center pt-24 px-6">
+    <div
+      class="max-w-5xl w-full border-4 border-var(--secondary) rounded-3xl bg-[#141414] shadow-[8px_8px_0_var(--accent)] p-10 flex flex-col md:flex-row gap-10">
+
+      <!-- Texto principal -->
+      <div class="flex-1">
+        <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight uppercase">
+          Jimmy García<br>
+          <span class="text-var(--primary)">Full Stack Developer</span>
+        </h1>
+        <p class="mt-6 text-lg text-gray-300">
+          Construyo experiencias digitales con actitud: minimalismo brutal, colores neon y interfaces memorables.
+        </p>
+        <div class="mt-8 flex gap-4">
+          <button
+            class="bg-var(--primary) text-black font-bold px-6 py-3 border-4 border-black rounded-xl hover:translate-x-1 hover:translate-y-1 active:translate-x-0 active:translate-y-0 transition-transform">Empezar</button>
+          <button
+            class="bg-white text-black font-bold px-6 py-3 border-4 border-black rounded-xl hover:bg-var(--accent) hover:text-white transition-colors">Saber
+            más</button>
+        </div>
+      </div>
+
+      <!-- Imagen / Placeholder -->
+      <div
+        class="flex-1 bg-var(--primary) border-4 border-black rounded-2xl shadow-[10px_10px_0_var(--accent)] flex items-center justify-center h-60 md:h-80">
+        <span class="text-black font-extrabold text-3xl">IMG</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos / Cards -->
+  <section id="projects" class="max-w-6xl mx-auto px-6 mt-20">
+    <h2 class="text-4xl font-extrabold text-var(--primary) uppercase mb-10">Proyectos Destacados</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Card ejemplo -->
+      <div
+        class="bg-[#141414] border-4 border-var(--secondary) rounded-2xl shadow-[6px_6px_0_var(--accent)] p-6 flex flex-col justify-between hover:translate-y-1 transition-transform">
+        <div>
+          <h3 class="text-2xl font-bold text-var(--primary) mb-2">Landing Page Brutalista</h3>
+          <p class="text-gray-300">Un proyecto demo con diseño neo-brutalista y colores neon intensos.</p>
+        </div>
+        <button
+          class="mt-4 bg-var(--accent) text-black font-bold px-4 py-2 border-4 border-black rounded-xl hover:translate-x-1 hover:translate-y-1 transition-transform">Ver
+          Proyecto</button>
+      </div>
+
+      <div
+        class="bg-[#141414] border-4 border-var(--secondary) rounded-2xl shadow-[6px_6px_0_var(--accent)] p-6 flex flex-col justify-between hover:translate-y-1 transition-transform">
+        <div>
+          <h3 class="text-2xl font-bold text-var(--primary) mb-2">App SaaS Moderna</h3>
+          <p class="text-gray-300">Interfaz minimalista con interacción brutalista y animaciones neon.</p>
+        </div>
+        <button
+          class="mt-4 bg-var(--accent) text-black font-bold px-4 py-2 border-4 border-black rounded-xl hover:translate-x-1 hover:translate-y-1 transition-transform">Ver
+          Proyecto</button>
+      </div>
+
+      <div
+        class="bg-[#141414] border-4 border-var(--secondary) rounded-2xl shadow-[6px_6px_0_var(--accent)] p-6 flex flex-col justify-between hover:translate-y-1 transition-transform">
+        <div>
+          <h3 class="text-2xl font-bold text-var(--primary) mb-2">Portfolio Interactivo</h3>
+          <p class="text-gray-300">Muestra de proyectos con un estilo brutal y vibrante.</p>
+        </div>
+        <button
+          class="mt-4 bg-var(--accent) text-black font-bold px-4 py-2 border-4 border-black rounded-xl hover:translate-x-1 hover:translate-y-1 transition-transform">Ver
+          Proyecto</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer
+    class="mt-20 border-t-4 border-var(--primary) bg-[#141414] shadow-[6px_6px_0_var(--accent)] p-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-var(--secondary) font-bold">&copy; 2025 Jimmy García</p>
+    <div class="flex gap-6 text-var(--primary)">
+      <a href="#" class="hover:text-var(--accent) transition-colors">GitHub</a>
+      <a href="#" class="hover:text-var(--accent) transition-colors">LinkedIn</a>
+      <a href="#" class="hover:text-var(--accent) transition-colors">Twitter</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>

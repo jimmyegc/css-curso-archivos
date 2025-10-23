@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Jimmy García</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0E0E0E;
+      --primary: #00FFF0;
+      --accent: #FF00A8;
+      --secondary: #F5F5F5;
+      --highlight: #FFE600;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--secondary);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-start pt-32 px-6">
+
+  <!-- Título -->
+  <h1 class="text-5xl md:text-6xl font-extrabold text-var(--primary) uppercase mb-10">Contáctame</h1>
+
+  <!-- Formulario -->
+  <form
+    class="w-full max-w-2xl bg-[#141414] border-4 border-var(--secondary) rounded-3xl shadow-[8px_8px_0_var(--accent)] p-8 flex flex-col gap-6">
+
+    <!-- Nombre -->
+    <div class="flex flex-col">
+      <label class="mb-2 font-bold text-var(--primary) uppercase">Nombre</label>
+      <input type="text" placeholder="Tu nombre"
+        class="px-4 py-3 rounded-xl border-4 border-var(--primary) bg-[#1E1E1E] text-var(--secondary) font-bold focus:outline-none focus:ring-2 focus:ring-var(--primary) transition-all" />
+    </div>
+
+    <!-- Correo -->
+    <div class="flex flex-col">
+      <label class="mb-2 font-bold text-var(--primary) uppercase">Correo</label>
+      <input type="email" placeholder="tuemail@ejemplo.com"
+        class="px-4 py-3 rounded-xl border-4 border-var(--primary) bg-[#1E1E1E] text-var(--secondary) font-bold focus:outline-none focus:ring-2 focus:ring-var(--primary) transition-all" />
+    </div>
+
+    <!-- Mensaje -->
+    <div class="flex flex-col">
+      <label class="mb-2 font-bold text-var(--primary) uppercase">Mensaje</label>
+      <textarea placeholder="Escribe tu mensaje..." rows="6"
+        class="px-4 py-3 rounded-xl border-4 border-var(--primary) bg-[#1E1E1E] text-var(--secondary) font-bold focus:outline-none focus:ring-2 focus:ring-var(--primary) transition-all resize-none"></textarea>
+    </div>
+
+    <!-- Botón Enviar -->
+    <button type="submit"
+      class="bg-var(--primary) text-black font-bold px-6 py-3 border-4 border-black rounded-xl hover:translate-x-1 hover:translate-y-1 active:translate-x-0 active:translate-y-0 transition-transform uppercase">Enviar</button>
+
+  </form>
+
+  <article
+    class="w-full max-h-[25rem] overflow-hidden relative group rounded-2xl border-4 border-var(--primary) shadow-[8px_8px_0_var(--accent)]">
+    {/* Botones de acción */}
+    <div class="flex items-center absolute right-4 top-4 z-10 space-x-2">
+      {githubUrl && (
+      <a href={githubUrl}
+        class="text-var(--primary) p-3 bg-[#141414]/70 rounded-full backdrop-blur-md hover:bg-[#141414]/90 hover:scale-110 transition transform duration-300 shadow-[4px_4px_0_var(--accent)]"
+        target="_blank">
+        <IconGithub />
+      </a>
+      )}
+      {liveUrl && (
+      <a href={liveUrl}
+        class="text-var(--primary) p-3 bg-[#141414]/70 rounded-full backdrop-blur-md hover:bg-[#141414]/90 hover:scale-110 transition transform duration-300 shadow-[4px_4px_0_var(--accent)]"
+        target="_blank">
+        <IconLink />
+      </a>
+      )}
+    </div>
+
+    {/* Imagen con proporción */}
+    <div class="aspect-video w-full overflow-hidden relative rounded-xl">
+      <img src={thumbnail} alt={`Thumbnail de ${title}`}
+        class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform ease-out duration-500"
+        loading="lazy" />
+
+      {/* Gradiente */}
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+
+      {/* Información */}
+      <div class="absolute bottom-0 left-0 w-full p-4
+        opacity-100 translate-y-0
+        sm:opacity-0 sm:translate-y-4 sm:group-hover:opacity-100 sm:group-hover:translate-y-0
+        transition-all duration-500 bg-[#141414]/50 backdrop-blur-md rounded-t-xl border-t-4 border-var(--primary)">
+        <h3 class="text-var(--primary) text-lg font-extrabold">{title}</h3>
+        <p class="text-var(--secondary) text-sm mt-1">{technologies}</p>
+        <a href={`/${lang}/project/${id}`}
+          class="inline-block mt-2 text-sm text-var(--accent) underline hover:text-var(--primary) transition-colors">
+          Ver más →
+        </a>
+      </div>
+    </div>
+  </article>
+
+
+</body>
+
+</html>
