@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jimmy García - Full Stack Developer</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!--   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"> -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap');
+
+    :root {
+      --bg: #0E0E0E;
+      --primary: #00FFF0;
+      --accent: #FF00A8;
+      --secondary: #F5F5F5;
+      --highlight: #FFE600;
+    }
+
+    @theme {
+      --color-fondo: #0E0E0E;
+      --color-accent: #FF00A8;
+      --font-heading: 'Bebas Neue', 'sans-serif';
+      --font-subheading: 'Space Grotesk', 'sans-serif';
+      --font-body: 'Inter', 'sans-serif';
+      --font-tech: 'Orbitron', 'sans-serif';
+    }
+
+    /*
+    heading: ['Bebas Neue', 'sans-serif'],
+        subheading: ['Space Grotesk', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        tech: ['Orbitron', 'sans-serif'],
+    */
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--secondary);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      /*font-family: 'Poppins', sans-serif;*/
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero -->
+  <h1 class="font-heading text-6xl text-var(--primary)">
+    Jimmy García
+  </h1>
+  <p class="font-subheading text-xl text-var(--secondary)">
+    Full Stack Developer
+  </p>
+
+  <!-- Card -->
+  <div class="font-body text-sm text-var(--secondary)">
+    Proyecto destacado con tecnologías modernas y diseño brutalista.
+  </div>
+
+  <div class="p-6">
+
+    <!-- Botón tech -->
+    <button
+      class="font-tech text-lg tracking-wider uppercase bg-var(--accent) text-white px-6 py-3 border-4 border-white shadow-[4px_4px_0_var(--primary)] hover:translate-x-1 hover:translate-y-1 transition">
+      Live Demo
+    </button>
+
+  </div>
+
+
+
+</body>
+
+</html>
