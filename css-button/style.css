@@ -1,0 +1,116 @@
+/* Reset y base */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #2c2a4a, #3d3a66);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor principal */
+.container {
+  background-color: #fbf7ff;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+/* Título */
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c2a4a;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-weight: 500;
+  color: #2c2a4a;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #4356ff;
+  box-shadow: 0 0 0 3px rgba(67, 86, 255, 0.2);
+  outline: none;
+}
+
+/* Botón */
+.btn {
+  padding: 14px 24px;
+  background-color: #4356ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #3245d0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(67, 86, 255, 0.3);
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 24px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
