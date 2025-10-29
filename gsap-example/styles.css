@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #050301;
+  color: #fafafa;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.hero-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: blue;
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.hero-image img {
+  width: 100%;  
+}
+
+.menu-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
