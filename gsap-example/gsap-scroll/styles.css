@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  background-color: #1c1c1c;
+  color: white;
+}
+
+section {
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 5rem;
+}
+
+.about-title {
+  font-size: 3rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.about-subtitle {
+  font-size: 2rem;
+  overflow: hidden;
+}
+
+.about-subtitle span {
+  display: inline-block;
+}
+
+.mrchispa-foto {
+  width: 100px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
