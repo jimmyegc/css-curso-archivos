@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark / Light Switch</title>
+  <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #29285a;
+      --card-color: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #f1f1f1;
+      --card-color: #1f1f1f;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: "Poppins", sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .theme-switch {
+      position: relative;
+      width: 60px;
+      height: 32px;
+    }
+
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #ccc;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .slider::before {
+      content: "☀️";
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: transform 0.4s ease, content 0.3s ease;
+    }
+
+    input:checked+.slider {
+      background-color: #4b4b7a;
+    }
+
+    input:checked+.slider::before {
+      transform: translateX(28px);
+      content: "🌙";
+      background-color: #2c2c54;
+      color: #fff;
+    }
+
+    /* Texto de ejemplo */
+    .card {
+      background-color: var(--card-color);
+      padding: 1.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+      transition: background 0.3s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <label class="theme-switch">
+    <input type="checkbox" id="themeToggle" />
+    <span class="slider"></span>
+  </label>
+
+  <div class="card">
+    <h2>Modo <span id="modeText">claro</span></h2>
+    <p>Este es un ejemplo de cambio de tema sin JavaScript ✨</p>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    const modeText = document.getElementById("modeText");
+    const body = document.body;
+
+    // Cargar tema guardado (si existe)
+    if (localStorage.getItem("theme") === "dark") {
+      body.setAttribute("data-theme", "dark");
+      toggle.checked = true;
+      modeText.textContent = "oscuro";
+    }
+
+    toggle.addEventListener("change", () => {
+      if (toggle.checked) {
+        body.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        modeText.textContent = "oscuro";
+      } else {
+        body.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+        modeText.textContent = "claro";
+      }
+    });
+  </script>
+</body>
+
+</html>

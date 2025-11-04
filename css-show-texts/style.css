@@ -1,0 +1,37 @@
+.extra {
+  display: none;
+}
+
+p {
+  display: inline;
+}
+
+input[type="checkbox"] {
+  height: 2em;
+  display: block;
+  appearance: none;
+}
+
+label {
+  position: relative;
+  padding: 1em;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+}
+
+label::before {
+  content: "Read More";
+}
+
+input[type="checkbox"]:checked~label::before {
+  content: 'Read less';
+}
+
+.dots:has(~input[type="checkbox"]:checked) {
+  display: none;
+}
+
+.extra:has(~input[type="checkbox"]:checked) {
+  display: inline;
+}
