@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestor de Tareas Minimalista</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gray-900 text-gray-100 font-sans flex items-center justify-center">
+
+  <main class="w-full max-w-3xl p-6 bg-gray-800 rounded-xl shadow-lg">
+    <!-- Título -->
+    <h1 class="text-3xl font-light mb-6 text-center tracking-wide">Gestor de Tareas</h1>
+
+    <!-- Formulario -->
+    <form action="/" method="POST" class="flex flex-col md:flex-row gap-4 mb-8">
+      <input type="text" name="content" placeholder="Nueva tarea..."
+        class="flex-1 px-4 py-2 rounded-lg border border-gray-700 bg-gray-900 text-gray-100 focus:outline-none focus:ring-2 focus:ring-neon-cyan"
+        required />
+      <button type="submit"
+        class="px-6 py-2 rounded-lg bg-neon-cyan text-gray-900 font-semibold hover:brightness-125 transition">
+        Agregar
+      </button>
+    </form>
+
+    <!-- Tabla -->
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="border-b border-gray-700 text-left">
+            <th class="py-3 px-4 font-light text-gray-400">Tarea</th>
+            <th class="py-3 px-4 font-light text-gray-400">Fecha</th>
+            <th class="py-3 px-4 font-light text-gray-400">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in tasks %}
+          <tr class="border-b border-gray-700 hover:bg-gray-700/30 transition">
+            <td class="py-2 px-4">{{ task.content }}</td>
+            <td class="py-2 px-4 text-gray-400">{{ task.date_created.date() }}</td>
+            <td class="py-2 px-4 flex gap-2">
+              <a href="/delete/{{task.id}}"
+                class="px-3 py-1 rounded bg-neon-pink text-gray-900 font-medium hover:brightness-125 transition">Eliminar</a>
+              <a href="/update/{{task.id}}"
+                class="px-3 py-1 rounded bg-neon-green text-gray-900 font-medium hover:brightness-125 transition">Actualizar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Colores neón personalizados -->
+  <style>
+    .bg-neon-cyan {
+      background-color: #00fff7;
+    }
+
+    .bg-neon-pink {
+      background-color: #ff00f7;
+    }
+
+    .bg-neon-green {
+      background-color: #39ff14;
+    }
+
+    .focus\:ring-neon-cyan:focus {
+      box-shadow: 0 0 10px #00fff7;
+    }
+  </style>
+
+</body>
+
+</html>
