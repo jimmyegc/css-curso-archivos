@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Botón Navideño 3D 🎄</title>
+
+  <style>
+    /* ===== RESET BÁSICO ===== */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at top, #2b2f4a, #0f1020);
+      overflow: hidden;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* ===== BOTÓN 3D ===== */
+    .btn-3d {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      border-radius: 18px;
+      border: 3px solid #2e7d32;
+      background: linear-gradient(145deg, #d32f2f, #b71c1c);
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+
+      box-shadow:
+        0 10px 0 #7f1212,
+        0 16px 28px rgba(0, 0, 0, .45);
+
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+
+    .btn-3d:active {
+      transform: translateY(7px);
+      box-shadow:
+        0 3px 0 #7f1212,
+        0 8px 14px rgba(0, 0, 0, .35);
+    }
+
+    /* ===== CONTENEDOR CONFETTI ===== */
+    #confetti-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* ===== CONFETTI ===== */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: fly 900ms ease-out forwards;
+    }
+
+    .confetti.star {
+      clip-path: polygon(50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%);
+      border-radius: 0;
+    }
+
+    @keyframes fly {
+      to {
+        transform: translate(var(--x), var(--y)) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <button class="btn-3d" id="confettiBtn">🎁</button>
+  <div id="confetti-container"></div>
+
+  <script>
+    const btn = document.getElementById("confettiBtn");
+    const container = document.getElementById("confetti-container");
+
+    const colors = [
+      "#ffffff", // nieve
+      "#c62828", // rojo
+      "#2e7d32", // verde
+      "#fdd835"  // estrella
+    ];
+
+    btn.addEventListener("click", () => {
+      const rect = btn.getBoundingClientRect();
+
+      for (let i = 0; i < 24; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti";
+
+        if (Math.random() > 0.7) {
+          piece.classList.add("star");
+        }
+
+        piece.style.background =
+          colors[Math.floor(Math.random() * colors.length)];
+
+        piece.style.left = rect.left + rect.width / 2 + "px";
+        piece.style.top = rect.top + rect.height / 2 + "px";
+
+        piece.style.setProperty(
+          "--x",
+          `${(Math.random() - 0.5) * 240}px`
+        );
+
+        piece.style.setProperty(
+          "--y",
+          `${Math.random() * -260 - 60}px`
+        );
+
+        container.appendChild(piece);
+
+        piece.addEventListener("animationend", () => {
+          piece.remove();
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>

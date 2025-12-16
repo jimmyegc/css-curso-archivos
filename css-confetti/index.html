@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      background: #1e1e2e;
+      overflow: hidden;
+    }
+
+    .btn-3d {
+      position: relative;
+      font-size: 24px;
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      border: none;
+      background: #f5e6d3;
+      cursor: pointer;
+      box-shadow:
+        0 8px 0 #cbb8a3,
+        0 12px 20px rgba(0, 0, 0, .4);
+      transition: all .1s ease;
+    }
+
+    .btn-3d:active {
+      transform: translateY(6px);
+      box-shadow:
+        0 2px 0 #cbb8a3,
+        0 6px 12px rgba(0, 0, 0, .3);
+    }
+
+    #confetti-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      animation: fall 700ms ease-out forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translate(var(--x), var(--y)) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="btn-3d" id="confettiBtn">
+    🎉
+  </button>
+
+  <div id="confetti-container"></div>
+  <script>
+    const btn = document.getElementById("confettiBtn");
+    const container = document.getElementById("confetti-container");
+
+    btn.addEventListener("click", () => {
+      const rect = btn.getBoundingClientRect();
+
+      for (let i = 0; i < 18; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+
+        confetti.style.background = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        confetti.style.left = rect.left + rect.width / 2 + "px";
+        confetti.style.top = rect.top + rect.height / 2 + "px";
+
+        confetti.style.setProperty("--x", `${(Math.random() - 0.5) * 200}px`);
+        confetti.style.setProperty("--y", `${Math.random() * -200 - 50}px`);
+
+        container.appendChild(confetti);
+
+        confetti.addEventListener("animationend", () => confetti.remove());
+      }
+    });
+  </script>
+
+</body>
+
+</html>
