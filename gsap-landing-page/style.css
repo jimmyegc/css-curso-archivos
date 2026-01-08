@@ -1,0 +1,141 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables simples para mantener orden */
+:root {
+  --primary: #c97a3d;
+  --dark: #1f1f1f;
+  --gray: #6b6b6b;
+  --bg: #f7f4ef;
+  --white: #ffffff;
+  --font: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  padding: 24px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  background-color: var(--bg);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.menu .icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  fill: var(--dark);
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 1px solid blue; */
+}
+
+/* TÍTULO */
+.title {
+  max-width: 500px;
+}
+
+.tag {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.title h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+/* DATOS */
+.datos {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.box h2 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* IMÁGENES */
+.pan-1,
+.pan-2 {
+  position: absolute;
+  max-width: 420px;
+  pointer-events: none;
+}
+
+.pan-1 {
+  left: -150px;
+  bottom: -100px;
+  z-index: 2;
+}
+
+.pan-2 {
+  right: -40px;
+  top: -150px;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  header,
+  .hero {
+    padding: 40px;
+  }
+
+  .title h1 {
+    font-size: 3rem;
+  }
+
+  .datos {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .pan-1,
+  .pan-2 {
+    position: static;
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
