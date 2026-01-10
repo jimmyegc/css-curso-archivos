@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jimmy García – Desarrollador Full Stack</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f0f0f;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p,
+    span,
+    li {
+      color: #ccc;
+    }
+
+    a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero .cta {
+      margin-top: 1.5rem;
+      padding: 0.8rem 2rem;
+      border: 1px solid #fff;
+    }
+
+    /* EXPERIENCE */
+    .experience-item {
+      margin-bottom: 2rem;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid #222;
+      text-align: center;
+    }
+
+    .socials a {
+      margin: 0 1rem;
+      font-weight: 500;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      border: 1px solid #222;
+      padding: 2rem;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: #fff;
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .project-card p {
+      margin-bottom: 1rem;
+    }
+
+    .tech {
+      font-size: 0.8rem;
+      color: #888;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Hola, soy Jimmy García</h1>
+      <p>Desarrollador Full Stack con +20 años de experiencia construyendo soluciones tecnológicas escalables, modernas
+        y de alto impacto para logística, operaciones y PYMEs del sector automotriz. Apasionado por aprendizaje continuo
+        y por transformar ideas en proyectos que funcionan. Abierto a oportunidades y colaboraciones.</p>
+      <div>
+        <a class="cta" href="#experience">Mi experiencia</a>
+        <a class="cta" href="#contact" style="margin-left:1rem;">Contáctame</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA PROFESIONAL -->
+  <section id="experience">
+    <div class="container">
+      <span class="badge">Experiencia profesional</span>
+      <h2>Trayectoria</h2>
+
+      <div class="experience-item">
+        <h3>Noverite México S.A. de C.V.</h3>
+        <span>Feb 2024 – Mar 2025</span>
+        <p>Participé como frontend con React, TypeScript, React Hook Form y Zustand en el sistema b360.ai, ayudando a
+          implementar módulos clave para operación y reportes, además de colaborar con despliegue en AWS.
+          :contentReference[oaicite:1]{index=1}</p>
+      </div>
+
+      <div class="experience-item">
+        <h3>Tupperware Brands México</h3>
+        <span>Jun 2012 – Jul 2023</span>
+        <p>Desarrollo de apps móviles y web con Appcelerator, Unity y tecnologías web modernas (React, Vue, Node,
+          Tailwind). Capacitación técnica interna y soporte para integración con terceros.
+          :contentReference[oaicite:2]{index=2}</p>
+      </div>
+
+      <div class="experience-item">
+        <h3>Global Logos System, S.A. de C.V.</h3>
+        <span>Abr 2011 – May 2012</span>
+        <p>Mantenimiento y desarrollo de módulos (.NET/SQL Server) además de investigación de tendencias tecnológicas
+          para interfaces avanzadas. :contentReference[oaicite:3]{index=3}</p>
+      </div>
+
+      <div class="experience-item">
+        <h3>Amports de México S.A. de C.V.</h3>
+        <span>Nov 2008 – Dic 2010</span>
+        <p>Soporte y desarrollo de soluciones administrativas y sistemas de inventario con Visual Basic y SQL Server.
+          :contentReference[oaicite:4]{index=4}</p>
+      </div>
+
+      <div class="experience-item">
+        <h3>Freelancer</h3>
+        <span>Aug 2004 – Oct 2008</span>
+        <p>Desarrollo de aplicaciones de escritorio y web para control de inventarios, facturación y servicios, junto
+          con soporte técnico integral. :contentReference[oaicite:5]{index=5}</p>
+      </div>
+
+      <div class="experience-item">
+        <h3>Educación</h3>
+        <p>Ingeniero en Sistemas Computacionales, Instituto Tecnológico de Ciudad Madero. Certificación como
+          Desarrollador Vue. :contentReference[oaicite:6]{index=6}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS DESTACADOS -->
+  <section id="projects">
+    <div class="container">
+      <span class="badge">Proyectos destacados</span>
+      <h2>Algunas cosas que he construido</h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Plataforma SaaS de Gestión de Eventos</h3>
+          <p>
+            Sistema web para gestión de invitados, control de asistencia,
+            asignación de mesas, escaneo QR y administración por eventos.
+            Arquitectura pensada para escalar como SaaS.
+          </p>
+          <span class="tech">React · Zustand · Node · UI a medida</span>
+        </div>
+
+        <div class="project-card">
+          <h3>Sistemas Administrativos Internos</h3>
+          <p>
+            Desarrollo de herramientas internas para control de inventarios,
+            reportes operativos y flujos administrativos, optimizando procesos
+            manuales en empresas del sector automotriz.
+          </p>
+          <span class="tech">React · SQL Server · APIs REST</span>
+        </div>
+
+        <div class="project-card">
+          <h3>Landing Pages de Alto Rendimiento</h3>
+          <p>
+            Diseño y desarrollo de landing pages enfocadas en conversión,
+            performance y claridad del mensaje, utilizando animaciones
+            sutiles y código optimizado.
+          </p>
+          <span class="tech">HTML · CSS · GSAP · JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACTO / REDES -->
+  <footer id="contact">
+    <div class="container">
+      <span class="badge">Conecta conmigo</span>
+      <div class="socials">
+        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="mailto:">Email</a>
+      </div>
+      <p style="margin-top:1rem; font-size:0.9rem; color:#777;">© 2025 Jimmy Ernesto García Contreras</p>
+    </div>
+  </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".hero *", {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      stagger: 0.15,
+      ease: "power3.out"
+    });
+
+    gsap.utils.toArray("section:not(.hero)").forEach(section => {
+      gsap.from(section.querySelectorAll("h2, h3, p, .socials a"), {
+        scrollTrigger: { trigger: section, start: "top 80%" },
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out"
+      });
+    });
+
+    gsap.from(".project-card", {
+      scrollTrigger: {
+        trigger: "#projects",
+        start: "top 75%"
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power2.out"
+    });
+
+  </script>
+
+</body>
+
+</html>
