@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jimmy García — Portfolio</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff7ec;
+      color: #2b1d14;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: 600;
+    }
+
+    /* BENTO GRID */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.25rem;
+    }
+
+    .card {
+      border-radius: 20px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 140px;
+    }
+
+    /* COLORS */
+    .yellow {
+      background: #ffc83d;
+    }
+
+    .blue {
+      background: #2f8cff;
+      color: #fff;
+    }
+
+    .pink {
+      background: #ffb3d9;
+    }
+
+    .green {
+      background: #b8e635;
+    }
+
+    .red {
+      background: #5b0000;
+      color: #fff;
+    }
+
+    .cream {
+      background: #fff1d6;
+    }
+
+    /* GRID SPANS */
+    .hero {
+      grid-column: span 6;
+      grid-row: span 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      line-height: 1.05;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      max-width: 90%;
+    }
+
+    .profile {
+      grid-column: span 3;
+    }
+
+    .cta {
+      grid-column: span 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .project {
+      grid-column: span 4;
+    }
+
+    .project span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 0.75rem;
+      display: inline-block;
+    }
+
+    .experience {
+      grid-column: span 6;
+    }
+
+    .contact {
+      grid-column: span 6;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .card {
+        grid-column: span 12 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <section class="bento">
+
+      <!-- HERO -->
+      <div class="card hero yellow">
+        <div>
+          <h1>Crafting software<br>that actually works.</h1>
+          <p>
+            Soy Jimmy García, desarrollador Full Stack con más de 20 años
+            construyendo plataformas web, sistemas internos y productos digitales.
+          </p>
+        </div>
+      </div>
+
+      <!-- PROFILE -->
+      <div class="card profile cream">
+        <h3>Perfil</h3>
+        <p>
+          Especialista en React, arquitectura frontend y productos escalables.
+          Menos ruido, más claridad.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="card cta blue">
+        <a href="https://www.linkedin.com/" target="_blank">
+          Conectar en LinkedIn →
+        </a>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="card project pink">
+        <h3>SaaS de Eventos</h3>
+        <p>Gestión de invitados, mesas, QR y asistencia.</p>
+        <span>React · Zustand</span>
+      </div>
+
+      <div class="card project green">
+        <h3>Sistemas Internos</h3>
+        <p>Inventarios, reportes y flujos operativos.</p>
+        <span>React · SQL · APIs</span>
+      </div>
+
+      <div class="card project blue">
+        <h3>Landing Pages</h3>
+        <p>Diseño y desarrollo enfocado en conversión.</p>
+        <span>HTML · CSS · GSAP</span>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="card experience red">
+        <h3>Noverite México</h3>
+        <p>Frontend Developer trabajando con React, TypeScript y AWS.</p>
+        <span>2024 – 2025</span>
+      </div>
+
+      <div class="card experience cream">
+        <h3>Tupperware Brands</h3>
+        <p>Más de 10 años creando soluciones web y móviles.</p>
+        <span>2012 – 2023</span>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="card contact pink">
+        <h3>Contacto</h3>
+        <p>
+          <a href="mailto:">Email</a> ·
+          <a href="https://github.com/" target="_blank">GitHub</a> ·
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".card", {
+      scrollTrigger: {
+        trigger: ".bento",
+        start: "top 85%"
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.6,
+      stagger: 0.12,
+      ease: "power2.out"
+    });
+  </script>
+
+</body>
+
+</html>

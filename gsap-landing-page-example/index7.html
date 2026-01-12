@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Jimmy García — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <style>
+    :root {
+      --black: #111;
+      --cream: #fff7ed;
+      --orange: #ff8a00;
+      --yellow: #fff685;
+      --green: #1fd18a;
+      --pink: #ffd6f6;
+      --radius: 28px;
+      --border: 3px solid var(--black);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      padding: 24px;
+    }
+
+    h1,
+    h2 {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* GRID */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(140px, auto);
+      gap: 20px;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      border: var(--border);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transform-origin: center;
+    }
+
+    /* CARDS */
+    .hero {
+      grid-column: span 5;
+      background: #fff;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 12px;
+    }
+
+    .motion {
+      grid-column: span 4;
+      background: var(--orange);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: 900;
+    }
+
+    .social {
+      grid-column: span 3;
+      background: #fff;
+    }
+
+    .social ul {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .project-main {
+      grid-column: span 6;
+      background: var(--orange);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 900;
+    }
+
+    .project {
+      grid-column: span 3;
+      background: var(--yellow);
+    }
+
+    .project.green {
+      background: var(--green);
+    }
+
+    .project.pink {
+      background: var(--pink);
+    }
+
+    .about {
+      grid-column: span 4;
+      background: #fff;
+    }
+
+    .experience {
+      grid-column: span 4;
+      background: #fff;
+    }
+
+    .cta {
+      grid-column: span 4;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    /* HOVER */
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .bento {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .card {
+        grid-column: span 6 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="bento">
+
+    <!-- HERO -->
+    <section class="card hero">
+      <h1>Free the developer within</h1>
+      <p>
+        Soy Jimmy García, Frontend / Full Stack Developer.
+        Construyo experiencias web rápidas, escalables y con personalidad.
+      </p>
+    </section>
+
+    <!-- MOTION -->
+    <section class="card motion">
+      Motion
+    </section>
+
+    <!-- SOCIAL -->
+    <section class="card social">
+      <h2>Social</h2>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/jimmy-garcia/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+        <li><a href="https://jimmygarcia.dev" target="_blank">Website</a></li>
+      </ul>
+    </section>
+
+    <!-- PROJECT MAIN -->
+    <section class="card project-main">
+      Proyectos
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="card project">
+      <h2>SaaS Eventos</h2>
+      <p>Gestión de invitados, mesas y asistencia.</p>
+    </section>
+
+    <section class="card project green">
+      <h2>Dashboard React</h2>
+      <p>Tablas, Zustand, edición en línea.</p>
+    </section>
+
+    <section class="card project pink">
+      <h2>Landing Pages</h2>
+      <p>Tailwind, GSAP, performance.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="card about">
+      <h2>Sobre mí</h2>
+      <p>
+        +5 años creando interfaces modernas. Me obsesiona el detalle,
+        la arquitectura limpia y el motion bien usado.
+      </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="card experience">
+      <h2>Experiencia</h2>
+      <p>
+        Frontend / Full Stack — React, Node, GSAP, Tailwind, SaaS.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="card cta">
+      Trabajemos juntos
+    </section>
+
+  </main>
+
+  <script>
+    gsap.from(".card", {
+      opacity: 0,
+      y: 40,
+      stagger: 0.08,
+      duration: 0.8,
+      ease: "power3.out"
+    });
+
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, { scale: 1.02, duration: 0.3 });
+      });
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, { scale: 1, duration: 0.3 });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

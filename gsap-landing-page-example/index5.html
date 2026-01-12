@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jimmy García – Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f2f2f2;
+      color: #111;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid #111;
+    }
+
+    /* BENTO GRID */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(140px, auto);
+      gap: 1.5rem;
+    }
+
+    .box {
+      border: 3px solid #111;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* COLORS */
+    .bg-blue {
+      background: #5fa8ff;
+    }
+
+    .bg-orange {
+      background: #ff9f1c;
+    }
+
+    .bg-green {
+      background: #6ede8a;
+    }
+
+    .bg-purple {
+      background: #b28cff;
+    }
+
+    .bg-yellow {
+      background: #ffe66d;
+    }
+
+    .bg-white {
+      background: #ffffff;
+    }
+
+    /* LAYOUT */
+    .hero {
+      grid-column: span 8;
+      grid-row: span 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      max-width: 620px;
+      font-size: 1.1rem;
+    }
+
+    .about {
+      grid-column: span 4;
+    }
+
+    .project {
+      grid-column: span 4;
+    }
+
+    .project span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .experience {
+      grid-column: span 6;
+    }
+
+    .contact {
+      grid-column: span 6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+
+      .hero,
+      .about,
+      .project,
+      .experience,
+      .contact {
+        grid-column: span 12;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <section class="bento">
+
+      <!-- HERO -->
+      <div class="box hero bg-blue">
+        <div>
+          <h1>Jimmy García</h1>
+          <p>
+            Desarrollador Full Stack con más de 20 años creando software útil:
+            plataformas web, sistemas internos y productos digitales escalables.
+          </p>
+        </div>
+        <span>React · Frontend · Arquitectura</span>
+      </div>
+
+      <!-- ABOUT -->
+      <div class="box about bg-yellow">
+        <strong>Perfil</strong>
+        <p>
+          Enfocado en claridad, mantenibilidad y performance.
+          Construyo productos pensados para durar, no solo para verse bien.
+        </p>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="box project bg-orange">
+        <h3>SaaS de Eventos</h3>
+        <p>Gestión de invitados, mesas, asistencia y escaneo QR.</p>
+        <span>React · Zustand</span>
+      </div>
+
+      <div class="box project bg-green">
+        <h3>Sistemas Administrativos</h3>
+        <p>Inventarios, reportes y flujos internos.</p>
+        <span>React · SQL · APIs</span>
+      </div>
+
+      <div class="box project bg-purple">
+        <h3>Landing Pages</h3>
+        <p>Diseño y desarrollo enfocado en conversión.</p>
+        <span>HTML · CSS · GSAP</span>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="box experience bg-white">
+        <h3>Noverite México</h3>
+        <p>Frontend Developer trabajando con React, TypeScript y AWS.</p>
+        <span>2024 – 2025</span>
+      </div>
+
+      <div class="box experience bg-white">
+        <h3>Tupperware Brands</h3>
+        <p>Más de 10 años desarrollando soluciones web y móviles.</p>
+        <span>2012 – 2023</span>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="box contact bg-blue">
+        <h3>Contacto</h3>
+        <p>Abierto a oportunidades remotas y colaboraciones.</p>
+        <div>
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a><br>
+          <a href="https://github.com/" target="_blank">GitHub</a><br>
+          <a href="mailto:">Email</a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".box", {
+      scrollTrigger: {
+        trigger: ".bento",
+        start: "top 80%"
+      },
+      opacity: 0,
+      y: 40,
+      duration: 0.7,
+      stagger: 0.12,
+      ease: "power2.out"
+    });
+  </script>
+
+</body>
+
+</html>

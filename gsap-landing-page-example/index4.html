@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jimmy García – Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 2px solid #111;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    /* BENTO GRID */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(120px, auto);
+      gap: 1.5rem;
+    }
+
+    .box {
+      border: 3px solid #111;
+      padding: 1.5rem;
+      background: #fff;
+    }
+
+    .hero {
+      grid-column: span 8;
+      grid-row: span 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      max-width: 600px;
+      font-size: 1.1rem;
+    }
+
+    .about {
+      grid-column: span 4;
+    }
+
+    .about strong {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .project {
+      grid-column: span 4;
+    }
+
+    .project h3 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project span {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .experience {
+      grid-column: span 6;
+    }
+
+    .experience h3 {
+      margin-bottom: 0.3rem;
+    }
+
+    .contact {
+      grid-column: span 6;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero,
+      .about,
+      .project,
+      .experience,
+      .contact {
+        grid-column: span 12;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main>
+  <section class="bento">
+
+    <!-- HERO -->
+    <div class="box hero">
+      <h1>Jimmy García</h1>
+      <p>
+        Desarrollador Full Stack con más de 20 años de experiencia construyendo
+        software real: sistemas internos, plataformas web y productos digitales
+        que resuelven problemas operativos.
+      </p>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="box about">
+      <strong>Perfil</strong>
+      <p>
+        Especializado en frontend moderno con React, arquitectura escalable
+        y enfoque en claridad, performance y mantenibilidad.
+      </p>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="box project">
+      <h3>SaaS de Gestión de Eventos</h3>
+      <p>Control de invitados, mesas, asistencia y escaneo QR.</p>
+      <span>React · Zustand · UI a medida</span>
+    </div>
+
+    <div class="box project">
+      <h3>Sistemas Administrativos</h3>
+      <p>Inventarios, reportes y flujos internos para empresas.</p>
+      <span>React · SQL · APIs</span>
+    </div>
+
+    <div class="box project">
+      <h3>Landing Pages</h3>
+      <p>Diseño y desarrollo enfocado en conversión y performance.</p>
+      <span>HTML · CSS · GSAP</span>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="box experience">
+      <h3>Noverite México</h3>
+      <p>Frontend Developer — React, TypeScript, Zustand, AWS.</p>
+      <span>2024 – 2025</span>
+    </div>
+
+    <div class="box experience">
+      <h3>Tupperware Brands</h3>
+      <p>Apps web y móviles, integración de sistemas y liderazgo técnico.</p>
+      <span>2012 – 2023</span>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="box contact">
+      <h3>Contacto</h3>
+      <p>Abierto a oportunidades y colaboraciones.</p>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/" target="_blank">GitHub</a>
+      <a href="mailto:">Email</a>
+    </div>
+
+  </section>
+</main>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".box", {
+    scrollTrigger: {
+      trigger: ".bento",
+      start: "top 80%"
+    },
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: "power2.out"
+  });
+</script>
+
+</body>
+</html>
