@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Lavandería Nova</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header class="nav">
+    <h1 class="logo">Lavandería Nova</h1>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#precios">Precios</a>
+      <a href="#promo">Promoción</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Ropa limpia, <span>sin complicaciones</span></h2>
+      <p>Servicio profesional, rápido y confiable para tu día a día.</p>
+      <a href="#contacto" class="btn-primary">Agenda ahora</a>
+    </div>
+  </section>
+
+  <section id="servicios" class="section">
+    <h3>Servicios</h3>
+    <div class="grid">
+      <div class="card">Lavado y secado</div>
+      <div class="card">Planchado profesional</div>
+      <div class="card">Lavado express</div>
+      <div class="card">Ropa delicada</div>
+    </div>
+  </section>
+
+  <section id="precios" class="section light">
+    <h3>Precios</h3>
+    <div class="grid">
+      <div class="price-card">
+        <h4>Básico</h4>
+        <p class="price">$80</p>
+        <span>Lavado + secado</span>
+      </div>
+      <div class="price-card featured">
+        <h4>Express</h4>
+        <p class="price">$120</p>
+        <span>Entrega el mismo día</span>
+      </div>
+      <div class="price-card">
+        <h4>Premium</h4>
+        <p class="price">$160</p>
+        <span>Incluye planchado</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="promo" class="section promo">
+    <h3>Promoción vigente</h3>
+    <p>20% de descuento en tu primer servicio</p>
+  </section>
+
+  <section id="contacto" class="section">
+    <h3>Contacto</h3>
+    <form class="contact-form">
+      <input type="text" placeholder="Nombre" required />
+      <input type="email" placeholder="Correo" required />
+      <textarea placeholder="Mensaje"></textarea>
+      <button class="btn-primary">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2026 Lavandería Nova</p>
+  </footer>
+
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
