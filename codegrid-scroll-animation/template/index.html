@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hero Shader + GSAP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #0e0e0e;
+      color: #ebf5df;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    canvas.hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      max-width: 900px;
+      line-height: 1.2;
+    }
+
+    section.spacer {
+      height: 200vh;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero">
+    <canvas class="hero-canvas"></canvas>
+
+    <div class="hero-content">
+      <h2>
+        Diseño, animación y código conviviendo en el mismo espacio visual
+      </h2>
+    </div>
+  </div>
+
+  <section class="spacer"></section>
+
+  <script type="module" src="main.js"></script>
+</body>
+
+</html>
