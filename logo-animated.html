@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo Scale on Load</title>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+    }
+
+    /* Logo */
+    .logo {
+      width: 200px;
+      /* tamaño inicial del logo */
+      height: auto;
+      transform: scale(1);
+      /* estado inicial */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGO -->
+  <img src="logo.svg" alt="Logo" class="logo" id="logo" />
+
+  <script>
+    /*
+      Esperamos a que TODA la página esté cargada
+      (incluyendo imágenes) para disparar la animación
+    */
+    window.addEventListener("load", () => {
+      gsap.to("#logo", {
+        scale: 1.25,     // tamaño final (ajustable)
+        duration: 0.6,   // duración suave
+        ease: "power1.out"
+      });
+    });
+  </script>
+
+</body>
+
+</html>

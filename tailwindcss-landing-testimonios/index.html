@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página Corporativa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- HERO -->
+  <header class="bg-white shadow">
+    <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+      <h1 class="text-4xl font-bold mb-4">Soluciones Web claras y efectivas</h1>
+      <p class="text-lg text-gray-600">Páginas corporativas modernas, ligeras y enfocadas en resultados</p>
+    </div>
+  </header>
+
+  <!-- SERVICIOS -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <h2 class="text-3xl font-semibold text-center mb-12">Servicios</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-bold text-xl mb-2">Diseño Corporativo</h3>
+        <p class="text-gray-600">Diseños limpios y profesionales alineados con tu marca.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-bold text-xl mb-2">Desarrollo Web</h3>
+        <p class="text-gray-600">Sitios rápidos, responsive y fáciles de mantener.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-bold text-xl mb-2">Optimización</h3>
+        <p class="text-gray-600">Buenas prácticas de rendimiento y SEO básico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">Testimonios</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 border rounded-xl">
+          <p class="italic text-gray-600">“Trabajo claro, rápido y sin complicaciones.”</p>
+          <span class="block mt-4 font-semibold">— Cliente A</span>
+        </div>
+        <div class="p-6 border rounded-xl">
+          <p class="italic text-gray-600">“Exactamente lo que necesitábamos dentro del presupuesto.”</p>
+          <span class="block mt-4 font-semibold">— Cliente B</span>
+        </div>
+        <div class="p-6 border rounded-xl">
+          <p class="italic text-gray-600">“Proceso transparente y entrega puntual.”</p>
+          <span class="block mt-4 font-semibold">— Cliente C</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <h2 class="text-3xl font-semibold text-center mb-12">Contacto</h2>
+    <form id="contactForm" class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow">
+      <div class="mb-4">
+        <label class="block mb-1">Nombre</label>
+        <input type="text" required class="w-full border px-4 py-2 rounded" />
+      </div>
+      <div class="mb-4">
+        <label class="block mb-1">Email</label>
+        <input type="email" required class="w-full border px-4 py-2 rounded" />
+      </div>
+      <div class="mb-6">
+        <label class="block mb-1">Mensaje</label>
+        <textarea required class="w-full border px-4 py-2 rounded"></textarea>
+      </div>
+      <button class="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition">Enviar mensaje</button>
+      <p id="formMessage" class="text-green-600 text-center mt-4 hidden">Mensaje enviado correctamente</p>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-6 text-center">
+    <p class="text-sm">© 2026 Página corporativa demo</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const message = document.getElementById('formMessage');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      message.classList.remove('hidden');
+      form.reset();
+    });
+  </script>
+
+</body>
+
+</html>
