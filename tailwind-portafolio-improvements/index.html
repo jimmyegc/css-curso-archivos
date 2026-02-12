@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jimmy García | Full Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-neutral-950 text-neutral-100 font-sans">
+
+  <!-- NAVBAR -->
+  <header class="fixed w-full backdrop-blur bg-neutral-950/70 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-lg font-semibold tracking-wide">JG.</h1>
+      <nav class="hidden md:flex gap-8 text-sm">
+        <a href="#projects" class="hover:text-orange-500 transition">Proyectos</a>
+        <a href="#about" class="hover:text-orange-500 transition">Sobre mí</a>
+        <a href="#contact" class="hover:text-orange-500 transition">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="min-h-screen flex items-center justify-center text-center px-6">
+    <div>
+      <h2 class="text-4xl md:text-6xl font-bold leading-tight">
+        Construyo software que <span class="text-orange-500">hace crecer negocios</span>
+      </h2>
+      <p class="mt-6 text-neutral-400 max-w-2xl mx-auto text-lg">
+        Desarrollo aplicaciones web escalables, plataformas SaaS y soluciones a medida
+        usando React, Node.js y arquitectura moderna.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="#projects" class="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-xl font-medium transition">
+          Ver proyectos
+        </a>
+        <a href="#contact" class="border border-neutral-700 hover:border-orange-500 px-6 py-3 rounded-xl transition">
+          Hablemos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMAS QUE RESUELVO -->
+  <section class="py-24 px-6 bg-neutral-900">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-12">¿Qué puedo construir para ti?</h3>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 bg-neutral-800 rounded-2xl hover:scale-105 transition">
+          <h4 class="text-xl font-semibold mb-4">SaaS Escalable</h4>
+          <p class="text-neutral-400">
+            Plataformas multiusuario con autenticación, pagos y panel administrativo.
+          </p>
+        </div>
+
+        <div class="p-8 bg-neutral-800 rounded-2xl hover:scale-105 transition">
+          <h4 class="text-xl font-semibold mb-4">Automatización</h4>
+          <p class="text-neutral-400">
+            Sistemas que reducen tareas manuales y optimizan procesos internos.
+          </p>
+        </div>
+
+        <div class="p-8 bg-neutral-800 rounded-2xl hover:scale-105 transition">
+          <h4 class="text-xl font-semibold mb-4">Aplicaciones a Medida</h4>
+          <p class="text-neutral-400">
+            Desarrollo personalizado según objetivos y necesidades del negocio.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="projects" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold mb-12 text-center">Proyectos Destacados</h3>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-neutral-900 rounded-2xl p-8">
+          <h4 class="text-2xl font-semibold mb-4">Sistema de Facturación</h4>
+          <p class="text-neutral-400 mb-4">
+            Plataforma completa con gestión de clientes, productos y reportes.
+          </p>
+          <a href="#" class="text-orange-500 hover:underline">Ver caso completo →</a>
+        </div>
+
+        <div class="bg-neutral-900 rounded-2xl p-8">
+          <h4 class="text-2xl font-semibold mb-4">Gestión de Eventos SaaS</h4>
+          <p class="text-neutral-400 mb-4">
+            Plataforma para administración de invitados, asientos y escaneo QR.
+          </p>
+          <a href="#" class="text-orange-500 hover:underline">Ver caso completo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="py-24 px-6 bg-neutral-900 text-center">
+    <h3 class="text-3xl font-bold mb-10">Stack Tecnológico</h3>
+    <div class="flex flex-wrap justify-center gap-6 text-neutral-400 text-sm">
+      <span>React</span>
+      <span>Node.js</span>
+      <span>TypeScript</span>
+      <span>Zustand</span>
+      <span>PostgreSQL</span>
+      <span>Supabase</span>
+      <span>Tailwind</span>
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section id="about" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6">Sobre mí</h3>
+      <p class="text-neutral-400 text-lg leading-relaxed">
+        Soy desarrollador Full Stack enfocado en crear productos digitales funcionales,
+        escalables y bien estructurados. Me apasiona diseñar arquitectura limpia,
+        resolver problemas complejos y convertir ideas en soluciones reales.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="contact" class="py-24 px-6 bg-orange-500 text-center text-black">
+    <h3 class="text-3xl font-bold mb-6">¿Listo para construir algo grande?</h3>
+    <p class="mb-8">Estoy disponible para nuevos proyectos y colaboraciones.</p>
+    <a href="mailto:tuemail@email.com" class="bg-black text-white px-8 py-3 rounded-xl">
+      Enviar mensaje
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-neutral-500 text-sm">
+    © 2026 Jimmy García — Full Stack Developer
+  </footer>
+
+</body>
+
+</html>
