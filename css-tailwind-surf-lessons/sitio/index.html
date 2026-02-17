@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WaveLab | Aprende Surf</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            ocean: '#0ea5e9',
+            wave: '#0284c7',
+            sand: '#fef3c7',
+          },
+          animation: {
+            float: 'float 4s ease-in-out infinite',
+            fadeIn: 'fadeIn 1s ease forwards',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            fadeIn: {
+              '0%': { opacity: 0, transform: 'translateY(20px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-white text-gray-800 font-sans scroll-smooth">
+
+  <!-- NAV -->
+  <header class="fixed w-full bg-white/70 backdrop-blur-md z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-extrabold text-ocean tracking-tight">
+        🌊 WaveLab
+      </h1>
+      <nav class="space-x-6 text-sm font-semibold hidden md:block">
+        <a href="#clases" class="hover:text-ocean transition">Clases</a>
+        <a href="#beneficios" class="hover:text-ocean transition">Beneficios</a>
+        <a href="#contacto" class="hover:text-ocean transition">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO CON VIDEO -->
+  <section class="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+      <source src="video-surf.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+
+    <!-- Overlay Oscuro -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <!-- Contenido -->
+    <div class="relative z-10 text-center max-w-3xl px-6 animate-fadeIn">
+      <h2 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+        Aprende Surf.<br>
+        Vive la Ola.
+      </h2>
+      <p class="text-lg md:text-xl text-white/90 mb-8">
+        Clases dinámicas para jóvenes que quieren dominar el mar,
+        ganar confianza y sentir la adrenalina real.
+      </p>
+      <a href="#contacto"
+        class="bg-white text-ocean font-bold px-8 py-3 rounded-full shadow-lg hover:scale-105 transition transform duration-300">
+        Reserva tu clase
+      </a>
+    </div>
+
+  </section>
+
+
+  <!-- CLASES -->
+  <section id="clases" class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto text-center mb-16">
+      <h3 class="text-4xl font-extrabold mb-4">Nuestros Programas</h3>
+      <p class="text-gray-600">Desde principiantes hasta riders intermedios.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+      <div class="bg-sand p-8 rounded-2xl shadow-md hover:-translate-y-2 transition duration-300">
+        <h4 class="text-xl font-bold mb-4">🌊 Nivel Inicial</h4>
+        <p class="text-gray-700 mb-4">
+          Aprende equilibrio, seguridad y técnica básica.
+        </p>
+        <span class="font-semibold text-ocean">$500 MXN</span>
+      </div>
+
+      <div class="bg-sand p-8 rounded-2xl shadow-md hover:-translate-y-2 transition duration-300">
+        <h4 class="text-xl font-bold mb-4">🏄 Intermedio</h4>
+        <p class="text-gray-700 mb-4">
+          Mejora maniobras, timing y lectura de olas.
+        </p>
+        <span class="font-semibold text-ocean">$750 MXN</span>
+      </div>
+
+      <div class="bg-sand p-8 rounded-2xl shadow-md hover:-translate-y-2 transition duration-300">
+        <h4 class="text-xl font-bold mb-4">🔥 Bootcamp Pro</h4>
+        <p class="text-gray-700 mb-4">
+          Entrenamiento intensivo para romper límites.
+        </p>
+        <span class="font-semibold text-ocean">$1,200 MXN</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section id="beneficios" class="py-24 bg-gray-50 px-6">
+    <div class="max-w-6xl mx-auto text-center mb-16">
+      <h3 class="text-4xl font-extrabold mb-4">¿Por qué Surf?</h3>
+      <p class="text-gray-600">No es solo deporte. Es mentalidad.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto text-center">
+      <div class="animate-fadeIn">
+        <div class="text-5xl mb-4">💪</div>
+        <h4 class="font-bold text-lg mb-2">Confianza</h4>
+        <p class="text-gray-600">Supera miedos y domina retos.</p>
+      </div>
+
+      <div class="animate-fadeIn delay-200">
+        <div class="text-5xl mb-4">🌞</div>
+        <h4 class="font-bold text-lg mb-2">Energía</h4>
+        <p class="text-gray-600">Entrena al aire libre y conecta con el mar.</p>
+      </div>
+
+      <div class="animate-fadeIn delay-300">
+        <div class="text-5xl mb-4">🤝</div>
+        <h4 class="font-bold text-lg mb-2">Comunidad</h4>
+        <p class="text-gray-600">Haz amigos que aman la aventura.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-24 bg-ocean text-white px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-4xl font-extrabold mb-6">
+        ¿Listo para tu primera ola?
+      </h3>
+      <p class="mb-8 text-white/90">
+        Escríbenos y agenda tu clase esta semana.
+      </p>
+
+      <form class="grid md:grid-cols-3 gap-4">
+        <input type="text" placeholder="Nombre"
+          class="p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
+        <input type="email" placeholder="Email"
+          class="p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
+        <button type="submit"
+          class="bg-white text-ocean font-bold rounded-lg hover:scale-105 transition transform duration-300">
+          Enviar
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 bg-gray-900 text-gray-400 text-center text-sm">
+    © <span id="year"></span> WaveLab Surf School. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>
