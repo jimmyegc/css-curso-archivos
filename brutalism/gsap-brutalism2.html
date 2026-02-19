@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brutalist GSAP Hero</title>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --text: #f5f5f5;
+      --accent: #ff3c00;
+      --border: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      position: relative;
+    }
+
+    .hero-container {
+      max-width: 1100px;
+      border: 4px solid var(--border);
+      padding: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .line {
+      overflow: hidden;
+      display: block;
+    }
+
+    .line span {
+      display: inline-block;
+    }
+
+    p {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      max-width: 600px;
+      line-height: 1.6;
+      color: #cfcfcf;
+    }
+
+    .cta {
+      margin-top: 3rem;
+      padding: 1rem 2.5rem;
+      background: var(--accent);
+      color: black;
+      border: 3px solid var(--border);
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .block {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: var(--accent);
+      top: -60px;
+      right: -60px;
+      z-index: -1;
+    }
+
+    .next-section {
+      background: var(--accent);
+      color: black;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-container">
+      <div class="block"></div>
+
+      <h1 id="title">
+        <div class="line"><span>Construyo</span></div>
+        <div class="line"><span>Experiencias</span></div>
+        <div class="line"><span>Digitales</span></div>
+      </h1>
+
+      <p id="description">
+        Desarrollo interfaces sólidas, arquitectura limpia y productos que
+        realmente funcionan. Código con intención.
+      </p>
+
+      <button class="cta" id="cta">Ver Proyectos</button>
+    </div>
+  </section>
+
+  <section class="next-section">
+    Próxima Sección
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animación inicial línea por línea
+    const lines = document.querySelectorAll(".line span");
+
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    tl.from(lines, {
+      yPercent: 120,
+      skewY: 8,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.15
+    })
+      .from("#description", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8
+      }, "-=0.8")
+      .from("#cta", {
+        scale: 0.7,
+        opacity: 0,
+        duration: 0.6
+      }, "-=0.6");
+
+    // ScrollTrigger brutalista
+    gsap.to(".hero-container", {
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      },
+      scale: 0.85,
+      rotate: -2
+    });
+
+    gsap.to(".block", {
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      },
+      rotate: 180,
+      scale: 1.5
+    });
+
+    gsap.from(".next-section", {
+      scrollTrigger: {
+        trigger: ".next-section",
+        start: "top bottom",
+        end: "top center",
+        scrub: true
+      },
+      y: 200,
+      opacity: 0
+    });
+  </script>
+
+</body>
+
+</html>
