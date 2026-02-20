@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Minimal Hero</title>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --green: #1fa463;
+      --light-green: #dff5e8;
+      --text-dark: #111111;
+      --soft: #f4fbf6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background: linear-gradient(135deg, #e8f7ee 0%, #c8ecd9 100%);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      position: relative;
+    }
+
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      max-width: 1400px;
+      width: 100%;
+      align-items: center;
+    }
+
+    /* TEXT */
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .line {
+      overflow: hidden;
+      display: block;
+    }
+
+    .line span {
+      display: inline-block;
+    }
+
+    p {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      max-width: 500px;
+      line-height: 1.6;
+      color: #2c2c2c;
+    }
+
+    .cta {
+      margin-top: 2.5rem;
+      padding: 1rem 2.5rem;
+      background: var(--green);
+      color: white;
+      border: none;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* PHOTO CARD */
+
+    .photo-wrapper {
+      position: relative;
+      height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-bg-shape {
+      position: absolute;
+      width: 85%;
+      height: 85%;
+      background: var(--green);
+      border-radius: 40px 120px 40px 120px;
+      border: 2.5px solid #000;
+      z-index: 0;
+      filter: blur(0px);
+    }
+
+    .photo-wrapper img {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      max-height: 650px;
+      object-fit: contain;
+    }
+
+
+    /* NEXT SECTION */
+
+    .next-section {
+      background: var(--green);
+      color: white;
+      font-size: 4rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .frame-svg {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .shape-bg {
+      fill: var(--green);
+    }
+
+    @media (max-width: 900px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .photo-wrapper {
+        height: 60vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-wrapper">
+
+      <div class="text-content">
+        <h1>
+          <div class="line"><span>Descubre el</span></div>
+          <div class="line"><span>mundo del</span></div>
+          <div class="line"><span style="color: var(--green);">desarrollo</span></div>
+        </h1>
+
+        <p>
+          Construyo productos digitales modernos, sólidos y pensados para
+          escalar. Código con intención, diseño con propósito.
+        </p>
+
+        <button class="cta">Ver Proyectos</button>
+      </div>
+
+      <!--       <div class="photo-wrapper">
+        <div class="photo-bg-shape"></div>
+        <img src="tu-foto.png" alt="Fotografía del desarrollador" />
+      </div> -->
+
+      <div class="hero-frame">
+        <svg viewBox="0 0 400 400" class="frame-svg">
+
+          <defs>
+            <clipPath id="heroClip">
+              <path id="shapePath" d="
+          M40 20
+          H320
+          Q340 20 340 40
+          V80
+          H370
+          Q390 80 390 100
+          V170
+          Q390 190 370 190
+          H330
+          V330
+          Q330 360 300 360
+          H70
+          Q40 360 40 330
+          V200
+          H90
+          Q110 200 110 180
+          V120
+          Q110 100 90 100
+          H40
+          Z
+        " />
+            </clipPath>
+          </defs>
+
+          <!-- Fondo verde -->
+          <use href="#shapePath" class="shape-bg" />
+
+          <!-- Imagen recortada -->
+          <image href="tu-foto3.png" width="400" height="400" clip-path="url(#heroClip)"
+            preserveAspectRatio="xMidYMid slice" />
+
+          <!-- Borde negro -->
+          <use href="#shapePath" fill="none" stroke="black" stroke-width="2" stroke-linejoin="round" />
+
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="next-section">
+    Próxima Sección
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const lines = document.querySelectorAll(".line span");
+
+    // Animación entrada texto por línea
+    gsap.from(lines, {
+      yPercent: 120,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.15,
+      ease: "power4.out"
+    });
+
+    // Entrada foto
+    gsap.from(".photo-wrapper img", {
+      x: 100,
+      opacity: 0,
+      duration: 1.4,
+      ease: "power4.out",
+      delay: 0.3
+    });
+
+    // Animación forma verde
+    gsap.from(".photo-bg-shape", {
+      scale: 0.8,
+      rotate: 10,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power4.out"
+    });
+
+    // Scroll parallax en foto
+    gsap.to(".photo-wrapper img", {
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      },
+      y: -80
+    });
+
+    // Transición llamativa hacia la siguiente sección
+    gsap.from(".next-section", {
+      scrollTrigger: {
+        trigger: ".next-section",
+        start: "top 80%",
+        end: "top 30%",
+        scrub: true
+      },
+      y: 200,
+      opacity: 0,
+      scale: 0.9
+    });
+
+  </script>
+
+</body>
+
+</html>

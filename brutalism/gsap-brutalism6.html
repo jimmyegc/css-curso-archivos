@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero con Marco SVG</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <style>
+    :root {
+      --green: #16a34a;
+      --light: #e8f7ef;
+      --text: #111;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, sans-serif;
+      background: linear-gradient(135deg, #e9f8ef, #cdeedd);
+      color: var(--text);
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+    }
+
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      max-width: 1300px;
+      width: 100%;
+      align-items: center;
+    }
+
+    /* TEXT */
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .line {
+      overflow: hidden;
+    }
+
+    .line span {
+      display: inline-block;
+    }
+
+    p {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      max-width: 500px;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: var(--green);
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+
+    /* FOTO + MARCO */
+
+    .photo-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 1/1;
+    }
+
+    .photo-container svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .photo-container img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      clip-path: url(#mask-shape);
+    }
+
+    /* Responsive */
+    @media(max-width:900px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <div class="hero-wrapper">
+
+      <div>
+        <h1>
+          <div class="line"><span>Meet some</span></div>
+          <div class="line"><span>Google Developer</span></div>
+          <div class="line"><span style="color:var(--green)">Benefits</span></div>
+        </h1>
+
+        <p>
+          Desarrollo productos digitales modernos, limpios
+          y pensados para escalar.
+        </p>
+
+        <button class="cta">Ver más</button>
+      </div>
+
+      <div class="photo-container">
+
+        <!-- SVG con máscara -->
+        <svg viewBox="0 0 500 500">
+
+          <defs>
+            <clipPath id="mask-shape">
+              <path d="
+              M100 40
+              H400
+              Q460 40 460 100
+              V200
+              Q500 230 460 260
+              V400
+              Q460 460 400 460
+              H100
+              Q40 460 40 400
+              V260
+              Q0 230 40 200
+              V100
+              Q40 40 100 40
+              Z" />
+            </clipPath>
+          </defs>
+
+          <!-- Fondo verde -->
+          <path fill="var(--green)" d="
+              M100 40
+              H400
+              Q460 40 460 100
+              V200
+              Q500 230 460 260
+              V400
+              Q460 460 400 460
+              H100
+              Q40 460 40 400
+              V260
+              Q0 230 40 200
+              V100
+              Q40 40 100 40
+              Z" />
+        </svg>
+
+        <img src="tu-foto.png" alt="Tu foto">
+
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    // animación entrada texto simple
+    gsap.from(".line span", {
+      y: 100,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 1,
+      ease: "power4.out"
+    });
+
+    gsap.from(".photo-container", {
+      x: 100,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power4.out",
+      delay: 0.3
+    });
+  </script>
+
+</body>
+
+</html>

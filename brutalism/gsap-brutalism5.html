@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SVG Morph Hero</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --green: #16a34a;
+      --light: #dff5e8;
+      --text: #111;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, sans-serif;
+      background: linear-gradient(135deg, #e9f8ef, #cdeedd);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+    }
+
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      max-width: 1300px;
+      width: 100%;
+      align-items: center;
+    }
+
+    /* TEXT */
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .line {
+      overflow: hidden;
+      display: block;
+    }
+
+    .line span {
+      display: inline-block;
+    }
+
+    p {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      max-width: 500px;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: var(--green);
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+
+    /* SVG PHOTO */
+
+    .photo-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 1/1;
+    }
+
+    .photo-container svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .photo-img {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-img img {
+      height: 90%;
+      object-fit: contain;
+      z-index: 2;
+    }
+
+    /* NEXT SECTION */
+
+    .next-section {
+      background: var(--green);
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media(max-width:900px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-wrapper">
+
+      <div>
+        <h1>
+          <div class="line"><span>Meet some</span></div>
+          <div class="line"><span>Google Developer</span></div>
+          <div class="line"><span style="color:var(--green)">Benefits</span></div>
+        </h1>
+
+        <p>
+          Construyo experiencias digitales modernas con diseño
+          y arquitectura limpia.
+        </p>
+
+        <button class="cta">Ver más</button>
+      </div>
+
+      <div class="photo-container">
+
+        <svg viewBox="0 0 500 500">
+          <path id="blob" fill="var(--green)" d="M80,80 
+             Q80,40 120,40 
+             L380,40 
+             Q420,40 420,80 
+             L420,200 
+             Q460,220 460,250 
+             Q460,280 420,300 
+             L420,420 
+             Q420,460 380,460 
+             L120,460 
+             Q80,460 80,420 
+             L80,300 
+             Q40,280 40,250 
+             Q40,220 80,200 
+             Z" />
+        </svg>
+
+        <div class="photo-img">
+          <img src="tu-foto.png" alt="Foto desarrollador">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="next-section">
+    Next Section
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const lines = document.querySelectorAll(".line span");
+
+    // Animación texto
+    gsap.from(lines, {
+      yPercent: 120,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.15,
+      ease: "power4.out"
+    });
+
+    // Segundo estado del blob (misma estructura de puntos)
+    const blob = document.querySelector("#blob");
+
+    const shape1 = blob.getAttribute("d");
+
+    const shape2 = `
+M90,70 
+Q70,20 150,50 
+L350,30 
+Q450,60 430,120 
+L450,220 
+Q480,240 450,280 
+Q430,320 450,350 
+L430,430 
+Q380,480 320,450 
+L150,470 
+Q60,430 90,350 
+L70,280 
+Q30,250 70,220 
+Z
+`;
+
+    // Morph infinito suave
+    gsap.to(blob, {
+      duration: 4,
+      attr: { d: shape2 },
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+
+    // ScrollTrigger para deformar más al hacer scroll
+    gsap.to(blob, {
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      },
+      scale: 1.15,
+      rotate: 10
+    });
+
+    // Entrada foto
+    gsap.from(".photo-img img", {
+      x: 80,
+      opacity: 0,
+      duration: 1.4,
+      ease: "power4.out",
+      delay: 0.4
+    });
+
+    // Entrada siguiente sección
+    gsap.from(".next-section", {
+      scrollTrigger: {
+        trigger: ".next-section",
+        start: "top 80%",
+        end: "top 30%",
+        scrub: true
+      },
+      y: 200,
+      opacity: 0
+    });
+
+  </script>
+
+</body>
+
+</html>
