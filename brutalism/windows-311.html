@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jimmy García - Windows 3.1 Portfolio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: "MS Sans Serif", Tahoma, sans-serif;
+      background: #008080;
+      /* clásico teal */
+      overflow: hidden;
+    }
+
+    /* Ventana 3.1 */
+    .win-window {
+      position: absolute;
+      background: #c0c0c0;
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      width: 400px;
+    }
+
+    .title-bar {
+      background: #000080;
+      color: white;
+      padding: 4px 6px;
+      font-size: 14px;
+      cursor: move;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .win-btn {
+      background: #c0c0c0;
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      padding: 0px 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .desktop-icon {
+      text-align: center;
+      width: 90px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .program-manager {
+      background: #c0c0c0;
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      padding: 4px 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Barra superior -->
+  <div class="program-manager fixed top-0 left-0 w-full flex justify-between">
+    <div>Program Manager</div>
+    <div>Jimmy García Portfolio</div>
+  </div>
+
+  <!-- Iconos -->
+  <div class="absolute top-20 left-10 space-y-8">
+
+    <div class="desktop-icon" onclick="openWindow('about')">
+      🗂️
+      <div>Acerca de mí</div>
+    </div>
+
+    <div class="desktop-icon" onclick="openWindow('experience')">
+      📁
+      <div>Experiencia</div>
+    </div>
+
+    <div class="desktop-icon" onclick="openWindow('projects')">
+      📂
+      <div>Proyectos</div>
+    </div>
+
+  </div>
+
+  <!-- ABOUT -->
+  <div id="about" class="win-window hidden top-32 left-40">
+    <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+      <span>Acerca de mí</span>
+      <button onclick="closeWindow('about')" class="win-btn">X</button>
+    </div>
+    <div class="p-4 text-sm">
+      <p><strong>Jimmy García</strong></p>
+      <p>Frontend Engineer enfocado en arquitectura limpia y performance.</p>
+      <p class="mt-2">React, Vue, Astro, Node.js</p>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div id="experience" class="win-window hidden top-40 left-80">
+    <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+      <span>Experiencia</span>
+      <button onclick="closeWindow('experience')" class="win-btn">X</button>
+    </div>
+    <div class="p-4 text-sm space-y-2">
+      <p><strong>Frontend Engineer</strong></p>
+      <p>Desarrollo de aplicaciones web escalables.</p>
+      <p>Optimización de performance y arquitectura modular.</p>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div id="projects" class="win-window hidden top-60 left-120">
+    <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+      <span>Proyectos</span>
+      <button onclick="closeWindow('projects')" class="win-btn">X</button>
+    </div>
+    <div class="p-4 text-sm space-y-2">
+      <p>🎟️ SaaS Gestión de Eventos</p>
+      <p>📦 Sistema POS e Inventario</p>
+      <p>🌐 Landing pages profesionales</p>
+    </div>
+  </div>
+
+  <script>
+    let activeWindow = null;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    function openWindow(id) {
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    function closeWindow(id) {
+      document.getElementById(id).classList.add("hidden");
+    }
+
+    function dragStart(e, element) {
+      activeWindow = element;
+      offsetX = e.clientX - element.offsetLeft;
+      offsetY = e.clientY - element.offsetTop;
+
+      document.onmousemove = drag;
+      document.onmouseup = stopDrag;
+    }
+
+    function drag(e) {
+      if (!activeWindow) return;
+      activeWindow.style.left = (e.clientX - offsetX) + "px";
+      activeWindow.style.top = (e.clientY - offsetY) + "px";
+    }
+
+    function stopDrag() {
+      activeWindow = null;
+      document.onmousemove = null;
+      document.onmouseup = null;
+    }
+  </script>
+
+</body>
+
+</html>

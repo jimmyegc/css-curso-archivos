@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jimmy García - XP Portfolio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      overflow: hidden;
+    }
+
+    /* XP Window */
+    .xp-window {
+      position: absolute;
+      background: #ece9d8;
+      border: 2px solid #0054e3;
+      box-shadow: 4px 4px 0px #00000040;
+    }
+
+    .xp-titlebar {
+      background: linear-gradient(to right, #0a246a, #3a6ea5);
+      color: white;
+      padding: 4px 8px;
+      cursor: move;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .xp-button {
+      background: #d4d0c8;
+      border: 1px solid #808080;
+      padding: 2px 6px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .xp-taskbar {
+      background: linear-gradient(to top, #245edb, #3a6ea5);
+      height: 40px;
+    }
+
+    .start-button {
+      background: linear-gradient(to bottom, #3cb043, #2e8b2e);
+      border-radius: 6px;
+      padding: 4px 12px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .start-menu {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      width: 220px;
+      background: #ece9d8;
+      border: 2px solid #0054e3;
+      display: none;
+    }
+
+    .icon {
+      cursor: pointer;
+      text-align: center;
+      width: 80px;
+    }
+  </style>
+</head>
+
+<body class="bg-blue-700">
+
+  <!-- Desktop Icons -->
+  <div class="absolute top-10 left-10 text-white space-y-6">
+    <div class="icon" onclick="openWindow('about')">
+      🖥️
+      <p class="text-sm">Acerca de mí</p>
+    </div>
+
+    <div class="icon" onclick="openWindow('experience')">
+      📁
+      <p class="text-sm">Experiencia</p>
+    </div>
+
+    <div class="icon" onclick="openWindow('projects')">
+      📂
+      <p class="text-sm">Proyectos</p>
+    </div>
+  </div>
+
+  <!-- ABOUT WINDOW -->
+  <div id="about" class="xp-window hidden w-96 top-20 left-40">
+    <div class="xp-titlebar" onmousedown="dragStart(event, this.parentElement)">
+      <span>Acerca de mí</span>
+      <button onclick="closeWindow('about')" class="xp-button">X</button>
+    </div>
+    <div class="p-4 text-sm">
+      <p><strong>Jimmy García</strong></p>
+      <p>Frontend Engineer enfocado en arquitectura escalable y performance.</p>
+      <p class="mt-2">React, Vue, Astro, Node.js</p>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE WINDOW -->
+  <div id="experience" class="xp-window hidden w-[500px] top-32 left-60">
+    <div class="xp-titlebar" onmousedown="dragStart(event, this.parentElement)">
+      <span>Experiencia Profesional</span>
+      <button onclick="closeWindow('experience')" class="xp-button">X</button>
+    </div>
+    <div class="p-4 text-sm space-y-2">
+      <p><strong>Frontend Engineer</strong></p>
+      <p>Desarrollo de aplicaciones web escalables.</p>
+      <p>Optimización de performance y arquitectura limpia.</p>
+    </div>
+  </div>
+
+  <!-- PROJECTS WINDOW -->
+  <div id="projects" class="xp-window hidden w-[500px] top-40 left-80">
+    <div class="xp-titlebar" onmousedown="dragStart(event, this.parentElement)">
+      <span>Proyectos</span>
+      <button onclick="closeWindow('projects')" class="xp-button">X</button>
+    </div>
+    <div class="p-4 text-sm space-y-2">
+      <p>🎟️ SaaS Gestión de Eventos</p>
+      <p>📦 Sistema POS e Inventario</p>
+      <p>🎨 Landing pages para negocios</p>
+    </div>
+  </div>
+
+  <!-- TASKBAR -->
+  <div class="xp-taskbar fixed bottom-0 w-full flex items-center px-2">
+    <div class="start-button" onclick="toggleStart()">Start</div>
+  </div>
+
+  <!-- START MENU -->
+  <div id="startMenu" class="start-menu p-2 text-sm">
+    <p onclick="openWindow('about')" class="cursor-pointer hover:bg-blue-200 p-1">Acerca de mí</p>
+    <p onclick="openWindow('experience')" class="cursor-pointer hover:bg-blue-200 p-1">Experiencia</p>
+    <p onclick="openWindow('projects')" class="cursor-pointer hover:bg-blue-200 p-1">Proyectos</p>
+  </div>
+
+  <script>
+    let activeWindow = null;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    function openWindow(id) {
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    function closeWindow(id) {
+      document.getElementById(id).classList.add("hidden");
+    }
+
+    function toggleStart() {
+      const menu = document.getElementById("startMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    function dragStart(e, element) {
+      activeWindow = element;
+      offsetX = e.clientX - element.offsetLeft;
+      offsetY = e.clientY - element.offsetTop;
+
+      document.onmousemove = drag;
+      document.onmouseup = stopDrag;
+    }
+
+    function drag(e) {
+      if (!activeWindow) return;
+      activeWindow.style.left = (e.clientX - offsetX) + "px";
+      activeWindow.style.top = (e.clientY - offsetY) + "px";
+    }
+
+    function stopDrag() {
+      activeWindow = null;
+      document.onmousemove = null;
+      document.onmouseup = null;
+    }
+  </script>
+
+</body>
+
+</html>
