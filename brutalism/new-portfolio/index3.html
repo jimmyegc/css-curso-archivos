@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DevOS Portfolio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <style>
+    body {
+      background: #008080;
+      font-family: "Tahoma", sans-serif;
+      overflow: hidden;
+    }
+
+    /* escritorio */
+
+    .desktop {
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+
+    /* iconos */
+
+    .icon {
+      width: 90px;
+      text-align: center;
+      cursor: pointer;
+      color: white;
+    }
+
+    .icon img {
+      margin: auto;
+    }
+
+    /* ventana estilo win 3.11 */
+
+    .window {
+      position: absolute;
+      background: #c0c0c0;
+      border: 2px solid #000;
+      box-shadow: 6px 6px 0px black;
+      width: 420px;
+      display: none;
+    }
+
+    .titlebar {
+      background: #000080;
+      color: white;
+      padding: 6px;
+      font-weight: bold;
+      cursor: move;
+    }
+
+    .window-body {
+      padding: 16px;
+      background: #e0e0e0;
+    }
+
+    .taskbar {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: #c0c0c0;
+      border-top: 2px solid black;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+    }
+
+    .start {
+      background: #c0c0c0;
+      border: 2px solid black;
+      padding: 4px 10px;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="desktop">
+
+    <!-- iconos -->
+
+    <div class="icon absolute top-10 left-10" onclick="openWindow('about')">
+      <img src="https://cdn-icons-png.flaticon.com/512/716/716784.png" width="40">
+      <p>Sobre mi</p>
+    </div>
+
+    <div class="icon absolute top-28 left-10" onclick="openWindow('stack')">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" width="40">
+      <p>Stack</p>
+    </div>
+
+    <div class="icon absolute top-46 left-10" onclick="openWindow('projects')">
+      <img src="https://cdn-icons-png.flaticon.com/512/906/906324.png" width="40">
+      <p>Proyectos</p>
+    </div>
+
+    <div class="icon absolute top-64 left-10" onclick="openWindow('contact')">
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="40">
+      <p>Contacto</p>
+    </div>
+
+    <!-- ventana sobre mi -->
+
+    <div id="about" class="window" style="top:120px;left:200px">
+
+      <div class="titlebar">
+        Sobre mi
+      </div>
+
+      <div class="window-body">
+
+        <p>
+          Desarrollador de software especializado en React,
+          arquitectura frontend y creación de productos SaaS.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- stack -->
+
+    <div id="stack" class="window" style="top:160px;left:260px">
+
+      <div class="titlebar">
+        Stack
+      </div>
+
+      <div class="window-body">
+
+        <ul>
+          <li>React</li>
+          <li>Next.js</li>
+          <li>TypeScript</li>
+          <li>Node</li>
+          <li>AWS</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- proyectos -->
+
+    <div id="projects" class="window" style="top:200px;left:320px">
+
+      <div class="titlebar">
+        Proyectos destacados
+      </div>
+
+      <div class="window-body grid grid-cols-2 gap-4">
+
+        <div class="border p-2 bg-white">
+          Event Manager
+        </div>
+
+        <div class="border p-2 bg-white">
+          SaaS Platform
+        </div>
+
+        <div class="border p-2 bg-white">
+          Analytics Dashboard
+        </div>
+
+        <div class="border p-2 bg-white">
+          AI Assistant
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- contacto -->
+
+    <div id="contact" class="window" style="top:240px;left:380px">
+
+      <div class="titlebar">
+        Contacto
+      </div>
+
+      <div class="window-body">
+
+        <p>Agenda una llamada para hablar de tu proyecto.</p>
+
+        <button class="border bg-white px-4 py-2 mt-4">
+          Agendar llamada
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="taskbar">
+
+      <div class="start">
+        Start
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let z = 10
+
+    function openWindow(id) {
+
+      const win = document.getElementById(id)
+
+      win.style.display = "block"
+
+      gsap.fromTo(win,
+        { scale: 0.5, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.3 })
+
+      win.style.zIndex = ++z
+
+    }
+
+    document.querySelectorAll(".window").forEach(win => {
+
+      const bar = win.querySelector(".titlebar")
+
+      bar.onmousedown = function (e) {
+
+        let shiftX = e.clientX - win.getBoundingClientRect().left
+        let shiftY = e.clientY - win.getBoundingClientRect().top
+
+        function moveAt(pageX, pageY) {
+          win.style.left = pageX - shiftX + "px"
+          win.style.top = pageY - shiftY + "px"
+        }
+
+        function onMouseMove(e) {
+          moveAt(e.pageX, e.pageY)
+        }
+
+        document.addEventListener("mousemove", onMouseMove)
+
+        document.onmouseup = function () {
+          document.removeEventListener("mousemove", onMouseMove)
+          document.onmouseup = null
+        }
+
+      }
+
+    })
+
+  </script>
+
+</body>
+
+</html>
+```

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tareas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Tareas</h1>
+  <form id="tarea-form">
+    <label for="tarea">Tarea:</label>
+    <input type="text" id="tarea" required>
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion" required>
+    <button type="submit">Guardar</button>
+  </form>
+  <ul id="tareas-listado">
+    <!-- Tareas listadas desde localstorage -->
+  </ul>
+
+  <script src="tareas.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>

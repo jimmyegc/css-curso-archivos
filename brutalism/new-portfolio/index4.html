@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jimmy García | Web Developer</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #b6f29c;
+      background-image:
+        linear-gradient(#8cd67c 1px, transparent 1px),
+        linear-gradient(90deg, #8cd67c 1px, transparent 1px);
+      background-size: 40px 40px;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+    }
+
+    /* ventana principal */
+
+    .window {
+      background: #d6d4c6;
+      border: 4px solid black;
+      border-radius: 16px;
+      box-shadow: 0 6px 0 black;
+    }
+
+    /* barra */
+
+    .topbar {
+      height: 40px;
+      background: #d6d4c6;
+      border-bottom: 3px solid black;
+      display: flex;
+      align-items: center;
+      padding-left: 14px;
+      gap: 10px;
+    }
+
+    .circle {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+
+    .red {
+      background: #ff3b30;
+    }
+
+    .yellow {
+      background: #ffcc00;
+    }
+
+    .green {
+      background: #00c853;
+    }
+
+    .icon {
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .icon:hover {
+      transform: scale(1.15);
+    }
+
+    .app-window {
+      position: absolute;
+      background: white;
+      border: 3px solid black;
+      padding: 20px;
+      width: 420px;
+      display: none;
+      box-shadow: 6px 6px 0 black;
+    }
+  </style>
+
+</head>
+
+<body class="flex items-center justify-center h-screen">
+
+  <!-- MAIN WINDOW -->
+
+  <div class="window w-[90%] max-w-[1200px]">
+
+    <div class="topbar">
+
+      <div class="circle red"></div>
+      <div class="circle yellow"></div>
+      <div class="circle green"></div>
+
+    </div>
+
+    <div class="p-10 grid md:grid-cols-3 gap-10 items-center">
+
+      <!-- ICONS -->
+
+      <div class="flex flex-col gap-6 items-center">
+
+        <div onclick="openApp('about')" class="icon text-center">
+          <div class="text-4xl">👨‍💻</div>
+          <p>About</p>
+        </div>
+
+        <div onclick="openApp('stack')" class="icon text-center">
+          <div class="text-4xl">⚙️</div>
+          <p>Stack</p>
+        </div>
+
+        <div onclick="openApp('projects')" class="icon text-center">
+          <div class="text-4xl">🚀</div>
+          <p>Projects</p>
+        </div>
+
+        <div onclick="openApp('contact')" class="icon text-center">
+          <div class="text-4xl">📞</div>
+          <p>Contact</p>
+        </div>
+
+      </div>
+
+
+      <!-- LOGOS -->
+
+      <div class="flex flex-col items-center gap-6 text-center">
+
+        <div class="flex gap-6 text-5xl">
+
+          <span>⚛️</span>
+          <span>🟩</span>
+          <span>⬢</span>
+
+        </div>
+
+        <h2 class="text-3xl font-semibold tracking-wide">
+
+          CREATIVE<br>
+          WEB<br>
+          SOLUTIONS
+
+        </h2>
+
+      </div>
+
+
+      <!-- NAME -->
+
+      <div class="text-right">
+
+        <h1 class="text-5xl font-extrabold leading-tight">
+
+          JIMMY<br>
+          GARCÍA
+
+        </h1>
+
+        <div class="mt-4 inline-block bg-green-400 px-4 py-2 font-bold">
+
+          WEB DEVELOPER
+
+        </div>
+
+        <div class="bg-blue-700 text-white px-4 py-2 inline-block mt-2">
+
+          jimmygarcia.dev
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- APP WINDOWS -->
+
+  <div id="about" class="app-window" style="top:120px;left:200px">
+
+    <h2 class="text-xl font-bold mb-4">About Me</h2>
+
+    <p>
+
+      Software developer especializado en React, arquitectura frontend
+      y creación de plataformas SaaS escalables.
+
+    </p>
+
+  </div>
+
+
+  <div id="stack" class="app-window" style="top:180px;left:260px">
+
+    <h2 class="text-xl font-bold mb-4">Stack</h2>
+
+    <ul class="space-y-1">
+
+      <li>React</li>
+      <li>Next.js</li>
+      <li>TypeScript</li>
+      <li>Node.js</li>
+      <li>AWS</li>
+
+    </ul>
+
+  </div>
+
+
+  <div id="projects" class="app-window" style="top:240px;left:320px">
+
+    <h2 class="text-xl font-bold mb-4">Projects</h2>
+
+    <div class="grid grid-cols-2 gap-4">
+
+      <div class="border p-2">Event Manager</div>
+      <div class="border p-2">SaaS Platform</div>
+      <div class="border p-2">Analytics Dashboard</div>
+      <div class="border p-2">AI Assistant</div>
+
+    </div>
+
+  </div>
+
+
+  <div id="contact" class="app-window" style="top:300px;left:380px">
+
+    <h2 class="text-xl font-bold mb-4">Contact</h2>
+
+    <button class="bg-black text-white px-4 py-2">
+
+      Agendar llamada
+
+    </button>
+
+  </div>
+
+  ```html
+  <!-- PIXEL AVATAR -->
+
+  <div id="avatar" style="
+position:fixed;
+bottom:20px;
+left:20px;
+font-size:32px;
+pointer-events:none;
+">
+    🧑‍💻
+  </div>
+
+
+  <!-- TERMINAL WINDOW -->
+
+  <div id="terminal" style="
+position:absolute;
+top:120px;
+left:200px;
+width:520px;
+background:black;
+color:#00ff9c;
+font-family:monospace;
+padding:20px;
+border:3px solid white;
+display:none;
+">
+
+    <div id="terminal-output">
+      Portfolio Terminal v1.0
+      Type "help"
+    </div>
+
+    <div class="flex mt-2">
+
+      <span>> </span>
+
+      <input id="terminal-input" class="bg-black outline-none flex-1 ml-2" />
+
+    </div>
+
+  </div>
+
+
+
+  <script>
+
+    /* ========= AVATAR MOVEMENT ========= */
+
+    const avatar = document.getElementById("avatar")
+
+    function moveAvatar() {
+
+      const x = Math.random() * (window.innerWidth - 50)
+
+      gsap.to(avatar, {
+        x: x,
+        duration: 6,
+        ease: "none",
+        onComplete: moveAvatar
+      })
+
+    }
+
+    moveAvatar()
+
+
+
+    /* ========= SECRET TERMINAL ========= */
+
+    let secret = ""
+
+    document.addEventListener("keydown", (e) => {
+
+      secret += e.key
+
+      if (secret.length > 20) {
+        secret = secret.slice(-20)
+      }
+
+      if (secret.includes("npm run hire-me")) {
+
+        openTerminal()
+
+        secret = ""
+
+      }
+
+    })
+
+
+    function openTerminal() {
+
+      const term = document.getElementById("terminal")
+
+      term.style.display = "block"
+
+      gsap.fromTo(term,
+        { scale: .7, opacity: 0 },
+        { scale: 1, opacity: 1, duration: .4 })
+
+      document.getElementById("terminal-input").focus()
+
+    }
+
+
+
+    /* ========= TERMINAL COMMANDS ========= */
+
+    const input = document.getElementById("terminal-input")
+    const output = document.getElementById("terminal-output")
+
+    input.addEventListener("keydown", (e) => {
+
+      if (e.key === "Enter") {
+
+        const cmd = input.value.trim()
+
+        handleCommand(cmd)
+
+        input.value = ""
+
+      }
+
+    })
+
+
+
+    function handleCommand(cmd) {
+
+      let response = ""
+
+      switch (cmd) {
+
+        case "help":
+          response = `
+Commands:
+about
+projects
+contact
+clear
+`
+          break
+
+        case "about":
+          response = `
+Jimmy García
+Frontend / Fullstack Developer
+React · Node · SaaS Builder
+`
+          break
+
+        case "projects":
+          response = `
+Event Manager
+SaaS Platform
+Analytics Dashboard
+AI Assistant
+`
+          break
+
+        case "contact":
+          response = `
+Email: hello@jimmygarcia.dev
+LinkedIn: /jimmygarcia
+`
+          break
+
+        case "clear":
+          output.innerHTML = ""
+          return
+
+        default:
+          response = "Command not found"
+
+      }
+
+      output.innerHTML += `<br>> ${cmd}<br>${response}`
+
+    }
+
+  </script>
+  ```
+
+
+
+  <script>
+
+    let z = 10
+
+    function openApp(id) {
+
+      const el = document.getElementById(id)
+
+      el.style.display = "block"
+
+      gsap.fromTo(el,
+        { scale: .6, opacity: 0 },
+        { scale: 1, opacity: 1, duration: .35 })
+
+      el.style.zIndex = ++z
+
+    }
+
+  </script>
+
+</body>
+
+</html>
+```

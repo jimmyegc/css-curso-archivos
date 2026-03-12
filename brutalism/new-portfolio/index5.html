@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Jimmy García | Portfolio OS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <style>
+    body {
+      background: #b6f29c;
+      background-image:
+        linear-gradient(#8cd67c 1px, transparent 1px),
+        linear-gradient(90deg, #8cd67c 1px, transparent 1px);
+      background-size: 40px 40px;
+      font-family: Tahoma, sans-serif;
+      overflow: hidden;
+    }
+
+    /* desktop icons */
+
+    .icon {
+      width: 80px;
+      text-align: center;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+    }
+
+    .icon:hover {
+      transform: scale(1.1);
+    }
+
+    /* window */
+
+    .window {
+      position: absolute;
+      background: #c0c0c0;
+      border: 3px solid black;
+      box-shadow: 6px 6px 0 black;
+      width: 420px;
+    }
+
+    .titlebar {
+      background: #000080;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px;
+      cursor: move;
+      font-size: 14px;
+    }
+
+    .window-body {
+      background: #efefe8;
+      padding: 12px;
+    }
+
+    .btn {
+      width: 16px;
+      height: 16px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+
+    .min {
+      background: #ffd54f
+    }
+
+    .max {
+      background: #4caf50
+    }
+
+    .close {
+      background: #f44336
+    }
+
+    /* terminal */
+
+    #terminal {
+      position: absolute;
+      top: 120px;
+      left: 300px;
+      width: 520px;
+      background: black;
+      color: #00ff9c;
+      font-family: monospace;
+      padding: 16px;
+      display: none;
+      border: 3px solid white;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- PIXEL AVATAR -->
+
+  <div id="avatar" style="
+position:fixed;
+bottom:20px;
+left:20px;
+font-size:30px;
+pointer-events:none;">
+    🧑‍💻
+  </div>
+
+  <!-- DESKTOP ICONS -->
+
+  <div class="absolute top-6 left-6 flex flex-col gap-6">
+
+    <div class="icon" onclick="openWindow('projects')">
+      🚀
+      <div>Projects</div>
+    </div>
+
+    <div class="icon" onclick="openWindow('contact')">
+      📞
+      <div>Contact</div>
+    </div>
+
+  </div>
+
+  <!-- ABOUT WINDOW -->
+
+  <div class="window" id="about" style="top:120px;left:200px">
+
+    <div class="titlebar">
+
+      <span>About</span>
+
+      <div class="flex gap-1">
+
+        <div class="btn min"></div>
+        <div class="btn max"></div>
+        <div class="btn close"></div>
+
+      </div>
+
+    </div>
+
+    <div class="window-body">
+
+      <p>
+        Jimmy García — Software Developer especializado en React,
+        arquitectura frontend y desarrollo de plataformas SaaS.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- STACK -->
+
+  <div class="window" id="stack" style="top:120px;left:650px">
+
+    <div class="titlebar">
+
+      <span>Stack</span>
+
+      <div class="flex gap-1">
+
+        <div class="btn min"></div>
+        <div class="btn max"></div>
+        <div class="btn close"></div>
+
+      </div>
+
+    </div>
+
+    <div class="window-body">
+
+      <ul>
+
+        <li>React</li>
+        <li>Next.js</li>
+        <li>TypeScript</li>
+        <li>Node.js</li>
+        <li>AWS</li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <!-- EXPERIENCE -->
+
+  <div class="window" id="experience" style="top:350px;left:400px">
+
+    <div class="titlebar">
+
+      <span>Experience</span>
+
+      <div class="flex gap-1">
+
+        <div class="btn min"></div>
+        <div class="btn max"></div>
+        <div class="btn close"></div>
+
+      </div>
+
+    </div>
+
+    <div class="window-body">
+
+      <p>
+
+        Frontend / Fullstack developer con experiencia en
+        arquitectura web moderna y aplicaciones SaaS.
+
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- PROJECTS -->
+
+  <div class="window hidden" id="projects" style="top:200px;left:500px">
+
+    <div class="titlebar">
+
+      <span>Projects</span>
+
+      <div class="flex gap-1">
+
+        <div class="btn min"></div>
+        <div class="btn max"></div>
+        <div class="btn close"></div>
+
+      </div>
+
+    </div>
+
+    <div class="window-body grid grid-cols-2 gap-2">
+
+      <div class="border p-2">Event Manager</div>
+      <div class="border p-2">SaaS Platform</div>
+      <div class="border p-2">Analytics Dashboard</div>
+      <div class="border p-2">AI Assistant</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- CONTACT -->
+
+  <div class="window hidden" id="contact" style="top:260px;left:550px">
+
+    <div class="titlebar">
+
+      <span>Contact</span>
+
+      <div class="flex gap-1">
+
+        <div class="btn min"></div>
+        <div class="btn max"></div>
+        <div class="btn close"></div>
+
+      </div>
+
+    </div>
+
+    <div class="window-body">
+
+      <button class="bg-black text-white px-4 py-2">
+
+        Agendar llamada
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- TERMINAL -->
+
+  <div id="terminal">
+
+    <div id="terminal-output">
+
+      Portfolio Terminal v1.0
+      Type "help"
+
+    </div>
+
+    <div class="flex mt-2">
+
+      <span>></span>
+
+      <input id="terminal-input" class="bg-black outline-none flex-1 ml-2">
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* WINDOW MANAGER */
+
+    let z = 10
+
+    document.querySelectorAll(".window").forEach(win => {
+
+      const bar = win.querySelector(".titlebar")
+      const close = win.querySelector(".close")
+      const min = win.querySelector(".min")
+      const max = win.querySelector(".max")
+
+      win.addEventListener("mousedown", () => {
+        win.style.zIndex = ++z
+      })
+
+      close.onclick = () => {
+        gsap.to(win, { scale: .6, opacity: 0, duration: .2, onComplete: () => win.style.display = "none" })
+      }
+
+      min.onclick = () => {
+        gsap.to(win, { y: window.innerHeight, opacity: 0, duration: .3 })
+      }
+
+      let maximized = false
+
+      max.onclick = () => {
+
+        if (!maximized) {
+
+          gsap.to(win, { top: 0, left: 0, width: "100%", height: "100%", duration: .3 })
+          maximized = true
+
+        } else {
+
+          gsap.to(win, { width: 420, height: "auto", duration: .3 })
+          maximized = false
+
+        }
+
+      }
+
+      bar.onmousedown = e => {
+
+        let shiftX = e.clientX - win.getBoundingClientRect().left
+        let shiftY = e.clientY - win.getBoundingClientRect().top
+
+        function moveAt(pageX, pageY) {
+          win.style.left = pageX - shiftX + "px"
+          win.style.top = pageY - shiftY + "px"
+        }
+
+        function onMouseMove(e) {
+          moveAt(e.pageX, e.pageY)
+        }
+
+        document.addEventListener("mousemove", onMouseMove)
+
+        document.onmouseup = function () {
+          document.removeEventListener("mousemove", onMouseMove)
+          document.onmouseup = null
+        }
+
+      }
+
+    })
+
+
+    function openWindow(id) {
+
+      const win = document.getElementById(id)
+
+      win.style.display = "block"
+
+      gsap.fromTo(win, { scale: .6, opacity: 0 }, { scale: 1, opacity: 1, duration: .3 })
+
+    }
+
+
+
+    /* AVATAR */
+
+    const avatar = document.getElementById("avatar")
+
+    function moveAvatar() {
+
+      const x = Math.random() * (window.innerWidth - 80)
+
+      gsap.to(avatar, {
+        x: x,
+        duration: 6,
+        ease: "none",
+        onComplete: moveAvatar
+      })
+
+    }
+
+    moveAvatar()
+
+
+
+    /* TERMINAL EASTER EGG */
+
+    let secret = ""
+
+    document.addEventListener("keydown", e => {
+
+      secret += e.key
+
+      if (secret.length > 20) {
+        secret = secret.slice(-20)
+      }
+
+      if (secret.includes("npm run hire-me")) {
+        openTerminal()
+        secret = ""
+      }
+
+    })
+
+    function openTerminal() {
+
+      const term = document.getElementById("terminal")
+
+      term.style.display = "block"
+
+      gsap.fromTo(term, { scale: .7, opacity: 0 }, { scale: 1, opacity: 1, duration: .4 })
+
+      document.getElementById("terminal-input").focus()
+
+    }
+
+
+
+    /* TERMINAL COMMANDS */
+
+    const input = document.getElementById("terminal-input")
+    const output = document.getElementById("terminal-output")
+
+    input.addEventListener("keydown", e => {
+
+      if (e.key === "Enter") {
+
+        const cmd = input.value.trim()
+
+        let response = ""
+
+        switch (cmd) {
+
+          case "help":
+            response = "about, projects, contact, clear"
+            break
+
+          case "about":
+            response = "Jimmy García - Software Developer"
+            break
+
+          case "projects":
+            response = "Event Manager, SaaS Platform, Analytics Dashboard"
+            break
+
+          case "contact":
+            response = "jimmygarcia.dev"
+            break
+
+          case "clear":
+            output.innerHTML = ""
+            return
+
+          default:
+            response = "command not found"
+
+        }
+
+        output.innerHTML += `<br>> ${cmd}<br>${response}`
+
+        input.value = ""
+
+      }
+
+    })
+
+
+
+    /* BOOT ANIMATION */
+
+    gsap.from(".window", { scale: .7, opacity: 0, stagger: .15, duration: .4 })
+
+  </script>
+
+</body>
+
+</html>
+```

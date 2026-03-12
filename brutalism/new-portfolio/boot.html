@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JimmyOS Boot</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <style>
+    body {
+      background: black;
+      color: #33ff33;
+      font-family: monospace;
+      font-size: 18px;
+      padding: 40px;
+      overflow: hidden;
+    }
+
+    .line {
+      opacity: 0;
+      margin: 6px 0;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background: #33ff33;
+      margin-left: 4px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0
+      }
+
+      100% {
+        opacity: 1
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="bios">
+
+    <div class="line">JimmyOS BIOS v1.0</div>
+    <div class="line">Copyright (C) 2026 Jimmy Systems</div>
+
+    <br>
+
+    <div class="line">Initializing portfolio kernel...</div>
+    <div class="line">Detecting developer modules...</div>
+    <div class="line">Loading React subsystem...</div>
+    <div class="line">Mounting project filesystem...</div>
+    <div class="line">Checking coffee levels........ OK</div>
+
+    <br>
+
+    <div class="line">Starting Portfolio UI...</div>
+
+    <div class="line">Redirecting<span class="cursor"></span></div>
+
+  </div>
+
+  <audio id="beep">
+    <source src="https://www.soundjay.com/button/sounds/beep-07.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+
+    const lines = document.querySelectorAll(".line")
+    const beep = document.getElementById("beep")
+
+    let delay = 0
+
+    lines.forEach((line, i) => {
+
+      gsap.to(line, {
+        opacity: 1,
+        duration: 0.3,
+        delay: delay,
+        onStart: () => {
+          beep.currentTime = 0
+          beep.play()
+        }
+      })
+
+      delay += 0.45
+
+    })
+
+    setTimeout(() => {
+
+      window.location.href = "portafolio.html"
+
+    }, 4200)
+
+  </script>
+
+</body>
+
+</html>

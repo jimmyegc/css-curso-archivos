@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio | Software Developer</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family: 'Space Grotesk', sans-serif;
+background:#ffffff;
+color:#000;
+}
+
+.brutal-border{
+border:4px solid black;
+}
+
+.brutal-shadow{
+box-shadow:8px 8px 0px black;
+}
+
+</style>
+
+</head>
+
+<body class="px-6 md:px-16">
+
+<!-- HERO -->
+
+<section class="min-h-screen flex flex-col justify-center">
+
+<h1 class="hero-title text-6xl md:text-8xl font-bold leading-tight mb-6">
+Software<br>
+Developer
+</h1>
+
+<p class="hero-sub text-xl max-w-xl brutal-border p-4 brutal-shadow">
+Construyo aplicaciones web rápidas, escalables y centradas en producto.
+Me especializo en React, arquitectura frontend y experiencias digitales
+que realmente funcionan.
+</p>
+
+<div class="mt-10 flex gap-6">
+<a href="#contact"
+class="px-6 py-3 bg-black text-white brutal-border brutal-shadow hover:translate-x-1 hover:translate-y-1 transition">
+Agendar llamada
+</a>
+
+<a href="#projects"
+class="px-6 py-3 brutal-border brutal-shadow hover:translate-x-1 hover:translate-y-1 transition">
+Ver proyectos
+</a>
+</div>
+
+</section>
+
+<!-- SOBRE MI -->
+
+<section class="py-24">
+
+<h2 class="section-title text-4xl md:text-5xl font-bold mb-10">
+Quién soy
+</h2>
+
+<div class="grid md:grid-cols-2 gap-10">
+
+<p class="about-text text-lg brutal-border p-6 brutal-shadow">
+Soy desarrollador de software enfocado en crear productos digitales
+eficientes. Trabajo principalmente con tecnologías modernas del
+ecosistema JavaScript y diseño arquitecturas que escalan bien en
+equipos y proyectos reales.
+
+Me gusta construir herramientas que ayuden a empresas a crecer
+mediante tecnología.
+</p>
+
+<p class="about-text text-lg brutal-border p-6 brutal-shadow">
+Tengo experiencia desarrollando interfaces complejas, integrando APIs,
+optimización de performance y diseño de sistemas frontend robustos.
+
+También me interesa el desarrollo de SaaS y plataformas que resuelvan
+problemas reales.
+</p>
+
+</div>
+
+</section>
+
+<!-- STACK -->
+
+<section class="py-24">
+
+<h2 class="section-title text-4xl md:text-5xl font-bold mb-12">
+Stack
+</h2>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+<div class="stack brutal-border brutal-shadow p-6 font-semibold">
+React
+</div>
+
+<div class="stack brutal-border brutal-shadow p-6 font-semibold">
+Next.js
+</div>
+
+<div class="stack brutal-border brutal-shadow p-6 font-semibold">
+TypeScript
+</div>
+
+<div class="stack brutal-border brutal-shadow p-6 font-semibold">
+Node.js
+</div>
+
+<div class="stack brutal-border brutal-shadow p-6 font-semibold">
+AWS
+</div>
+
+<div class="stack brutal-border brutal-shadow p-6 font-semibold">
+PostgreSQL
+</div>
+
+<div class="stack brutal-border brutal-shadow p-6 font-semibold">
+Docker
+</div>
+
+<div class="stack brutal-border brutal-shadow p-6 font-semibold">
+Tailwind
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCIA -->
+
+<section class="py-24">
+
+<h2 class="section-title text-4xl md:text-5xl font-bold mb-12">
+Experiencia
+</h2>
+
+<div class="space-y-8">
+
+<div class="exp brutal-border brutal-shadow p-6">
+<h3 class="text-2xl font-bold mb-2">Frontend Developer</h3>
+<p class="text-sm opacity-70 mb-2">2022 - Presente</p>
+<p>
+Desarrollo de aplicaciones web con React, optimización de interfaces
+complejas y arquitectura frontend escalable.
+</p>
+</div>
+
+<div class="exp brutal-border brutal-shadow p-6">
+<h3 class="text-2xl font-bold mb-2">Full Stack Developer</h3>
+<p class="text-sm opacity-70 mb-2">2020 - 2022</p>
+<p>
+Construcción de APIs, dashboards administrativos y plataformas SaaS
+para gestión de datos y usuarios.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- REDES -->
+
+<section class="py-24">
+
+<h2 class="section-title text-4xl md:text-5xl font-bold mb-12">
+Redes
+</h2>
+
+<div class="flex flex-wrap gap-6">
+
+<a class="social brutal-border brutal-shadow px-6 py-4 hover:translate-x-1 hover:translate-y-1 transition">
+GitHub
+</a>
+
+<a class="social brutal-border brutal-shadow px-6 py-4 hover:translate-x-1 hover:translate-y-1 transition">
+LinkedIn
+</a>
+
+<a class="social brutal-border brutal-shadow px-6 py-4 hover:translate-x-1 hover:translate-y-1 transition">
+Twitter
+</a>
+
+<a class="social brutal-border brutal-shadow px-6 py-4 hover:translate-x-1 hover:translate-y-1 transition">
+Email
+</a>
+
+</div>
+
+</section>
+
+<!-- PROYECTOS -->
+
+<section id="projects" class="py-24">
+
+<h2 class="section-title text-4xl md:text-5xl font-bold mb-12">
+Proyectos destacados
+</h2>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+<div class="project brutal-border brutal-shadow p-6">
+<h3 class="text-xl font-bold mb-3">Project One</h3>
+<p class="text-sm mb-4">
+Aplicación web para gestión de usuarios y datos.
+</p>
+<button class="brutal-border px-4 py-2">Ver proyecto</button>
+</div>
+
+<div class="project brutal-border brutal-shadow p-6">
+<h3 class="text-xl font-bold mb-3">Project Two</h3>
+<p class="text-sm mb-4">
+Dashboard analítico con visualización de métricas.
+</p>
+<button class="brutal-border px-4 py-2">Ver proyecto</button>
+</div>
+
+<div class="project brutal-border brutal-shadow p-6">
+<h3 class="text-xl font-bold mb-3">Project Three</h3>
+<p class="text-sm mb-4">
+Plataforma SaaS para gestión de clientes.
+</p>
+<button class="brutal-border px-4 py-2">Ver proyecto</button>
+</div>
+
+<div class="project brutal-border brutal-shadow p-6">
+<h3 class="text-xl font-bold mb-3">Project Four</h3>
+<p class="text-sm mb-4">
+Aplicación móvil con backend en Node.js.
+</p>
+<button class="brutal-border px-4 py-2">Ver proyecto</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section id="contact" class="py-24">
+
+<h2 class="section-title text-4xl md:text-5xl font-bold mb-10">
+Agendar una llamada
+</h2>
+
+<div class="max-w-xl brutal-border brutal-shadow p-8">
+
+<p class="mb-6">
+Si quieres hablar sobre un proyecto o colaboración,
+agenda una llamada conmigo.
+</p>
+
+<a class="px-6 py-3 bg-black text-white brutal-border brutal-shadow inline-block hover:translate-x-1 hover:translate-y-1 transition">
+Agendar reunión
+</a>
+
+</div>
+
+</section>
+
+<script>
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".hero-title",{
+y:120,
+opacity:0,
+duration:1
+})
+
+gsap.from(".hero-sub",{
+y:60,
+opacity:0,
+delay:0.3,
+duration:1
+})
+
+gsap.utils.toArray(".section-title").forEach(el=>{
+gsap.from(el,{
+scrollTrigger:el,
+x:-80,
+opacity:0,
+duration:0.8
+})
+})
+
+gsap.utils.toArray(".stack").forEach((el,i)=>{
+gsap.from(el,{
+scrollTrigger:el,
+y:40,
+opacity:0,
+delay:i*0.05
+})
+})
+
+gsap.from(".exp",{
+scrollTrigger:".exp",
+y:60,
+opacity:0,
+stagger:0.2
+})
+
+gsap.from(".project",{
+scrollTrigger:"#projects",
+scale:0.8,
+opacity:0,
+stagger:0.2,
+duration:0.6
+})
+
+</script>
+
+</body>
+</html>
+```
