@@ -2,6 +2,23 @@ let editorOpen = false;
 const DEFAULT_STATUS = "Markdown";
 //editor.scrollTop = 0;
 
+document.addEventListener("DOMContentLoaded", () => {
+  initRoom();
+});
+
+function initRoom() {
+  const monitor = document.querySelector(".monitor");
+
+  if (!monitor) return;
+
+  gsap.to(monitor, {
+    scale: 1.05,
+    duration: 1,
+    repeat: -1,
+    yoyo: true,
+  });
+}
+
 const hotspots = document.querySelectorAll(".hotspot");
 const tooltip = document.getElementById("tooltip");
 
@@ -403,15 +420,16 @@ tabs.addEventListener("auxclick", (e) => {
   }
 });
 
-const windowVideo = document.querySelector(".window-video");
+const video = document.querySelector(".window-video");
 
 document.addEventListener("mousemove", (e) => {
-  const x = (window.innerWidth / 2 - e.clientX) / 60;
-  const y = (window.innerHeight / 2 - e.clientY) / 60;
+  const x = (window.innerWidth / 2 - e.clientX) / 80;
+  const y = (window.innerHeight / 2 - e.clientY) / 80;
 
-  gsap.to(windowVideo, {
+  gsap.to(video, {
     x,
     y,
-    duration: 1.5,
+    duration: 2,
+    ease: "power2.out",
   });
 });
