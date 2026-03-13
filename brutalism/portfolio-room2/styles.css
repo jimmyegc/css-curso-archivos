@@ -47,16 +47,17 @@ height:13%;
 
 object-fit:cover;
 
-z-index:1; */
+z-index:1;*/
 }
 
 
 .window-video{
 position:absolute;
-top:6%;
-left:30%;
-width:40%;
-height:60%;
+object-fit: cover;
+top: 5%;
+left: 20%;
+width: 50%;
+height: 60%;
 z-index: 1;
 filter: brightness(.85) contrast(1.1) saturate(1.1);
 }
@@ -187,8 +188,8 @@ outline:2px solid rgba(255,255,255,.5);
 position:absolute;
 cursor:pointer;
 border-radius:8px;
-background:rgba(255,0,0,0.15);
-border:2px dashed red;
+/*background:rgba(255,0,0,0.15);
+ border:2px dashed red; */
 }
 
 /* Intro Message */
@@ -617,16 +618,15 @@ opacity:.8;
 transform:scale(1.05);
 }
 
-}
+}.room-light{
 
-.room-light{
 position:absolute;
 
-top:45%;
-left:38%;
+top:48%;
+left:42%;
 
-width:40%;
-height:35%;
+width:45%;
+height:40%;
 
 background:radial-gradient(
 circle,
@@ -635,13 +635,36 @@ rgba(120,180,255,.15) 40%,
 transparent 70%
 );
 
-filter:blur(60px);
+filter:blur(80px);
 
 pointer-events:none;
 
-z-index:2;
+mix-blend-mode:screen;
+
+opacity:.6;
 
 animation:ambientLight 6s ease-in-out infinite;
+
 }
 
+.window-video{
+z-index:1;
+}
 
+.room-image{
+z-index:2;
+}
+
+.room-light{
+z-index:3;
+mix-blend-mode:screen;
+opacity:.5;
+}
+
+.monitor-overlay{
+z-index:4;
+}
+
+.hotspot{
+z-index:5;
+}
