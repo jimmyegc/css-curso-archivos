@@ -27,7 +27,6 @@ pointer-events:none;
 z-index:9999;
 }
 /* CONTENEDOR PRINCIPAL */
-
 .room-container{
 position:relative;
 max-width:1376px;
@@ -37,10 +36,8 @@ aspect-ratio:1376/768;
 overflow:hidden;
 }
 
-/* VIDEO DE LA VENTANA */
-
 .window-video{
-position:absolute;
+/*position:absolute;
 
 top:50%;
 left:41%;
@@ -50,40 +47,60 @@ height:13%;
 
 object-fit:cover;
 
-z-index:1;
+z-index:1; */
+}
 
+
+.window-video{
+position:absolute;
+top:6%;
+left:30%;
+width:40%;
+height:60%;
+z-index: 1;
+filter: brightness(.85) contrast(1.1) saturate(1.1);
+}
+
+.window-video::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(
+120deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,0)
+);
 pointer-events:none;
-
-border-radius:4px;
-
-filter:brightness(.85) contrast(1.1) saturate(1.1);
-animation:screenFlicker 6s infinite;
-/*outline:4px solid red;*/
 }
 
-@keyframes screenFlicker{
-0%,100%{opacity:1}
-48%{opacity:.98}
-49%{opacity:.92}
-50%{opacity:1}
-}
-
-/* IMAGEN DEL CUARTO */
+.room-light{ z-index:2; }
 
 .room-image{
 position:relative;
 width:100%;
-display:block;
-z-index:2;
+z-index:3;
 }
 
+@keyframes monitorGlow{
+0%,100%{box-shadow:0 0 30px rgba(120,180,255,.25);}
+50%{box-shadow:0 0 50px rgba(120,180,255,.35);}
+}
+
+.monitor-overlay{
+z-index:4;
+animation: monitorGlow 4s infinite;
+
+}
 
 /* HOTSPOTS */
 
 .hotspot{
 position:absolute;
 z-index:5;
-background:rgba(255,0,0,.2);
+/*background:rgba(255,0,0,.2); */
 
 }
 
@@ -91,7 +108,7 @@ background:rgba(255,0,0,.2);
 
 .poster{
 position:absolute;
-z-index:6;
+z-index:5;
 }
 
 /* TOOLTIP */
@@ -107,7 +124,7 @@ position:absolute;
 cursor:pointer;
 border-radius:10px;
 transition:all .25s ease;
-background:rgba(255,0,0,.2);
+/* background:rgba(255,0,0,.2); */
 z-index:4;
 }
 
@@ -156,7 +173,7 @@ right:5%;
 width:16%;
 height:50%;
 position:absolute;
-z-index:5;
+z-index:6;
 }
 
 .game:hover{
@@ -586,4 +603,45 @@ top:12px;
 right:20px;
 z-index:10000;
 }
+
+
+@keyframes ambientLight{
+
+0%,100%{
+opacity:.6;
+transform:scale(1);
+}
+
+50%{
+opacity:.8;
+transform:scale(1.05);
+}
+
+}
+
+.room-light{
+position:absolute;
+
+top:45%;
+left:38%;
+
+width:40%;
+height:35%;
+
+background:radial-gradient(
+circle,
+rgba(120,180,255,.35) 0%,
+rgba(120,180,255,.15) 40%,
+transparent 70%
+);
+
+filter:blur(60px);
+
+pointer-events:none;
+
+z-index:2;
+
+animation:ambientLight 6s ease-in-out infinite;
+}
+
 
