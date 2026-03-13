@@ -16,7 +16,7 @@
   <!-- NAVBAR -->
 
   <header class="absolute w-full top-0 z-20">
-    <nav class="flex justify-between items-center px-6 py-4 backdrop-blur-sm">
+    <!--  <nav class="flex justify-between items-center px-6 py-4 backdrop-blur-sm">
 
 
       <h1 class="font-semibold text-lg">
@@ -33,7 +33,31 @@
       </ul>
 
     </nav>
+ -->
 
+
+    <nav class="flex justify-between items-center px-6 py-4 backdrop-blur-sm">
+
+      <h1 class="font-semibold text-lg">Jimmy.dev</h1>
+
+      <div class="flex items-center gap-6">
+
+        <ul class="hidden md:flex gap-6 text-sm opacity-80">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Experience</a></li>
+          <li><a href="#">Skills</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Education</a></li>
+          <!-- <li><a href="#">Game</a></li> -->
+        </ul>
+
+        <button id="themeToggle" class="text-xs px-3 py-1 border rounded">
+          ☀️ / 🌙
+        </button>
+
+      </div>
+
+    </nav>
 
   </header>
 
@@ -44,16 +68,16 @@
 
 
 
-
     <div class="room-container" id="room">
 
-      <video class="window-video" autoplay muted loop playsinline>
-        <source src="assets/window3.mp4" type="video/mp4">
+      <video id="backgroundVideo" class="background-video" autoplay muted loop playsinline>
+        <source src="assets/video_dark.mp4" type="video/mp4">
       </video>
+
 
       <div class="room-light"></div>
 
-      <img src="assets/room6.png" class="room-image">
+      <img src="assets/room6.png" class="room-image" id="roomImage">
 
 
       <div class="intro-message">

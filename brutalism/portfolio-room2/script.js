@@ -337,3 +337,48 @@ function initExit() {
       });
   });
 }
+
+const toggleBtn = document.getElementById("themeToggle");
+const roomImage = document.getElementById("roomImage");
+const bgVideo = document.getElementById("backgroundVideo");
+
+function setTheme(theme) {
+  gsap.to("#backgroundVideo", {
+    opacity: 0,
+    duration: 0.4,
+    onComplete: () => {
+      if (theme === "light") {
+        roomImage.src = "assets/room-light.png";
+        bgVideo.src = "assets/bg-light.mp4";
+        bgVideo.playbackRate = 0.7;
+      } else {
+        roomImage.src = "assets/room-dark.png";
+        bgVideo.src = "assets/bg-dark.mp4";
+        bgVideo.playbackRate = 0.7;
+      }
+
+      bgVideo.load();
+
+      gsap.to("#backgroundVideo", {
+        opacity: 0.35,
+        duration: 0.4,
+      });
+    },
+  });
+
+  document.body.dataset.theme = theme;
+  localStorage.setItem("theme", theme);
+}
+toggleBtn.addEventListener("click", () => {
+  const current = document.body.dataset.theme;
+
+  if (current === "dark") {
+    setTheme("light");
+  } else {
+    setTheme("dark");
+  }
+});
+
+const savedTheme = localStorage.getItem("theme") || "dark";
+
+setTheme(savedTheme);
