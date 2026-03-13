@@ -1,3 +1,4 @@
+let editorOpen = false;
 const hotspots = document.querySelectorAll(".hotspot");
 const tooltip = document.getElementById("tooltip");
 
@@ -37,6 +38,8 @@ function handleClick(label) {
   console.log("clicked:", label);
 
   if (label === "Enter Portfolio") {
+    editorOpen = true;
+
     const tl = gsap.timeline();
 
     tl.to("#room", {
@@ -48,6 +51,10 @@ function handleClick(label) {
       .to("#room", {
         opacity: 0,
         duration: 0.4,
+      })
+
+      .set("#room", {
+        clearProps: "transform",
       })
 
       .to("#vscode", {
@@ -80,6 +87,8 @@ function handleClick(label) {
 const room = document.querySelector(".room-container");
 
 document.addEventListener("mousemove", (e) => {
+  if (editorOpen) return;
+
   const x = (window.innerWidth / 2 - e.clientX) / 40;
   const y = (window.innerHeight / 2 - e.clientY) / 40;
 
@@ -308,6 +317,8 @@ files.forEach((file) => {
 const exitBtn = document.getElementById("exitEditor");
 
 exitBtn.addEventListener("click", () => {
+  editorOpen = false;
+
   const tl = gsap.timeline();
 
   tl.to("#vscode", {
@@ -321,7 +332,7 @@ exitBtn.addEventListener("click", () => {
       scale: 1,
       x: 0,
       y: 0,
-      duration: 0.8,
+      duration: 0.6,
       ease: "power2.inOut",
     });
 });
