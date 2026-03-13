@@ -1,14 +1,26 @@
 let editorOpen = false;
 const DEFAULT_STATUS = "Markdown";
-//editor.scrollTop = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", initApp);
+
+function initApp() {
   initRoom();
-});
+  initHotspots();
+  initParallax();
+  initIntro();
+  initGuide();
+  initAmbient();
+  initExplorer();
+  initTabs();
+  initExit();
+}
+
+/* ======================
+ROOM ANIMATION
+====================== */
 
 function initRoom() {
   const monitor = document.querySelector(".monitor");
-
   if (!monitor) return;
 
   gsap.to(monitor, {
@@ -17,171 +29,176 @@ function initRoom() {
     repeat: -1,
     yoyo: true,
   });
+
+  gsap.to(monitor, {
+    boxShadow: "0 0 30px rgba(120,180,255,0.6)",
+    repeat: -1,
+    yoyo: true,
+    duration: 1.5,
+    ease: "sine.inOut",
+  });
 }
 
-const hotspots = document.querySelectorAll(".hotspot");
-const tooltip = document.getElementById("tooltip");
+/* ======================
+HOTSPOTS
+====================== */
 
-hotspots.forEach((spot) => {
-  const label = spot.dataset.label;
+function initHotspots() {
+  const hotspots = document.querySelectorAll(".hotspot");
+  const tooltip = document.getElementById("tooltip");
 
-  spot.addEventListener("mouseenter", () => {
-    tooltip.innerText = label;
-    tooltip.style.opacity = 1;
+  hotspots.forEach((spot) => {
+    const label = spot.dataset.label;
 
-    gsap.to(spot, {
-      scale: 1.04,
-      duration: 0.2,
+    spot.addEventListener("mouseenter", () => {
+      tooltip.innerText = label;
+      tooltip.style.opacity = 1;
+
+      gsap.to(spot, { scale: 1.04, duration: 0.2 });
+    });
+
+    spot.addEventListener("mouseleave", () => {
+      tooltip.style.opacity = 0;
+      gsap.to(spot, { scale: 1, duration: 0.2 });
+    });
+
+    spot.addEventListener("mousemove", (e) => {
+      tooltip.style.left = e.clientX + 15 + "px";
+      tooltip.style.top = e.clientY + 15 + "px";
+    });
+
+    spot.addEventListener("click", () => {
+      handleClick(label);
     });
   });
+}
 
-  spot.addEventListener("mouseleave", () => {
-    tooltip.style.opacity = 0;
-
-    gsap.to(spot, {
-      scale: 1,
-      duration: 0.2,
-    });
-  });
-
-  spot.addEventListener("mousemove", (e) => {
-    tooltip.style.left = e.clientX + 15 + "px";
-    tooltip.style.top = e.clientY + 15 + "px";
-  });
-
-  spot.addEventListener("click", () => {
-    handleClick(label);
-  });
-});
+/* ======================
+HOTSPOT ACTIONS
+====================== */
 
 function handleClick(label) {
-  console.log("clicked:", label);
-
   if (label === "Enter Portfolio") {
-    editorOpen = true;
-
-    const tl = gsap.timeline();
-
-    tl.to("#room", {
-      scale: 2.6,
-      duration: 1.1,
-      ease: "power2.inOut",
-    })
-
-      .to("#room", {
-        opacity: 0,
-        duration: 0.4,
-      })
-
-      /*       .set("#room", {
-        clearProps: "transform",
-      }) */
-
-      .to("#vscode", {
-        opacity: 1,
-        pointerEvents: "auto",
-        duration: 0.5,
-
-        onComplete: () => {
-          openFile("About");
-        },
-      });
-
-    gsap.from(".sidebar", { x: -40, opacity: 0, duration: 0.5 });
-    gsap.from(".editor", { opacity: 0, duration: 0.5 });
-  }
-
-  if (label === "Projects") {
-    alert("Open Projects section");
-  }
-
-  if (label === "Skills") {
-    alert("Open Skills section");
-  }
-
-  if (label === "Education") {
-    alert("Open Education section");
-  }
-
-  if (label === "Play Game") {
-    alert("Launch Game");
+    openEditor();
   }
 }
 
-const room = document.querySelector(".room-container");
+/* ======================
+OPEN EDITOR
+====================== */
 
-document.addEventListener("mousemove", (e) => {
-  if (editorOpen) return;
+function openEditor() {
+  editorOpen = true;
 
-  const x = (window.innerWidth / 2 - e.clientX) / 40;
-  const y = (window.innerHeight / 2 - e.clientY) / 40;
+  const tl = gsap.timeline();
 
-  gsap.to(room, {
-    x: x,
-    y: y,
-    duration: 0.5,
-    ease: "power2.out",
+  tl.to("#room", {
+    scale: 2.6,
+    duration: 1.1,
+    ease: "power2.inOut",
+  })
+
+    .to("#room", {
+      opacity: 0,
+      duration: 0.4,
+    })
+
+    .to("#vscode", {
+      opacity: 1,
+      pointerEvents: "auto",
+      duration: 0.5,
+      onComplete: () => openFile("About"),
+    });
+
+  gsap.from(".sidebar", { x: -40, opacity: 0, duration: 0.5 });
+  gsap.from(".editor", { opacity: 0, duration: 0.5 });
+}
+
+/* ======================
+ROOM PARALLAX
+====================== */
+
+function initParallax() {
+  const room = document.querySelector(".room-container");
+  if (!room) return;
+
+  document.addEventListener("mousemove", (e) => {
+    if (editorOpen) return;
+
+    const x = (window.innerWidth / 2 - e.clientX) / 40;
+    const y = (window.innerHeight / 2 - e.clientY) / 40;
+
+    gsap.to(room, {
+      x,
+      y,
+      duration: 0.5,
+      ease: "power2.out",
+    });
   });
-});
+}
 
-gsap.to(".monitor", {
-  boxShadow: "0 0 30px rgba(120,180,255,0.6)",
-  repeat: -1,
-  yoyo: true,
-  duration: 1.5,
-  ease: "sine.inOut",
-});
+/* ======================
+INTRO MESSAGE
+====================== */
 
-gsap.from(".intro-message", {
-  opacity: 0,
-  y: -20,
-  duration: 1,
-  ease: "power2.out",
-});
+function initIntro() {
+  const intro = document.querySelector(".intro-message");
+  if (!intro) return;
 
-gsap.to(".intro-message", {
-  opacity: 0,
-  delay: 7,
-  duration: 1.5,
-  ease: "power2.out",
-});
+  gsap.from(intro, {
+    opacity: 0,
+    y: -20,
+    duration: 1,
+  });
 
-const guideCursor = document.querySelector(".guide-cursor");
+  gsap.to(intro, {
+    opacity: 0,
+    delay: 7,
+    duration: 1.5,
+  });
+}
 
-function playGuide() {
+/* ======================
+GUIDE CURSOR
+====================== */
+
+function initGuide() {
+  const guideCursor = document.querySelector(".guide-cursor");
+  const monitor = document.querySelector(".monitor");
+
+  if (!guideCursor || !monitor) return;
+
   gsap
     .timeline({ delay: 3 })
 
-    .to(guideCursor, {
-      opacity: 1,
-      duration: 0.4,
-    })
+    .to(guideCursor, { opacity: 1, duration: 0.4 })
 
     .to(guideCursor, {
       x: -120,
       y: 40,
       duration: 2,
-      ease: "power1.inOut",
     })
 
-    .to(".monitor", {
+    .to(monitor, {
       scale: 1.04,
       duration: 0.4,
       yoyo: true,
       repeat: 1,
     })
 
-    .to(guideCursor, {
-      opacity: 0,
-      duration: 0.4,
-    });
+    .to(guideCursor, { opacity: 0, duration: 0.4 });
 }
 
-playGuide();
+/* ======================
+AMBIENT EVENTS
+====================== */
 
-function ambientEvents() {
+function initAmbient() {
+  const monitor = document.querySelector(".monitor");
+  if (!monitor) return;
+
   setInterval(() => {
-    gsap.to(".monitor", {
+    gsap.to(monitor, {
       boxShadow: "0 0 40px rgba(120,180,255,.8)",
       duration: 0.2,
       yoyo: true,
@@ -190,104 +207,31 @@ function ambientEvents() {
   }, 15000);
 }
 
-ambientEvents();
+/* ======================
+EXPLORER FILES
+====================== */
 
-const files = document.querySelectorAll("[data-file]");
-const editor = document.getElementById("editorContent");
+function initExplorer() {
+  const files = document.querySelectorAll("[data-file]");
 
-const content = {
-  about: `# Jimmy García
-
-Full Stack Developer
-
-Focus:
-- React
-- SaaS platforms
-- Product development
-
-Currently building:
-Event management systems
-AI tools
-Developer products
-`,
-
-  experience: `
-2026: Freelancer
-`,
-  skills: `export const skills = {
-
-frontend: [
-"React",
-"TypeScript",
-"Next.js"
-],
-
-backend: [
-"Node.js",
-"Express",
-"PostgreSQL"
-],
-
-cloud: [
-"AWS",
-"Docker"
-]
-
-}
-`,
-
-  event: `export const project = {
-
-name: "Event SaaS",
-
-features: [
-"Guest management",
-"Seat organization",
-"Badge generation",
-"Attendance scanning"
-]
-
-}
-`,
-
-  attendance: `export const attendanceSystem = {
-
-device: "DigitalPersona 4500",
-
-features:[
-"Fingerprint scanning",
-"Real time attendance",
-"Admin dashboard"
-]
-
-}
-`,
-
-  contact: `export const contact = {
-
-email:"jimmy@jimmygarcia.dev",
-github:"github.com/...",
-linkedin:"linkedin.com/..."
-
-}
-`,
-};
-
-files.forEach((file) => {
-  file.addEventListener("click", () => {
-    const key = file.dataset.file;
-
-    editor.textContent = content[key];
+  files.forEach((file) => {
+    file.addEventListener("click", () => {
+      const name = file.dataset.file;
+      openFile(name);
+    });
   });
-});
+}
 
-hljs.highlightAll();
+/* ======================
+EDITOR TABS
+====================== */
 
-//const files = document.querySelectorAll("[data-file]");
-//const editor = document.getElementById("editorContent");
+const editor = document.getElementById("editorContent");
 const tabs = document.getElementById("editorTabs");
 
 async function openFile(name) {
+  if (!editor) return;
+
   const response = await fetch(`./content/${name}.html`);
   const html = await response.text();
 
@@ -298,23 +242,8 @@ async function openFile(name) {
   setActiveTab(name);
 }
 
-function setActiveTab(name) {
-  document.querySelectorAll(".tab").forEach((t) => {
-    t.classList.remove("active");
-  });
-
-  const current = document.querySelector(`[data-tab="${name}"]`);
-
-  if (current) {
-    current.classList.add("active");
-  }
-
-  document.querySelector(".status-right span").textContent = name + ".md";
-}
-
 function renderTab(name) {
   const exists = document.querySelector(`[data-tab="${name}"]`);
-
   if (exists) return;
 
   const tab = document.createElement("div");
@@ -323,113 +252,88 @@ function renderTab(name) {
   tab.dataset.tab = name;
 
   tab.innerHTML = `
-    <span>📄</span>
-    ${name}.md
-    <button class="tab-close">×</button>
+  <span>📄</span>
+  ${name}.md
+  <button class="tab-close">×</button>
   `;
 
   tabs.appendChild(tab);
 }
 
-files.forEach((file) => {
-  file.addEventListener("click", () => {
-    const name = file.dataset.file;
-
-    openFile(name);
+function setActiveTab(name) {
+  document.querySelectorAll(".tab").forEach((t) => {
+    t.classList.remove("active");
   });
-});
 
-const exitBtn = document.getElementById("exitEditor");
+  const current = document.querySelector(`[data-tab="${name}"]`);
+  if (current) current.classList.add("active");
 
-exitBtn.addEventListener("click", () => {
-  editorOpen = false;
+  const status = document.querySelector(".status-right span");
+  if (status) status.textContent = name + ".md";
+}
 
-  const tl = gsap.timeline();
+/* ======================
+TAB EVENTS
+====================== */
 
-  tl.to("#vscode", {
-    opacity: 0,
-    pointerEvents: "none",
-    duration: 0.4,
-  })
+function initTabs() {
+  if (!tabs) return;
 
-    .to("#room", {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      y: 0,
-      duration: 0.6,
-      ease: "power2.inOut",
-    });
-});
+  tabs.addEventListener("click", (e) => {
+    const tab = e.target.closest(".tab");
+    if (!tab) return;
 
-tabs.addEventListener("click", (e) => {
-  const tab = e.target.closest(".tab");
-  if (!tab) return;
+    if (e.target.classList.contains("tab-close")) {
+      tab.remove();
 
-  // cerrar tab
-  if (e.target.classList.contains("tab-close")) {
-    tab.remove();
+      const remaining = document.querySelectorAll(".tab");
 
-    const remainingTabs = document.querySelectorAll(".tab");
-
-    if (remainingTabs.length) {
-      const last = remainingTabs[remainingTabs.length - 1];
-      openFile(last.dataset.tab);
-    } else {
-      editor.innerHTML = `
-      <div class="flex flex-col items-center justify-center h-full text-neutral-500 gap-2">
+      if (remaining.length) {
+        openFile(remaining[remaining.length - 1].dataset.tab);
+      } else {
+        editor.innerHTML = `
+        <div class="flex flex-col items-center justify-center h-full text-neutral-500 gap-2">
         <p class="text-sm">No editors are open</p>
         <p class="text-xs opacity-60">Open a file from the explorer.</p>
-      </div>
-      `;
+        </div>
+        `;
 
-      document.querySelector(".status-right span").textContent = DEFAULT_STATUS;
+        document.querySelector(".status-right span").textContent =
+          DEFAULT_STATUS;
+      }
+
+      return;
     }
 
-    return;
-  }
-
-  // cambiar tab
-  const name = tab.dataset.tab;
-
-  openFile(name);
-});
-
-tabs.addEventListener("auxclick", (e) => {
-  if (e.button !== 1) return;
-
-  const tab = e.target.closest(".tab");
-  if (!tab) return;
-
-  tab.remove();
-
-  const remainingTabs = document.querySelectorAll(".tab");
-
-  if (remainingTabs.length) {
-    const last = remainingTabs[remainingTabs.length - 1];
-    openFile(last.dataset.tab);
-  } else {
-    editor.innerHTML = `
-    <div class="flex flex-col items-center justify-center h-full text-neutral-500 gap-2">
-      <p class="text-sm">No editors are open</p>
-      <p class="text-xs opacity-60">Open a file from the explorer.</p>
-    </div>
-    `;
-
-    document.querySelector(".status-right span").textContent = DEFAULT_STATUS;
-  }
-});
-
-const video = document.querySelector(".window-video");
-
-document.addEventListener("mousemove", (e) => {
-  const x = (window.innerWidth / 2 - e.clientX) / 80;
-  const y = (window.innerHeight / 2 - e.clientY) / 80;
-
-  gsap.to(video, {
-    x,
-    y,
-    duration: 2,
-    ease: "power2.out",
+    openFile(tab.dataset.tab);
   });
-});
+}
+
+/* ======================
+EXIT EDITOR
+====================== */
+
+function initExit() {
+  const exitBtn = document.getElementById("exitEditor");
+  if (!exitBtn) return;
+
+  exitBtn.addEventListener("click", () => {
+    editorOpen = false;
+
+    const tl = gsap.timeline();
+
+    tl.to("#vscode", {
+      opacity: 0,
+      pointerEvents: "none",
+      duration: 0.4,
+    })
+
+      .to("#room", {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: 0,
+        duration: 0.6,
+      });
+  });
+}
