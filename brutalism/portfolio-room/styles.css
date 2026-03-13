@@ -1,0 +1,79 @@
+body{
+font-family:sans-serif;
+}
+
+.room-container{
+position:relative;
+max-width:1376px;
+width:100%;
+}
+
+.room-image{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* HOTSPOTS */
+
+.hotspot{
+position:absolute;
+cursor:pointer;
+border-radius:8px;
+transition:all .3s ease;
+}
+
+/* monitor */
+
+.monitor{
+top:48%;
+left:40%;
+width:20%;
+height:15%;
+}
+
+/* cajón projects */
+
+.projects{
+bottom:12%;
+left:18%;
+width:12%;
+height:12%;
+}
+
+/* estante skills */
+
+.skills{
+top:8%;
+left:6%;
+width:22%;
+height:35%;
+}
+
+/* certificado */
+
+.education{
+bottom:25%;
+right:8%;
+width:10%;
+height:20%;
+}
+
+/* hover debug */
+
+.hotspot:hover{
+outline:2px solid rgba(255,255,255,0.4);
+}
+
+/* tooltip */
+
+#tooltip{
+position:fixed;
+background:black;
+color:white;
+padding:6px 10px;
+font-size:12px;
+border-radius:4px;
+pointer-events:none;
+opacity:0;
+}
