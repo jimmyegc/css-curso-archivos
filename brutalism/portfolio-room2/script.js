@@ -1,4 +1,7 @@
 let editorOpen = false;
+const DEFAULT_STATUS = "Markdown";
+//editor.scrollTop = 0;
+
 const hotspots = document.querySelectorAll(".hotspot");
 const tooltip = document.getElementById("tooltip");
 
@@ -53,14 +56,18 @@ function handleClick(label) {
         duration: 0.4,
       })
 
-      .set("#room", {
+      /*       .set("#room", {
         clearProps: "transform",
-      })
+      }) */
 
       .to("#vscode", {
         opacity: 1,
         pointerEvents: "auto",
         duration: 0.5,
+
+        onComplete: () => {
+          openFile("About");
+        },
       });
 
     gsap.from(".sidebar", { x: -40, opacity: 0, duration: 0.5 });
@@ -268,8 +275,10 @@ async function openFile(name) {
   const html = await response.text();
 
   editor.innerHTML = html;
+  editor.scrollTop = 0;
 
   renderTab(name);
+  setActiveTab(name);
 }
 
 function setActiveTab(name) {
@@ -288,6 +297,7 @@ function setActiveTab(name) {
 
 function renderTab(name) {
   const exists = document.querySelector(`[data-tab="${name}"]`);
+
   if (exists) return;
 
   const tab = document.createElement("div");
@@ -302,8 +312,6 @@ function renderTab(name) {
   `;
 
   tabs.appendChild(tab);
-
-  setActiveTab(name);
 }
 
 files.forEach((file) => {
@@ -338,40 +346,78 @@ exitBtn.addEventListener("click", () => {
 });
 
 tabs.addEventListener("click", (e) => {
-  if (e.target.classList.contains("tab-close")) {
-    const tab = e.target.parentElement;
-    const name = tab.dataset.tab;
+  const tab = e.target.closest(".tab");
+  if (!tab) return;
 
+  // cerrar tab
+  if (e.target.classList.contains("tab-close")) {
     tab.remove();
 
     const remainingTabs = document.querySelectorAll(".tab");
 
     if (remainingTabs.length) {
       const last = remainingTabs[remainingTabs.length - 1];
-      const nextFile = last.dataset.tab;
-
-      openFile(nextFile);
+      openFile(last.dataset.tab);
     } else {
-      editor.innerHTML = "";
+      editor.innerHTML = `
+      <div class="flex flex-col items-center justify-center h-full text-neutral-500 gap-2">
+        <p class="text-sm">No editors are open</p>
+        <p class="text-xs opacity-60">Open a file from the explorer.</p>
+      </div>
+      `;
+
+      document.querySelector(".status-right span").textContent = DEFAULT_STATUS;
     }
+
+    return;
   }
-});
 
-tabs.addEventListener("click", (e) => {
-  const tab = e.target.closest(".tab");
-
-  if (!tab || e.target.classList.contains("tab-close")) return;
-
+  // cambiar tab
   const name = tab.dataset.tab;
 
   openFile(name);
 });
 
 tabs.addEventListener("auxclick", (e) => {
-  if (e.button === 1) {
-    const tab = e.target.closest(".tab");
-    if (!tab) return;
+  if (e.button !== 1) return;
 
-    tab.remove();
+  const tab = e.target.closest(".tab");
+  if (!tab) return;
+
+  tab.remove();
+
+  const remainingTabs = document.querySelectorAll(".tab");
+
+  if (remainingTabs.length) {
+    const last = remainingTabs[remainingTabs.length - 1];
+    openFile(last.dataset.tab);
+  } else {
+    editor.innerHTML = `
+    <div class="flex flex-col items-center justify-center h-full text-neutral-500 gap-2">
+      <p class="text-sm">No editors are open</p>
+      <p class="text-xs opacity-60">Open a file from the explorer.</p>
+    </div>
+    `;
+
+    document.querySelector(".status-right span").textContent = DEFAULT_STATUS;
   }
+});
+
+const video = document.querySelector(".window-video video");
+
+document.addEventListener("mousemove", () => {
+  video.play();
+});
+
+const windowVideo = document.querySelector(".window-video");
+
+document.addEventListener("mousemove", (e) => {
+  const x = (window.innerWidth / 2 - e.clientX) / 100;
+  const y = (window.innerHeight / 2 - e.clientY) / 100;
+
+  gsap.to(windowVideo, {
+    x,
+    y,
+    duration: 1,
+  });
 });

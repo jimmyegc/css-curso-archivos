@@ -47,6 +47,10 @@
 
     <div class="room-container">
 
+      <video class="window-video" autoplay muted loop playsinline>
+        <source src="assets/window.mp4" type="video/mp4">
+      </video>
+
       <!-- ROOM IMAGE -->
 
       <img src="assets/room5.png" alt="Retro developer room" class="room-image" id="room">
@@ -70,107 +74,7 @@
         </div>
       </div>
 
-      <div id="vscode">
 
-        <button id="exitEditor"
-          class="absolute top-4 right-6 text-sm bg-neutral-800 px-3 py-1 rounded hover:bg-neutral-700">
-          ← Back to Room
-        </button>
-
-        <div class="activity-bar">
-          <div class="icon active">📁</div>
-        </div>
-
-        <div class="sidebar">
-
-          <div class="sidebar-title">EXPLORER</div>
-
-          <ul class="file-tree">
-
-            <li data-file="about">
-              <span class="file-icon">📄</span>
-              About.md
-            </li>
-
-            <li data-file="experience">
-              <span class="file-icon">💼</span>
-              Experience.md
-            </li>
-
-            <li data-file="skills">
-              <span class="file-icon">🧠</span>
-              Skills.md
-            </li>
-
-
-            <li class="folder">
-
-              Projects.md
-              <ul>
-                <li data-file="projects">
-                  <span class="file-icon">🚀</span>
-                  featured.ts
-                </li>
-                <li data-file="event">event-saas.ts</li>
-                <li data-file="attendance">attendance-system.ts</li>
-              </ul>
-            </li>
-
-
-            <li data-file="education">
-              <span class="file-icon">🎓</span>
-              Education.md
-            </li>
-
-            <li data-file="awards">
-              <span class="file-icon">🏆</span>
-              Awards.md
-            </li>
-
-          </ul>
-
-        </div>
-
-        <div class="editor">
-
-          <!--   <div class="fixed bottom-0 left-0 w-full bg-neutral-800 text-xs px-4 py-1 flex justify-between">
-
-            <span>About.md</span>
-
-            <div class="flex gap-4 text-neutral-400">
-              <span>UTF-8</span>
-              <span>Tailwind</span>
-              <span>Portfolio OS</span>
-            </div>
-
-          </div> -->
-
-          <div class="tabs" id="editorTabs"></div>
-
-          <div class="editor-body">
-            <div id="editorContent"></div>
-          </div>
-
-          <!-- STATUS BAR -->
-          <div class="status-bar">
-
-            <div class="status-left">
-              <span>main</span>
-              <span>UTF-8</span>
-            </div>
-
-            <div class="status-right">
-              <span>JavaScript</span>
-              <span>Ln 1, Col 1</span>
-            </div>
-
-          </div>
-
-
-
-        </div>
-
-      </div>
 
 
       <!-- HOTSPOTS -->
@@ -190,6 +94,108 @@
         <img src="assets/zelda-poster.png" class="poster-static" />
 
         <img src="assets/zelda-animated.gif" class="poster-animated" />
+
+      </div>
+
+    </div>
+
+    <div id="vscode">
+
+      <button id="exitEditor"
+        class="absolute top-4 right-6 text-sm bg-neutral-800 px-3 py-1 rounded hover:bg-neutral-700">
+        ← Back to Room
+      </button>
+
+      <div class="activity-bar">
+        <div class="icon active">📁</div>
+      </div>
+
+      <div class="sidebar">
+
+        <div class="sidebar-title">EXPLORER</div>
+
+        <ul class="file-tree">
+
+          <li data-file="about">
+            <span class="file-icon">📄</span>
+            About.md
+          </li>
+
+          <li data-file="experience">
+            <span class="file-icon">💼</span>
+            Experience.md
+          </li>
+
+          <li data-file="skills">
+            <span class="file-icon">🧠</span>
+            Skills.md
+          </li>
+
+
+          <li class="folder">
+
+            Projects.md
+            <ul>
+              <li data-file="projects">
+                <span class="file-icon">🚀</span>
+                featured.ts
+              </li>
+              <li data-file="event">event-saas.ts</li>
+              <li data-file="attendance">attendance-system.ts</li>
+            </ul>
+          </li>
+
+
+          <li data-file="education">
+            <span class="file-icon">🎓</span>
+            Education.md
+          </li>
+
+          <li data-file="awards">
+            <span class="file-icon">🏆</span>
+            Awards.md
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="editor">
+
+        <!--   <div class="fixed bottom-0 left-0 w-full bg-neutral-800 text-xs px-4 py-1 flex justify-between">
+
+            <span>About.md</span>
+
+            <div class="flex gap-4 text-neutral-400">
+              <span>UTF-8</span>
+              <span>Tailwind</span>
+              <span>Portfolio OS</span>
+            </div>
+
+          </div> -->
+
+        <div class="tabs" id="editorTabs"></div>
+
+        <div class="editor-body">
+          <div id="editorContent"></div>
+        </div>
+
+        <!-- STATUS BAR -->
+        <div class="status-bar">
+
+          <div class="status-left">
+            <span>main</span>
+            <span>UTF-8</span>
+          </div>
+
+          <div class="status-right">
+            <span>JavaScript</span>
+            <span>Ln 1, Col 1</span>
+          </div>
+
+        </div>
+
+
 
       </div>
 
