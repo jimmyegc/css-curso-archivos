@@ -524,19 +524,6 @@ z-index:10000;
 }
 
 .window-video{
-position:absolute;
-
-/* AJUSTA ESTO A LA POSICIÓN DE TU VENTANA */
-top:6%;
-left:32%;
-width:20%;
-height:28%;
-
-overflow:hidden;
-border-radius:6px;
-}
-
-.window-video video{
 width:100%;
 height:100%;
 object-fit:cover;
@@ -551,6 +538,18 @@ inset:0;
 background:rgba(0,0,0,.35);
 }
 
+.room-layer{
+
+mask-image:url("./assets/room_mask2.png");
+mask-size:100% 100%;
+mask-repeat:no-repeat;
+
+-webkit-mask-image:url("./assets/room_mask2.png");
+-webkit-mask-size:100% 100%;
+-webkit-mask-repeat:no-repeat;
+
+}
+
 .window-video{
 position:absolute;
 top:0;
@@ -558,21 +557,10 @@ left:0;
 width:100%;
 height:100%;
 object-fit:cover;
-z-index:-1;
+z-index:0;
 }
 
-.room-image{
-width:100%;
-display:block;
-
-mask-image:url("./assets/room-mask2.png");
-mask-size:100% 100%;
-mask-repeat:no-repeat;
-mask-position:center;
-
--webkit-mask-image:url("./assets/room-mask2.png");
--webkit-mask-size:100% 100%;
--webkit-mask-repeat:no-repeat;
--webkit-mask-position:center;
+.room-layer{
+position:relative;
+z-index:2;
 }
-

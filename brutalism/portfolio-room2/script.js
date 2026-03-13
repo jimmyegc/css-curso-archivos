@@ -403,21 +403,15 @@ tabs.addEventListener("auxclick", (e) => {
   }
 });
 
-const video = document.querySelector(".window-video video");
-
-document.addEventListener("mousemove", () => {
-  video.play();
-});
-
 const windowVideo = document.querySelector(".window-video");
 
 document.addEventListener("mousemove", (e) => {
-  const x = (window.innerWidth / 2 - e.clientX) / 100;
-  const y = (window.innerHeight / 2 - e.clientY) / 100;
+  const x = (window.innerWidth / 2 - e.clientX) / 60;
+  const y = (window.innerHeight / 2 - e.clientY) / 60;
 
   gsap.to(windowVideo, {
     x,
     y,
-    duration: 1,
+    duration: 1.5,
   });
 });
