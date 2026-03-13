@@ -33,6 +33,8 @@ position:relative;
 max-width:1376px;
 width:100%;
 margin:auto;
+aspect-ratio:1376/768;
+overflow:hidden;
 }
 
 /* VIDEO DE LA VENTANA */
@@ -44,20 +46,29 @@ left:0;
 width:100%;
 height:100%;
 object-fit:cover;
-
 z-index:1;
 pointer-events:none;
+
+
+filter:brightness(.9) contrast(1.1);
+animation:screenFlicker 6s infinite;
+outline:4px solid red;
 }
 
-/* IMAGEN DEL CUARTO */
-
-.room-image{
-position:relative;
-z-index:2;
+@keyframes screenFlicker{
+0%,100%{opacity:1}
+48%{opacity:.98}
+49%{opacity:.92}
+50%{opacity:1}
+}
+.window-mask{
+position:absolute;
+top:0;
+left:0;
 width:100%;
-display:block;
+height:100%;
 
-/* máscara */
+background:red;
 
 -webkit-mask-image:url("./assets/room_mask.png");
 mask-image:url("./assets/room_mask.png");
@@ -67,7 +78,22 @@ mask-size:100% 100%;
 
 -webkit-mask-repeat:no-repeat;
 mask-repeat:no-repeat;
+
+-webkit-mask-mode:luminance;
+mask-mode:luminance;
+
+z-index:22;
+pointer-events:none;
 }
+/* IMAGEN DEL CUARTO */
+
+.room-image{
+position:relative;
+width:100%;
+display:block;
+z-index:3;
+}
+
 
 /* HOTSPOTS */
 

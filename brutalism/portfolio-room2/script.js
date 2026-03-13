@@ -107,7 +107,7 @@ function openEditor() {
       opacity: 1,
       pointerEvents: "auto",
       duration: 0.5,
-      onComplete: () => openFile("About"),
+      onComplete: () => openFile("about"),
     });
 
   gsap.from(".sidebar", { x: -40, opacity: 0, duration: 0.5 });
