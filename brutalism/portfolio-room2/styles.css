@@ -551,21 +551,6 @@ inset:0;
 background:rgba(0,0,0,.35);
 }
 
-.room-image{
-width:100%;
-display:block;
-
-mask-image:url("assets/room5_layer.png");
-mask-size:100%;
-mask-repeat:no-repeat;
-mask-position:center;
-
--webkit-mask-image:url("assets/room5_layer.png");
--webkit-mask-size:100%;
--webkit-mask-repeat:no-repeat;
--webkit-mask-position:center;
-}
-
 .window-video{
 position:absolute;
 top:0;
@@ -575,3 +560,19 @@ height:100%;
 object-fit:cover;
 z-index:-1;
 }
+
+.room-image{
+width:100%;
+display:block;
+
+mask-image:url("./assets/room-mask2.png");
+mask-size:100% 100%;
+mask-repeat:no-repeat;
+mask-position:center;
+
+-webkit-mask-image:url("./assets/room-mask2.png");
+-webkit-mask-size:100% 100%;
+-webkit-mask-repeat:no-repeat;
+-webkit-mask-position:center;
+}
+
