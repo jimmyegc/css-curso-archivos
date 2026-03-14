@@ -443,6 +443,23 @@ function updateAmbientSound(theme) {
   newSound.fade(0, 0.35, 1000);
 }
 
+function stopAllSpatialSounds() {
+  Object.values(sounds).forEach((sound) => {
+    sound.fade(sound.volume(), 0, 300);
+    setTimeout(() => {
+      sound.pause();
+    }, 300);
+  });
+}
+
+function startAllSpatialSounds() {
+  Object.values(sounds).forEach((sound) => {
+    if (!sound.playing()) {
+      sound.play();
+    }
+  });
+}
+
 audioBtn.addEventListener("click", () => {
   const ambientSound = getAmbientSound();
 
@@ -451,12 +468,16 @@ audioBtn.addEventListener("click", () => {
     ambientSound.play();
     ambientSound.fade(0, 0.35, 1000);
 
+    startAllSpatialSounds();
+
     audioBtn.classList.add("active");
     audioBtn.innerText = "🔊 Ambient ON";
 
     playing = true;
   } else {
     ambientSound.fade(0.35, 0, 1000);
+
+    stopAllSpatialSounds();
 
     setTimeout(() => {
       ambientSound.pause();
@@ -538,3 +559,41 @@ toggleBtn.addEventListener("click", () => {
 const savedTheme = localStorage.getItem("theme") || "dark";
 
 setTheme(savedTheme);
+
+/* Gameboy */
+
+const gameboy = document.getElementById("gameboy");
+const playVideo = document.getElementById("playVideo");
+
+const overlay = document.getElementById("overlay");
+const closeOverlay = document.getElementById("closeOverlay");
+
+playVideo.addEventListener("click", () => {
+  alert("x");
+  setTimeout(() => {
+    unlockGameboy();
+  }, 3000);
+});
+
+function unlockGameboy() {
+  gameboy.style.display = "block";
+
+  gameboy.animate(
+    [
+      { transform: "translateY(-20px)", opacity: 0 },
+      { transform: "translateY(0)", opacity: 1 },
+    ],
+    {
+      duration: 600,
+      easing: "ease-out",
+    },
+  );
+}
+
+gameboy.addEventListener("click", () => {
+  overlay.style.display = "flex";
+});
+
+closeOverlay.addEventListener("click", () => {
+  overlay.style.display = "none";
+});

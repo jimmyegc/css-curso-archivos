@@ -253,8 +253,8 @@ filter:brightness(1.2);
 /* projects */
 
 .projects{
-bottom: 5%;
-left:2.5%;
+bottom: 2.5%;
+left:2.75%;
 width:13%;
 height:18%;
 }
@@ -262,18 +262,18 @@ height:18%;
 /* skills */
 
 .skills{
-top: 1%;
-left:3%;
-width:23%;
-height:40%;
+  top: 1.5%;
+  left:3%;
+  width:23%;
+  height:37%;
 }
 
 /* education */
 
 .education{
-bottom: 22%;
-right:8%;
-width:12%;
+bottom: 23%;
+right:7.35%;
+width:13%;
 height:16%;
 }
 
@@ -296,11 +296,11 @@ transform:scale(1.02);
 .poster{
 position:absolute;
 top:8.3%;
-right:6.6%;
-width:13%;
+right: 6.15%;
+width: 14.25%;
 height:45%;
 z-index:5;
-cursor:pointer;
+/*cursor:pointer;*/
 }
 
 .poster-img{
@@ -560,4 +560,58 @@ body.light-mode .ambient-audio-toggle{
   background: rgba(255,255,255,0.7);
   color: #111;
   border: 1px solid rgba(0,0,0,0.15);
+}
+
+/* Gameboy */
+/* Estante */
+.shelf{
+  width:200px;
+  height:120px;
+  border-bottom:8px solid #5c3d2e;
+  margin:40px;
+  position:relative;
+}
+
+/* Gameboy oculto al inicio */
+#gameboy{
+  width: 70px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  /*display:none; */
+  cursor:pointer;
+  background-color: blue;
+  z-index: 6;
+}
+
+/* Overlay */
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.overlay-content{
+  position:relative;
+}
+
+.overlay img{
+  max-width:400px;
+  border-radius:8px;
+}
+
+#closeOverlay{
+  position:absolute;
+  top:-30px;
+  right:-30px;
+  color:white;
+  font-size:30px;
+  cursor:pointer;
 }
