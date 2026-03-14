@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="preload" as="image" href="assets/images/room-dark.png">
+  <link rel="preload" as="image" href="assets/images/room-light.png">
 </head>
 
 <body class="bg-neutral-900 text-white min-h-screen">
@@ -68,17 +70,17 @@
 
     <div class="mouse-light"></div>
 
+
     <div class="room-container" id="room">
 
       <video id="backgroundVideo" class="background-video" autoplay muted loop playsinline preload="metadata">
         <source src="assets/video_dark.mp4" type="video/mp4">
       </video>
 
-
       <div class="room-light"></div>
 
-      <img src="assets/room6.png" class="room-image" id="roomImage">
-
+      <img src="assets/images/room-dark.png" class="room-image room-dark">
+      <img src="assets/images/room-light.png" class="room-image room-light">
 
       <div class="intro-message">
         <div class="intro-window">
@@ -113,9 +115,13 @@
 
       <div class="poster">
 
-        <img src="assets/zelda-poster.png" class="poster-static" />
+        <!--         <img src="assets/zelda-poster.png" class="poster-static" />
 
-        <img src="assets/zelda-animated.gif" class="poster-animated" />
+        <img src="assets/zelda-animated.gif" class="poster-animated" /> -->
+
+        <img src="assets/posters/zelda-breath-of-the-wild.webp" class="poster-img poster-zelda" />
+
+        <img src="assets/posters/the-last-of-us.webp" class="poster-img poster-lastofus" />
 
       </div>
 

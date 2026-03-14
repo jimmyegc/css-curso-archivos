@@ -368,16 +368,24 @@ function setTheme(theme) {
     duration: 0.4,
     onComplete: () => {
       if (theme === "light") {
-        roomImage.src = "assets/room-light.png";
-        bgVideo.src = "assets/bg-light.mp4";
+        //roomImage.src = "assets/images/room-light.png";
+        bgVideo.src = "assets/video/bg-light.mp4";
         bgVideo.playbackRate = 0.7;
       } else {
-        roomImage.src = "assets/room-dark.png";
-        bgVideo.src = "assets/bg-dark.mp4";
+        //roomImage.src = "assets/images/room-dark.png";
+        bgVideo.src = "assets/video/bg-dark.mp4";
         bgVideo.playbackRate = 0.7;
       }
 
       bgVideo.load();
+
+      const video = document.querySelector(".background-video");
+
+      video.style.display = "none";
+
+      requestAnimationFrame(() => {
+        video.style.display = "";
+      });
 
       gsap.to("#backgroundVideo", {
         opacity: 0.35,
