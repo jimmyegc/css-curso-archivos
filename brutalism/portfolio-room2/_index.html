@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!DOCTYPE html>
+
+  <html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimmy García | Interactive Portfolio</title>
+
+    <!-- Tailwind CDN -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+
+  <body class="bg-neutral-900 text-white flex flex-col min-h-screen">
+
+    <!-- NAVBAR -->
+
+    <header class="absolute w-full top-0 z-20">
+      <nav class="flex justify-between items-center px-6 py-4 backdrop-blur-sm">
+
+
+        <h1 class="font-semibold text-lg">
+          Jimmy.dev
+        </h1>
+
+        <ul class="hidden md:flex gap-6 text-sm opacity-80">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Experience</a></li>
+          <li><a href="#">Skills</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Education</a></li>
+          <li><a href="#">Game</a></li>
+        </ul>
+
+      </nav>
+
+
+    </header>
+
+    <!-- HERO / RETRO ROOM -->
+
+    <main class="flex-grow flex items-center justify-center pt-24 pb-10">
+
+
+
+
+
+      <div class="room-container">
+
+        <!-- ROOM IMAGE -->
+
+        <img src="assets/room5.png" alt="Retro developer room" class="room-image" id="room">
+
+        <div class="intro-message">
+          <div class="intro-window">
+            <div class="intro-header">system_message.exe</div>
+            <div class="intro-body">
+              <p>Welcome to my workspace.</p>
+              <p>Click the monitor to enter the system.</p>
+              <p>Or explore the room.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="monitor-overlay">
+          <div class="terminal">
+            <p>> booting portfolio OS...</p>
+            <p>> loading projects...</p>
+            <p>> ready<span class="blink">_</span></p>
+          </div>
+        </div>
+
+        <div id="vscode">
+
+          <div class="activity-bar">
+            <div class="icon active">📁</div>
+            <div class="icon">🔎</div>
+            <div class="icon">🌿</div>
+            <div class="icon">⚙️</div>
+          </div>
+
+          <div class="sidebar">
+
+            <div class="sidebar-title">EXPLORER</div>
+
+            <ul class="file-tree">
+
+              <li data-file="about">about.md</li>
+              <li data-file="skills">skills.ts</li>
+
+              <li class="folder">
+                projects
+                <ul>
+                  <li data-file="event">event-saas.ts</li>
+                  <li data-file="attendance">attendance-system.ts</li>
+                </ul>
+              </li>
+
+              <li data-file="contact">contact.ts</li>
+
+            </ul>
+
+          </div>
+
+          <div class="editor">
+
+            <div class="tabs">
+              <div class="tab active">about.md</div>
+            </div>
+
+            <pre class="code" id="editorContent"></pre>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- HOTSPOTS -->
+
+        <div class="hotspot monitor" data-label="Enter Portfolio"></div>
+
+        <div class="hotspot projects" data-label="Projects"></div>
+
+        <div class="hotspot skills" data-label="Skills"></div>
+
+        <div class="hotspot education" data-label="Education"></div>
+
+        <div class="hotspot game" data-label="Play Game"></div>
+
+        <div class="poster">
+
+          <img src="assets/zelda-poster.png" class="poster-static" />
+
+          <img src="assets/zelda-animated.gif" class="poster-animated" />
+
+        </div>
+
+      </div>
+
+
+    </main>
+
+    <!-- TOOLTIP -->
+
+    <div id="tooltip"></div>
+
+    <!-- FOOTER -->
+
+    <footer class="text-center text-xs py-4 opacity-60">
+      © 2026 Jimmy García · Full Stack Developer
+    </footer>
+
+    <!-- GSAP -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script src="script.js"></script>
+
+  </body>
+
+  </html>
+
+</body>
+
+</html>

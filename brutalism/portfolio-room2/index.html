@@ -4,41 +4,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Jimmy García | Interfactive Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="preload" as="image" href="assets/images/room-dark.png">
+  <link rel="preload" as="image" href="assets/images/room-light.png">
 </head>
 
-<body>
-  <!DOCTYPE html>
+<body class="bg-neutral-900 text-white min-h-screen">
 
-  <html lang="es">
+  <!-- NAVBAR -->
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jimmy García | Interactive Portfolio</title>
-
-    <!-- Tailwind CDN -->
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- CSS -->
-
-    <link rel="stylesheet" href="styles.css">
-
-  </head>
-
-  <body class="bg-neutral-900 text-white flex flex-col min-h-screen">
-
-    <!-- NAVBAR -->
-
-    <header class="absolute w-full top-0 z-20">
-      <nav class="flex justify-between items-center px-6 py-4 backdrop-blur-sm">
+  <header class="absolute w-full top-0 z-20">
+    <!--  <nav class="flex justify-between items-center px-6 py-4 backdrop-blur-sm">
 
 
-        <h1 class="font-semibold text-lg">
-          Jimmy.dev
-        </h1>
+      <h1 class="font-semibold text-lg">
+        jimmygarcia.dev
+      </h1>
+
+      <ul class="hidden md:flex gap-6 text-sm opacity-80">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Experience</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Education</a></li>
+        <li><a href="#">Game</a></li>
+      </ul>
+
+    </nav>
+ -->
+
+
+    <nav class="flex justify-between items-center px-6 py-4 backdrop-blur-sm">
+
+      <h1 class="font-semibold text-lg">Jimmy.dev</h1>
+
+      <div class="flex items-center gap-6">
 
         <ul class="hidden md:flex gap-6 text-sm opacity-80">
           <li><a href="#">About</a></li>
@@ -46,143 +50,225 @@
           <li><a href="#">Skills</a></li>
           <li><a href="#">Projects</a></li>
           <li><a href="#">Education</a></li>
-          <li><a href="#">Game</a></li>
+          <!-- <li><a href="#">Game</a></li> -->
         </ul>
 
-      </nav>
-
-
-    </header>
-
-    <!-- HERO / RETRO ROOM -->
-
-    <main class="flex-grow flex items-center justify-center pt-24 pb-10">
-
-
-
-
-
-      <div class="room-container">
-
-        <!-- ROOM IMAGE -->
-
-        <img src="assets/room5.png" alt="Retro developer room" class="room-image" id="room">
-
-        <div class="intro-message">
-          <div class="intro-window">
-            <div class="intro-header">system_message.exe</div>
-            <div class="intro-body">
-              <p>Welcome to my workspace.</p>
-              <p>Click the monitor to enter the system.</p>
-              <p>Or explore the room.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="monitor-overlay">
-          <div class="terminal">
-            <p>> booting portfolio OS...</p>
-            <p>> loading projects...</p>
-            <p>> ready<span class="blink">_</span></p>
-          </div>
-        </div>
-
-        <div id="vscode">
-
-          <div class="activity-bar">
-            <div class="icon active">📁</div>
-            <div class="icon">🔎</div>
-            <div class="icon">🌿</div>
-            <div class="icon">⚙️</div>
-          </div>
-
-          <div class="sidebar">
-
-            <div class="sidebar-title">EXPLORER</div>
-
-            <ul class="file-tree">
-
-              <li data-file="about">about.md</li>
-              <li data-file="skills">skills.ts</li>
-
-              <li class="folder">
-                projects
-                <ul>
-                  <li data-file="event">event-saas.ts</li>
-                  <li data-file="attendance">attendance-system.ts</li>
-                </ul>
-              </li>
-
-              <li data-file="contact">contact.ts</li>
-
-            </ul>
-
-          </div>
-
-          <div class="editor">
-
-            <div class="tabs">
-              <div class="tab active">about.md</div>
-            </div>
-
-            <pre class="code" id="editorContent"></pre>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- HOTSPOTS -->
-
-        <div class="hotspot monitor" data-label="Enter Portfolio"></div>
-
-        <div class="hotspot projects" data-label="Projects"></div>
-
-        <div class="hotspot skills" data-label="Skills"></div>
-
-        <div class="hotspot education" data-label="Education"></div>
-
-        <div class="hotspot game" data-label="Play Game"></div>
-
-        <div class="poster">
-
-          <img src="assets/zelda-poster.png" class="poster-static" />
-
-          <img src="assets/zelda-animated.gif" class="poster-animated" />
-
-        </div>
+        <button id="themeToggle" class="text-xs px-3 py-1 border rounded">
+          ☀️ / 🌙
+        </button>
 
       </div>
 
+    </nav>
 
-    </main>
+  </header>
 
-    <!-- TOOLTIP -->
+  <!-- HERO / RETRO ROOM -->
 
-    <div id="tooltip"></div>
+  <main class="flex-grow flex items-center justify-center pt-24 pb-10">
 
-    <!-- FOOTER -->
 
-    <footer class="text-center text-xs py-4 opacity-60">
-      © 2026 Jimmy García · Full Stack Developer
-    </footer>
+    <div class="mouse-light"></div>
 
-    <!-- GSAP -->
+    <div class="room-container" id="room">
+      <!--      
+    0  video del exterior
+    1  imagen del cuarto (dark / light)
+    2  iluminación ambiental
+    3  overlays del monitor
+    4  hotspots interactivos
+    5  poster
+    6  mensajes intro
+    -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+      <video id="backgroundVideo" class="background-video" autoplay muted loop playsinline preload="metadata">
+        <source src="assets/video_dark.mp4" type="video/mp4">
+      </video>
 
-    <!-- JS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+      <div class="room-ambient-light"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+      <!-- Ambient sound overlay -->
+      <div class="ambient-audio-toggle" id="audioToggle">
+        🔊 Ambient
+      </div>
 
-    <script src="script.js"></script>
+      <img src="assets/images/room-dark.png" class="room-image room-dark">
+      <img src="assets/images/room-light.png" class="room-image room-light">
 
-  </body>
 
-  </html>
+
+      <div class="intro-message">
+        <div class="intro-window">
+          <div class="intro-header">system_message.exe</div>
+          <div class="intro-body">
+            <p>Welcome to my workspace.</p>
+            <p>Click the monitor to enter the system.</p>
+            <p>Or explore the room.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="monitor-overlay">
+        <div class="terminal">
+          <p>> booting portfolio OS...</p>
+          <p>> loading projects...</p>
+          <p>> ready<span class="blink">_</span></p>
+        </div>
+      </div>
+
+      <!-- HOTSPOTS -->
+
+      <div class="hotspot monitor" data-label="Enter Portfolio"></div>
+
+      <div class="hotspot projects" data-label="Projects"></div>
+
+      <div class="hotspot skills" data-label="Skills"></div>
+
+      <div class="hotspot education" data-label="Education"></div>
+
+      <div class="hotspot game" data-label="Play Game"></div>
+
+      <div class="poster">
+
+        <img src="assets/posters/zelda-breath-of-the-wild.webp" class="poster-img poster-zelda" />
+
+        <img src="assets/posters/the-last-of-us.webp" class="poster-img poster-lastofus" />
+
+      </div>
+
+    </div>
+
+
+
+
+    <div id="vscode">
+
+      <button id="exitEditor"
+        class="absolute top-4 right-6 text-sm bg-neutral-800 px-3 py-1 rounded hover:bg-neutral-700">
+        ← Back to Room
+      </button>
+
+      <div class="activity-bar">
+        <div class="icon active">📁</div>
+      </div>
+
+      <div class="sidebar">
+
+        <div class="sidebar-title">EXPLORER</div>
+
+        <ul class="file-tree">
+
+          <li data-file="about">
+            <span class="file-icon">📄</span>
+            About.md
+          </li>
+
+          <li data-file="experience">
+            <span class="file-icon">💼</span>
+            Experience.md
+          </li>
+
+          <li data-file="skills">
+            <span class="file-icon">🧠</span>
+            Skills.md
+          </li>
+
+
+          <li class="folder">
+
+            Projects.md
+            <ul>
+              <li data-file="projects">
+                <span class="file-icon">🚀</span>
+                featured.ts
+              </li>
+              <li data-file="event">event-saas.ts</li>
+              <li data-file="attendance">attendance-system.ts</li>
+            </ul>
+          </li>
+
+
+          <li data-file="education">
+            <span class="file-icon">🎓</span>
+            Education.md
+          </li>
+
+          <li data-file="awards">
+            <span class="file-icon">🏆</span>
+            Awards.md
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="editor">
+
+        <!--   <div class="fixed bottom-0 left-0 w-full bg-neutral-800 text-xs px-4 py-1 flex justify-between">
+
+            <span>About.md</span>
+
+            <div class="flex gap-4 text-neutral-400">
+              <span>UTF-8</span>
+              <span>Tailwind</span>
+              <span>Portfolio OS</span>
+            </div>
+
+          </div> -->
+
+        <div class="tabs" id="editorTabs"></div>
+
+        <div class="editor-body">
+          <div id="editorContent"></div>
+        </div>
+
+        <!-- STATUS BAR -->
+        <div class="status-bar">
+
+          <div class="status-left">
+            <span>main</span>
+            <span>UTF-8</span>
+          </div>
+
+          <div class="status-right">
+            <span>JavaScript</span>
+            <span>Ln 1, Col 1</span>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+
+  </main>
+
+  <!-- TOOLTIP -->
+
+  <div id="tooltip"></div>
+
+  <!-- FOOTER -->
+
+  <footer class="text-center text-xs py-4 opacity-60">
+    © 2026 Jimmy García · Full Stack Developer
+  </footer>
+
+  <!-- GSAP -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <!-- Howler CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+
+
+  <script src="script.js"></script>
 
 </body>
+
 
 </html>

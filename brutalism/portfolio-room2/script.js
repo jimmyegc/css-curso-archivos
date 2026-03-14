@@ -145,6 +145,30 @@ function initParallax() {
   document.addEventListener("mousemove", (e) => {
     if (editorOpen) return;
 
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+
+    // AUDIO ESPACIAL
+    if (playing) {
+      Object.keys(audioZones).forEach((zone) => {
+        const pos = audioZones[zone];
+
+        const dx = mouseX - pos.x;
+        const dy = mouseY - pos.y;
+
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        const maxDistance = 600;
+
+        let volume = 1 - distance / maxDistance;
+
+        volume = Math.max(0, Math.min(volume, 0.6));
+
+        sounds[zone].volume(volume);
+      });
+    }
+
+    // PARALLAX VISUAL
     const x = (window.innerWidth / 2 - e.clientX) / 40;
     const y = (window.innerHeight / 2 - e.clientY) / 40;
 
@@ -358,6 +382,106 @@ function initExit() {
   });
 }
 
+/* Sounds */
+
+const audioBtn = document.getElementById("audioToggle");
+
+const sounds = {
+  keyboard: new Howl({
+    src: ["assets/sounds/keyboard.mp3"],
+    loop: true,
+    volume: 0,
+  }),
+
+  computer: new Howl({
+    src: ["assets/sounds/computer-hum.mp3"],
+    loop: true,
+    volume: 0,
+  }),
+
+  wind: new Howl({
+    src: ["assets/sounds/wind.mp3"],
+    loop: true,
+    volume: 0,
+  }),
+
+  retro: new Howl({
+    src: ["assets/sounds/retro-room.mp3"],
+    loop: true,
+    volume: 0,
+  }),
+};
+
+let playing = false;
+
+const forestAmbience = new Howl({
+  src: ["assets/sounds/forest.mp3"],
+  loop: true,
+  volume: 0.35,
+});
+
+const rainAmbience = new Howl({
+  src: ["assets/sounds/rain.mp3"],
+  loop: true,
+  volume: 0.35,
+});
+
+function getAmbientSound() {
+  return savedTheme === "dark" ? rainAmbience : forestAmbience;
+}
+
+function updateAmbientSound(theme) {
+  if (!playing) return;
+
+  forestAmbience.stop();
+  rainAmbience.stop();
+
+  const newSound = theme === "dark" ? rainAmbience : forestAmbience;
+
+  newSound.volume(0);
+  newSound.play();
+  newSound.fade(0, 0.35, 1000);
+}
+
+audioBtn.addEventListener("click", () => {
+  const ambientSound = getAmbientSound();
+
+  if (!playing) {
+    ambientSound.volume(0);
+    ambientSound.play();
+    ambientSound.fade(0, 0.35, 1000);
+
+    audioBtn.classList.add("active");
+    audioBtn.innerText = "🔊 Ambient ON";
+
+    playing = true;
+  } else {
+    ambientSound.fade(0.35, 0, 1000);
+
+    setTimeout(() => {
+      ambientSound.pause();
+    }, 1000);
+
+    audioBtn.classList.remove("active");
+    audioBtn.innerText = "🔈 Ambient";
+
+    playing = false;
+  }
+});
+
+const audioZones = {
+  keyboard: { x: 900, y: 600 },
+  computer: { x: 850, y: 450 },
+  wind: { x: 200, y: 150 },
+  retro: { x: 1200, y: 300 },
+};
+
+Object.values(sounds).forEach((sound) => {
+  sound.play();
+});
+
+/* End Sounds */
+
 const toggleBtn = document.getElementById("themeToggle");
 const roomImage = document.getElementById("roomImage");
 const bgVideo = document.getElementById("backgroundVideo");
@@ -372,6 +496,7 @@ function setTheme(theme) {
         bgVideo.src = "assets/video/bg-light.mp4";
         bgVideo.playbackRate = 0.7;
       } else {
+        // Dark
         //roomImage.src = "assets/images/room-dark.png";
         bgVideo.src = "assets/video/bg-dark.mp4";
         bgVideo.playbackRate = 0.7;
@@ -396,7 +521,10 @@ function setTheme(theme) {
 
   document.body.dataset.theme = theme;
   localStorage.setItem("theme", theme);
+
+  updateAmbientSound(theme);
 }
+
 toggleBtn.addEventListener("click", () => {
   const current = document.body.dataset.theme;
 
