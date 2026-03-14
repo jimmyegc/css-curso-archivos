@@ -109,12 +109,22 @@
       </div>
 
       <div class="monitor-overlay">
-        <div class="terminal">
-          <p>> booting portfolio OS...</p>
-          <p>> loading projects...</p>
-          <p>> ready<span class="blink">_</span></p>
+        <div class="boot-layer-screen"></div>
+
+        <div class="boot-layer-trigger" id="bootTrigger">
+          <span class="boot-layer-text">click to power on</span>
+        </div>
+
+        <div class="boot-layer-sequence" id="bootSequence">
+          <div class="boot-terminal">
+            <p>> booting portfolio OS...</p>
+            <p>> loading projects...</p>
+            <p>> ready<span class="boot-cursor">_</span></p>
+          </div>
         </div>
       </div>
+
+
 
       <!-- HOTSPOTS -->
 
@@ -140,6 +150,7 @@
 
 
     </div>
+
 
 
     <!--     <div class="shelf">

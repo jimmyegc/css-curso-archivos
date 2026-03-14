@@ -99,7 +99,7 @@ HOTSPOT ACTIONS
 
 function handleClick(label) {
   if (label === "Enter Portfolio") {
-    openEditor();
+    startBootSequence();
   }
 }
 
@@ -378,6 +378,7 @@ function initExit() {
         x: 0,
         y: 0,
         duration: 0.6,
+        onComplete: resetMonitorBoot,
       });
   });
 }
@@ -514,12 +515,12 @@ function setTheme(theme) {
     onComplete: () => {
       if (theme === "light") {
         //roomImage.src = "assets/images/room-light.png";
-        bgVideo.src = "assets/video/bg-light.mp4";
+        bgVideo.src = "assets/video/bg-light.webm";
         bgVideo.playbackRate = 0.7;
       } else {
         // Dark
         //roomImage.src = "assets/images/room-dark.png";
-        bgVideo.src = "assets/video/bg-dark.mp4";
+        bgVideo.src = "assets/video/bg-dark.webm";
         bgVideo.playbackRate = 0.7;
       }
 
@@ -561,15 +562,14 @@ const savedTheme = localStorage.getItem("theme") || "dark";
 setTheme(savedTheme);
 
 /* Gameboy */
-
+/*
 const gameboy = document.getElementById("gameboy");
 const playVideo = document.getElementById("playVideo");
 
 const overlay = document.getElementById("overlay");
 const closeOverlay = document.getElementById("closeOverlay");
 
-playVideo.addEventListener("click", () => {
-  alert("x");
+playVideo.addEventListener("click", () => {  
   setTimeout(() => {
     unlockGameboy();
   }, 3000);
@@ -597,3 +597,31 @@ gameboy.addEventListener("click", () => {
 closeOverlay.addEventListener("click", () => {
   overlay.style.display = "none";
 });
+*/
+
+const bootTrigger = document.getElementById("bootTrigger");
+const bootSequence = document.getElementById("bootSequence");
+const bootScreen = document.querySelector(".boot-layer-screen");
+const devEnvironment = document.getElementById("devEnvironment");
+
+bootTrigger.addEventListener("click", startBootSequence);
+
+function resetMonitorBoot() {
+  bootTrigger.style.display = "flex";
+
+  bootScreen.style.opacity = "1";
+
+  bootSequence.style.display = "none";
+}
+
+function startBootSequence() {
+  bootTrigger.style.display = "none";
+  bootScreen.style.opacity = "0";
+  bootSequence.style.display = "flex";
+
+  setTimeout(() => {
+    bootSequence.style.display = "none";
+
+    openEditor();
+  }, 3600);
+}
