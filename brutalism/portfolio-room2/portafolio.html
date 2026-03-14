@@ -70,14 +70,22 @@
 
     <div class="mouse-light"></div>
 
-
     <div class="room-container" id="room">
+      <!--      
+    0  video del exterior
+    1  imagen del cuarto (dark / light)
+    2  iluminación ambiental
+    3  overlays del monitor
+    4  hotspots interactivos
+    5  poster
+    6  mensajes intro
+    -->
 
       <video id="backgroundVideo" class="background-video" autoplay muted loop playsinline preload="metadata">
         <source src="assets/video_dark.mp4" type="video/mp4">
       </video>
 
-      <div class="room-light"></div>
+      <div class="room-ambient-light"></div>
 
       <img src="assets/images/room-dark.png" class="room-image room-dark">
       <img src="assets/images/room-light.png" class="room-image room-light">
