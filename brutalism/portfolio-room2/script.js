@@ -54,7 +54,7 @@ function initRoom() {
     boxShadow: "0 0 30px rgba(120,180,255,0.6)",
     repeat: -1,
     yoyo: true,
-    duration: 1.5,
+    duration: 1.25,
     ease: "sine.inOut",
   });
 }
@@ -100,6 +100,10 @@ HOTSPOT ACTIONS
 function handleClick(label) {
   if (label === "Enter Portfolio") {
     startBootSequence();
+  } else if (label === "About Me") {
+    storyOverlay.style.display = "flex";
+    storyVideo.currentTime = 0;
+    storyVideo.play();
   }
 }
 
@@ -561,44 +565,6 @@ const savedTheme = localStorage.getItem("theme") || "dark";
 
 setTheme(savedTheme);
 
-/* Gameboy */
-/*
-const gameboy = document.getElementById("gameboy");
-const playVideo = document.getElementById("playVideo");
-
-const overlay = document.getElementById("overlay");
-const closeOverlay = document.getElementById("closeOverlay");
-
-playVideo.addEventListener("click", () => {  
-  setTimeout(() => {
-    unlockGameboy();
-  }, 3000);
-});
-
-function unlockGameboy() {
-  gameboy.style.display = "block";
-
-  gameboy.animate(
-    [
-      { transform: "translateY(-20px)", opacity: 0 },
-      { transform: "translateY(0)", opacity: 1 },
-    ],
-    {
-      duration: 600,
-      easing: "ease-out",
-    },
-  );
-}
-
-gameboy.addEventListener("click", () => {
-  overlay.style.display = "flex";
-});
-
-closeOverlay.addEventListener("click", () => {
-  overlay.style.display = "none";
-});
-*/
-
 const bootTrigger = document.getElementById("bootTrigger");
 const bootSequence = document.getElementById("bootSequence");
 const bootScreen = document.querySelector(".boot-layer-screen");
@@ -625,3 +591,61 @@ function startBootSequence() {
     openEditor();
   }, 3600);
 }
+
+/* Gameboy */
+
+const gameboy = document.getElementById("gameboy");
+const playVideo = document.getElementById("playVideo");
+
+const overlay = document.getElementById("overlay");
+const closeOverlay = document.getElementById("closeOverlay");
+
+/* Simula que terminó el video */
+playVideo.addEventListener("click", () => {
+  setTimeout(() => {
+    unlockGameboy();
+  }, 3000);
+});
+
+function unlockGameboy() {
+  gameboy.style.display = "block";
+
+  gameboy.animate(
+    [
+      { transform: "translateY(-20px)", opacity: 0 },
+      { transform: "translateY(0)", opacity: 1 },
+    ],
+    {
+      duration: 600,
+      easing: "ease-out",
+    },
+  );
+}
+
+/* abrir recuerdo */
+gameboy.addEventListener("click", () => {
+  overlay.style.display = "flex";
+});
+
+/* cerrar overlay */
+closeOverlay.addEventListener("click", () => {
+  overlay.style.display = "none";
+});
+
+const aboutHotspot = document.querySelector(".about-me");
+
+const storyOverlay = document.getElementById("storyOverlay");
+const closeStoryOverlay = document.getElementById("closeStoryOverlay");
+
+const storyVideo = document.getElementById("storyVideo");
+
+//const gameboy = document.getElementById("gameboy");
+
+let gameboyUnlocked = false;
+
+closeStoryOverlay.addEventListener("click", () => {
+  storyVideo.pause();
+  storyOverlay.style.display = "none";
+  gameboy.style.display = "block";
+  gameboyUnlocked = true;
+});

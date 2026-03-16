@@ -233,18 +233,18 @@ z-index:4;
 }
 
 .hotspot:hover{
-outline:2px solid rgba(255,255,255,.5);
-border-radius:8px;
+  outline:2px solid rgba(255,255,255,.5);
+  border-radius:8px;
 }
 
 /* monitor */
 
 .monitor{
-top: 45.85%;
+top: 45.75%;
 left: 36.75%;
 
-width: 27.25%;
-height: 20%;
+width: 27.5%;
+height: 20.45%;
 /*background-color: #00ff9d88; */
 }
 
@@ -279,8 +279,16 @@ width:14%;
 height:19%;
 }
 
-/* game poster */
+/* about me */
+.about-me {
+bottom: 24.5%;
+right: 30%;
+width: 10%;
+height: 7%;
+/*background-color: red;*/
+}
 
+/* game poster */
 .game{
 top: 5%;
 right:5%;
@@ -565,26 +573,38 @@ body.light-mode .ambient-audio-toggle{
 }
 
 /* Gameboy */
-/* 
+
+/* Estante */
 .shelf{
-  width:200px;
-  height:120px;
-  border-bottom:8px solid #5c3d2e;
+  width: 280px;
+  height:120px;  
   margin:40px;
-  position:relative;
+  position:absolute;
+  bottom: 36%;
+  z-index: 10;
+  /*background-color: red; */
 }
 
+body[data-theme="light"] .shelf {
+  border-bottom:8px solid #6a5e4eff;
+}
+
+body[data-theme="dark"] .shelf {
+  border-bottom:8px solid  #262838ff;
+}
+
+/* Gameboy oculto al inicio */
 #gameboy{
-  width: 70px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);  
+  width: 50px;
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  display:none;
   cursor:pointer;
-  background-color: blue;
-  z-index: 6;
 }
 
+/* Overlay */
 .overlay{
   position:fixed;
   top:0;
@@ -595,6 +615,7 @@ body.light-mode .ambient-audio-toggle{
   display:none;
   justify-content:center;
   align-items:center;
+  z-index: 10;
 }
 
 .overlay-content{
@@ -613,7 +634,8 @@ body.light-mode .ambient-audio-toggle{
   color:white;
   font-size:30px;
   cursor:pointer;
-} */
+}
+
 
 /* Monitor Overlay */
 /* pantalla negra inicial */
@@ -703,4 +725,51 @@ inset 0 0 40px rgba(0,255,140,.05),
 
 @keyframes bootLineAppear{
   to{opacity:1}
+}
+
+/* STORY VIDEO OVERLAY */
+
+.story-overlay{
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+background:rgba(0,0,0,.85);
+
+backdrop-filter:blur(8px);
+
+z-index:9000;
+}
+
+.story-overlay-content{
+position:relative;
+width:80%;
+max-width:900px;
+}
+
+.story-video{
+width:100%;
+border-radius:8px;
+box-shadow:0 20px 80px rgba(0,0,0,.8);
+}
+
+/* close button */
+
+.story-close{
+position:absolute;
+top:-40px;
+right:0;
+
+font-size:34px;
+color:white;
+
+cursor:pointer;
 }
