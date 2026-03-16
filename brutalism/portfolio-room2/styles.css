@@ -600,8 +600,26 @@ body[data-theme="dark"] .shelf {
   bottom:0;
   left:50%;
   transform:translateX(-50%);
-  display:none;
+  /*display:none; */
   cursor:pointer;
+  transition:all .4s ease;
+}
+
+#gameboy.locked{
+filter:grayscale(1) brightness(.5);
+opacity:.4;
+pointer-events:none;
+}
+
+#gameboy.unlocked{
+filter:none;
+opacity:1;
+animation:gameboyUnlock 1s ease;
+}
+
+@keyframes gameboyUnlock{
+0%{ transform:scale(.7); opacity:0 }
+100%{ transform:scale(1); opacity:1 }
 }
 
 /* Overlay */

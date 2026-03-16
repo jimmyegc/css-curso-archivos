@@ -101,9 +101,7 @@ function handleClick(label) {
   if (label === "Enter Portfolio") {
     startBootSequence();
   } else if (label === "About Me") {
-    storyOverlay.style.display = "flex";
-    storyVideo.currentTime = 0;
-    storyVideo.play();
+    startAboutStory();
   }
 }
 
@@ -638,6 +636,34 @@ const storyOverlay = document.getElementById("storyOverlay");
 const closeStoryOverlay = document.getElementById("closeStoryOverlay");
 
 const storyVideo = document.getElementById("storyVideo");
+
+function startAboutStory() {
+  storyOverlay.style.display = "flex";
+
+  storyVideo.currentTime = 0;
+
+  storyVideo.play();
+}
+
+closeStoryOverlay.addEventListener("click", () => {
+  storyVideo.pause();
+
+  storyOverlay.style.display = "none";
+});
+
+storyVideo.addEventListener("ended", () => {
+  unlockGameboy();
+});
+
+function unlockGameboy() {
+  if (gameboyUnlocked) return;
+
+  gameboyUnlocked = true;
+
+  gameboy.classList.remove("locked");
+
+  gameboy.classList.add("unlocked");
+}
 
 //const gameboy = document.getElementById("gameboy");
 
