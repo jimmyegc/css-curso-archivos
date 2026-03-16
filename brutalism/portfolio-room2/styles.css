@@ -6,10 +6,20 @@
 }
 
 /* ---------- GLOBAL ---------- */
+* {
+margin:0;
+padding:0;
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
 
 html,body{
-height:100%;
-overflow-x:hidden;
+  height:100%;
+  overflow-x:hidden;
 }
 
 /* ---------- THEMES ---------- */
@@ -205,14 +215,15 @@ color:#8be9fd;
 background-color: #000000ce;
 
 pointer-events:none;
-animation: monitorGlow 4s infinite;
+animation: monitorGlow 3s infinite;
 
 z-index:3;
 }
 
 @keyframes monitorGlow{
-0%,100%{box-shadow:0 0 30px rgba(120,180,255,.25);}
-50%{box-shadow:0 0 50px rgba(120,180,255,.35);}
+0% { box-shadow: 0 0 5px rgba(0,255,180,0.2); }
+  50% { box-shadow: 0 0 25px rgba(0,255,180,0.5); }
+  100% { box-shadow: 0 0 5px rgba(0,255,180,0.2); }
 }
 
 .blink{
@@ -576,11 +587,16 @@ body.light-mode .ambient-audio-toggle{
 
 /* Estante */
 .shelf{
-  width: 280px;
+  width: 310px;
   height:120px;  
   margin:40px;
   position:absolute;
   bottom: 36%;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+
   z-index: 10;
   /*background-color: red; */
 }
@@ -594,15 +610,73 @@ body[data-theme="dark"] .shelf {
 }
 
 /* Gameboy oculto al inicio */
+#gameboy-slot{
+position:relative;
+display:inline-block;
+width:70px;
+height:90px;
+display:flex;
+align-items:flex-end;
+justify-content:center;
+}
+
+.memory-badge{
+
+position:absolute;
+bottom:80px;
+left:50%;
+
+transform:translateX(-50%) scale(.8);
+
+padding:4px 10px;
+
+font-size:11px;
+font-family:monospace;
+
+background:rgba(0,0,0,.75);
+color:#00ff9c;
+
+border:1px solid rgba(0,255,150,.6);
+border-radius:6px;
+
+opacity:0;
+pointer-events:none;
+
+box-shadow:0 0 10px rgba(0,255,150,.3);
+
+transition:all .35s ease;
+}
+.memory-badge.show{
+
+opacity:1;
+
+transform:translateX(-50%) scale(1);
+
+animation:memoryPulse 2s ease infinite;
+}
+
+@keyframes memoryPulse{
+
+0%,100%{
+box-shadow:0 0 8px rgba(0,255,150,.25);
+}
+
+50%{
+box-shadow:0 0 16px rgba(0,255,150,.6);
+}
+
+}
+
 #gameboy{
-  width: 50px;
+  width: 70px;
   position:absolute;
-  bottom:0;
+  bottom: 0;
   left:50%;
   transform:translateX(-50%);
   /*display:none; */
   cursor:pointer;
   transition:all .4s ease;
+  transform-origin: bottom center;
 }
 
 #gameboy.locked{
@@ -617,9 +691,44 @@ opacity:1;
 animation:gameboyUnlock 1s ease;
 }
 
+#gameboy.unlock-animation{
+animation:gameboyGlow 1.6s ease;
+}
+
+@keyframes gameboyGlow{
+
+0%{
+transform:translateX(-50%) scale(.7);
+opacity:0;
+filter:brightness(3);
+}
+
+40%{
+transform:translateX(-50%) scale(1.15);
+filter:brightness(2);
+}
+
+70%{
+transform:translateX(-50%) scale(.95);
+}
+
+100%{
+transform:translateX(-50%) scale(1);
+opacity:1;
+}
+
+}
+
 @keyframes gameboyUnlock{
-0%{ transform:scale(.7); opacity:0 }
-100%{ transform:scale(1); opacity:1 }
+0%{
+transform:translateX(-50%) scale(.7);
+opacity:0;
+}
+
+100%{
+transform:translateX(-50%) scale(1);
+opacity:1;
+}
 }
 
 /* Overlay */
@@ -790,4 +899,112 @@ font-size:34px;
 color:white;
 
 cursor:pointer;
+}
+
+.digital-clock{
+
+width:90px;
+height:40px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+align-self:flex-end;
+
+margin-left:14px;
+
+background:#111;
+border:2px solid #2c2c2c;
+border-radius:6px;
+
+box-shadow:
+inset 0 0 6px rgba(0,0,0,.8),
+0 0 6px rgba(0,255,120,.15);
+
+font-family:monospace;
+font-size:18px;
+
+color:#00ff9c;
+letter-spacing:2px;
+}
+
+.digital-clock span{
+display:block;
+}
+
+.resume-folder img{
+width:70px;
+cursor:pointer;
+transition:transform .25s ease;
+}
+
+.resume-folder img:hover{
+transform:translateY(-10px);
+}
+
+.shelf img,
+.digital-clock{
+  filter:drop-shadow(0 4px 4px rgba(0,0,0,.35));
+}
+.site-footer{
+
+margin-top:80px;
+padding:30px 20px;
+
+border-top:1px solid var(--border-color);
+
+color:var(--text-secondary);
+font-size:13px;
+}
+
+.footer-inner{
+
+max-width:1100px;
+margin:auto;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+
+gap:20px;
+}
+
+.footer-social{
+
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.social-icon{
+
+width:22px;
+height:22px;
+
+color:var(--text-primary);
+
+transition:transform .2s ease, opacity .2s ease;
+}
+
+.social-icon:hover{
+
+transform:translateY(-2px);
+opacity:.7;
+}
+
+.footer-contact-link{
+
+text-decoration:none;
+font-size:13px;
+
+color:var(--text-primary);
+
+opacity:.8;
+transition:opacity .2s;
+}
+
+.footer-contact-link:hover{
+opacity:.6;
 }

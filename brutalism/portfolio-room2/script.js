@@ -16,6 +16,16 @@ function initApp() {
   initExit();
 }
 
+document.addEventListener(
+  "click",
+  () => {
+    if (Howler.ctx && Howler.ctx.state !== "running") {
+      Howler.ctx.resume();
+    }
+  },
+  { once: true },
+);
+
 function resetRoom() {
   const overlay = document.querySelector(".mouse-light");
 
@@ -417,6 +427,12 @@ const sounds = {
 
 let playing = false;
 
+const gameboySound = new Howl({
+  src: ["assets/sounds/nintendo-game-boy-startup.mp3"],
+  loop: false,
+  volume: 0.7,
+});
+
 const forestAmbience = new Howl({
   src: ["assets/sounds/forest.mp3"],
   loop: true,
@@ -500,10 +516,10 @@ const audioZones = {
   retro: { x: 1200, y: 300 },
 };
 
-Object.values(sounds).forEach((sound) => {
+/* Object.values(sounds).forEach((sound) => {
   sound.play();
 });
-
+ */
 /* End Sounds */
 
 const toggleBtn = document.getElementById("themeToggle");
@@ -597,27 +613,22 @@ const playVideo = document.getElementById("playVideo");
 
 const overlay = document.getElementById("overlay");
 const closeOverlay = document.getElementById("closeOverlay");
-
-/* Simula que terminó el video */
-playVideo.addEventListener("click", () => {
-  setTimeout(() => {
-    unlockGameboy();
-  }, 3000);
-});
+const unlockSound = document.getElementById("gameboyUnlockSound");
 
 function unlockGameboy() {
-  gameboy.style.display = "block";
+  if (gameboyUnlocked) return;
 
-  gameboy.animate(
-    [
-      { transform: "translateY(-20px)", opacity: 0 },
-      { transform: "translateY(0)", opacity: 1 },
-    ],
-    {
-      duration: 600,
-      easing: "ease-out",
-    },
-  );
+  gameboyUnlocked = true;
+
+  setTimeout(() => {
+    gameboySound.play();
+
+    gameboy.classList.remove("locked");
+
+    gameboy.classList.add("unlocked");
+    gameboy.classList.add("unlock-animation");
+    badge.classList.add("show");
+  }, 500);
 }
 
 /* abrir recuerdo */
@@ -652,18 +663,10 @@ closeStoryOverlay.addEventListener("click", () => {
 });
 
 storyVideo.addEventListener("ended", () => {
+  if (gameboyUnlocked) return;
+  storyOverlay.style.display = "none";
   unlockGameboy();
 });
-
-function unlockGameboy() {
-  if (gameboyUnlocked) return;
-
-  gameboyUnlocked = true;
-
-  gameboy.classList.remove("locked");
-
-  gameboy.classList.add("unlocked");
-}
 
 //const gameboy = document.getElementById("gameboy");
 
@@ -672,6 +675,33 @@ let gameboyUnlocked = false;
 closeStoryOverlay.addEventListener("click", () => {
   storyVideo.pause();
   storyOverlay.style.display = "none";
-  gameboy.style.display = "block";
-  gameboyUnlocked = true;
+});
+
+function updateClock() {
+  const clock = document.getElementById("clockTime");
+
+  const now = new Date();
+
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  clock.textContent = hours + ":" + minutes;
+}
+
+updateClock();
+
+setInterval(updateClock, 1000);
+
+document.getElementById("resumeFolder").addEventListener("click", () => {
+  window.open("/assets/resume/JimmyGarciaCV.pdf");
+});
+
+document.getElementById("contactForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  alert("Message sent! I'll get back to you soon.");
 });

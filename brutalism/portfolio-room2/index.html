@@ -95,15 +95,15 @@
       <img src="assets/images/room-dark.png" class="room-image room-dark">
       <img src="assets/images/room-light.png" class="room-image room-light">
 
-
-
       <div class="intro-message">
         <div class="intro-window">
           <div class="intro-header">system_message.exe</div>
           <div class="intro-body">
-            <p>Welcome to my workspace.</p>
-            <p>Click the monitor to enter the system.</p>
-            <p>Or explore the room.</p>
+            <p>Welcome to Jimmy's workspace.</p>
+            <br>
+            <p>Tip:</p>
+            <p>Power on the computer</p>
+            <p>or explore the room.</p>
           </div>
         </div>
       </div>
@@ -125,8 +125,23 @@
       </div>
 
       <div class="shelf">
+
+        <div id="deskClock" class="digital-clock">
+          <span id="clockTime">00:00</span>
+        </div>
+
         <div id="gameboy-slot">
           <img id="gameboy" class="locked" src="assets/images/gameboy.png" alt="Gameboy" />
+          <div id="gameboyBadge" class="memory-badge">
+            Memory Unlocked
+          </div>
+        </div>
+
+
+
+        <div class="shelf-item resume-folder" id="resumeFolder">
+          <img src="https://s3.amazonaws.com/thumbnails.venngage.com/template/3a1f1cc3-30b6-4f26-8efe-cb20a96f1ae4.png"
+            alt="Resume folder">
         </div>
       </div>
 
@@ -175,6 +190,10 @@
         </div>
 
       </div>
+
+      <audio id="gameboyUnlockSound" preload="auto">
+        <source src="assets/sounds/nintendo-game-boy-startup.mp3" type="audio/mp3">
+      </audio>
 
 
 
@@ -311,8 +330,62 @@
 
   <!-- FOOTER -->
 
-  <footer class="text-center text-xs py-4 opacity-60">
-    © 2026 Jimmy García · Full Stack Developer
+
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <p class="footer-copy">
+        © 2026 Jimmy García · Full Stack Developer
+      </p>
+
+      <div class="footer-social">
+
+        <a href="https://github.com/jimmyegc" target="_blank" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" class="social-icon">
+            <path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03
+          c-3.34.73-4.04-1.61-4.04-1.61
+          a3.18 3.18 0 0 0-1.34-1.76
+          c-1.09-.74.08-.73.08-.73
+          a2.52 2.52 0 0 1 1.84 1.24
+          2.56 2.56 0 0 0 3.5 1
+          2.56 2.56 0 0 1 .76-1.61
+          c-2.66-.3-5.46-1.33-5.46-5.93
+          a4.65 4.65 0 0 1 1.24-3.22
+          4.32 4.32 0 0 1 .12-3.18
+          s1-.32 3.3 1.23
+          a11.42 11.42 0 0 1 6 0
+          c2.3-1.55 3.3-1.23 3.3-1.23
+          a4.32 4.32 0 0 1 .12 3.18
+          4.65 4.65 0 0 1 1.24 3.22
+          c0 4.61-2.8 5.63-5.47 5.92
+          a2.87 2.87 0 0 1 .82 2.23v3.3
+          c0 .32.22.69.82.57A12 12 0 0 0 12 .5z" />
+          </svg>
+        </a>
+
+        <a href="https://linkedin.com/in/jimmygarcia" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" class="social-icon">
+            <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6
+          A2.49 2.49 0 0 1 0 3.5
+          2.49 2.49 0 0 1 2.49 1
+          c1.38 0 2.49 1.12 2.49 2.5zM.5 8h4v12h-4z
+          M8 8h3.8v1.64h.05
+          c.53-1 1.82-2.05 3.75-2.05
+          4 0 4.74 2.63 4.74 6.05V20h-4v-5.5
+          c0-1.31-.02-3-1.83-3
+          -1.83 0-2.11 1.43-2.11 2.9V20H8z" />
+          </svg>
+        </a>
+
+        <a href="#contact-section" class="footer-contact-link">
+          Contact
+        </a>
+
+      </div>
+
+    </div>
+
   </footer>
 
   <!-- GSAP -->
