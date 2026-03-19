@@ -1,0 +1,17 @@
+
+.room-container{
+  position:relative;
+  width: min(1376px, 100%);
+  height: min(768px, calc(100vh - 120px));
+  aspect-ratio: 1376/768;  
+  margin:auto;  
+  overflow:hidden;
+}
+
+body[data-theme="dark"] .room-container{
+background:#0c0c10;
+}
+
+body[data-theme="light"] .room-container{
+background:#e8ebf2;
+}

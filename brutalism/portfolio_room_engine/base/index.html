@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Portfolio Room</title>
+
+<link rel="stylesheet" href="./styles/main.css">
+
+</head>
+<body data-theme="dark">
+
+<header>
+<nav class="nav">
+  <strong>Jimmy Dev Room</strong>
+</nav>
+</header>
+
+<main>
+
+<div class="room-container" id="room">
+
+  <!-- Background video placeholder -->
+  <video class="background-video" autoplay muted loop>
+    <!-- asset here -->
+  </video>
+
+  <!-- Room images -->
+  <img class="room-image room-dark" src="./assets/room-dark.png">
+  <img class="room-image room-light" src="./assets/room-light.png">
+
+  <!-- Ambient light -->
+  <div class="room-ambient-light"></div>
+
+  <!-- Monitor overlay -->
+  <div class="monitor-overlay">
+    system ready<span class="blink">_</span>
+  </div>
+
+  <!-- Hotspots -->
+  <div class="hotspot monitor" data-action="monitor"></div>
+  <div class="hotspot projects" data-action="projects"></div>
+  <div class="hotspot skills" data-action="skills"></div>
+  <div class="hotspot education" data-action="education"></div>
+
+</div>
+
+</main>
+
+<div id="tooltip"></div>
+
+<script type="module" src="./js/main.js"></script>
+
+</body>
+</html>

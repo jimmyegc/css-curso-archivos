@@ -1,0 +1,36 @@
+/* BASE */
+@import "tailwindcss";
+@import "./base/reset.css";
+@import "./base/variables.css";
+@import "./base/themes.css";
+
+/* BASE */
+
+@import "./layout/room.css";
+
+/* LAYOUT */
+
+@import "./components/hotspots.css";
+@import "./components/monitor.css";
+@import "./components/terminal.css";
+@import "./components/tooltip.css";
+@import "./components//poster.css";
+@import "./components/shelf.css";
+@import "./components/skills.css";
+@import "./components/education.css";
+@import "./components/vscode.css";
+@import "./components/audio.css";
+@import "./components/intro.css";
+@import "./components/story.css";
+@import "./components/gameboy.css";
+
+/* SYSTEMS */
+
+@import "./systems/loader.css";
+@import "./systems/ambient.css";
+@import "./systems/room.css";
+
+/* UI */
+
+@import "./ui/header.css";
+@import "./ui/footer.css";

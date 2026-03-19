@@ -1,0 +1,54 @@
+.monitor {
+  width: 100%;
+  height: 100%;
+  position:relative;
+}
+
+.monitor-overlay{
+  position:absolute;
+  top:45.75%;
+  left:36.35%;
+  width:28.25%;
+  height:20.65%;
+  display:flex;
+  flex-direction:column;
+  font-family:monospace;
+  color:#8be9fd;
+  background:#000000cc;
+  cursor: text;
+  pointer-events: none;
+}
+
+#monitor-boot{
+  flex:1;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:14px;
+  text-align:center;
+}
+
+
+.blink{
+  animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+0%,50%,100%{opacity:1}
+25%,75%{opacity:0}
+
+}
+
+.monitor-off {
+  animation: monitor-off 0.4s ease forwards;
+}
+
+@keyframes monitor-off {
+  0% { opacity: 1; }
+  50% { transform: scaleY(0.1); }
+  100% { opacity: 0; }
+}

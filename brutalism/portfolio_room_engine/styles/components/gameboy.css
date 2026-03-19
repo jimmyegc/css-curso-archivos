@@ -1,0 +1,154 @@
+
+/* Gameboy oculto al inicio */
+#gameboy-slot{
+position:relative;
+display:inline-block;
+width: 60px;
+height: 80px;
+display:flex;
+align-items:flex-end;
+justify-content:center;
+}
+
+.memory-badge{
+
+position:absolute;
+bottom:80px;
+left:50%;
+
+transform:translateX(-50%) scale(.8);
+
+padding:4px 10px;
+
+font-size:11px;
+font-family:monospace;
+
+background:rgba(0,0,0,.75);
+color:#00ff9c;
+
+border:1px solid rgba(0,255,150,.6);
+border-radius:6px;
+
+opacity:0;
+pointer-events:none;
+
+box-shadow:0 0 10px rgba(0,255,150,.3);
+
+transition:all .35s ease;
+}
+.memory-badge.show{
+
+opacity:1;
+
+transform:translateX(-50%) scale(1);
+
+animation:memoryPulse 2s ease infinite;
+}
+
+@keyframes memoryPulse{
+
+0%,100%{
+box-shadow:0 0 8px rgba(0,255,150,.25);
+}
+
+50%{
+box-shadow:0 0 16px rgba(0,255,150,.6);
+}
+
+}
+
+#gameboy{
+  width: 70px;
+  position:absolute;
+  bottom: 0;
+  left:50%;
+  transform:translateX(-50%);
+  /*display:none; */
+  cursor:pointer;
+  transition:all .4s ease;
+  transform-origin: bottom center;
+}
+
+#gameboy.locked{
+filter:grayscale(1) brightness(.5);
+opacity:.4;
+pointer-events:none;
+}
+
+#gameboy.unlocked{
+filter:none;
+opacity:1;
+animation:gameboyUnlock 1s ease;
+}
+
+#gameboy.unlock-animation{
+animation:gameboyGlow 1.6s ease;
+}
+
+@keyframes gameboyGlow{
+
+0%{
+transform:translateX(-50%) scale(.7);
+opacity:0;
+filter:brightness(3);
+}
+
+40%{
+transform:translateX(-50%) scale(1.15);
+filter:brightness(2);
+}
+
+70%{
+transform:translateX(-50%) scale(.95);
+}
+
+100%{
+transform:translateX(-50%) scale(1);
+opacity:1;
+}
+
+}
+
+@keyframes gameboyUnlock{
+0%{
+transform:translateX(-50%) scale(.7);
+opacity:0;
+}
+
+100%{
+transform:translateX(-50%) scale(1);
+opacity:1;
+}
+}
+
+
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index: 10;
+}
+
+.overlay-content{
+  position:relative;
+}
+
+.overlay img{
+  max-width:400px;
+  border-radius:8px;
+}
+
+#closeOverlay{
+  position:absolute;
+  top:-30px;
+  right:-30px;
+  color:white;
+  font-size:30px;
+  cursor:pointer;
+}

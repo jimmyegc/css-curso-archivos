@@ -1,0 +1,49 @@
+#room {
+  transform-origin: center;
+}
+.room-container {
+  position: relative;
+
+  /* width: min(1376px, 95vw);
+  max-width: 1376px;
+  aspect-ratio: 1376 / 768;
+  margin: auto; */
+  width: 100%;
+  max-width: 1376px;
+  aspect-ratio: 1376 / 768;
+  margin: auto;
+
+  display: block;
+
+  overflow: hidden;
+}
+
+.background-video{
+
+position:absolute;
+top:6%;
+left:31%;
+width:39%;
+height:56%;
+
+object-fit:cover;
+
+opacity:.35;
+filter: blur(3px) brightness(.7); 
+
+pointer-events:none;
+
+}
+
+.room-image{
+
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+
+pointer-events:none;
+
+}

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jimmy García | Interactive Portfolio Room</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <link rel="stylesheet" href="./styles/main.css">
+
+</head>
+
+<body data-theme="light" class="bg-neutral-900 text-white">
+
+  <!-- Loader -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+
+      <h1 class="loader-title">Jimmy García</h1>
+
+      <div class="loader-bar">
+        <div id="loader-progress"></div>
+      </div>
+
+      <p id="loader-text">Loading room...</p>
+
+    </div>
+  </div>
+
+  <header class="sticky top-0 w-full z-50 pointer-events-none">
+    <nav class="flex justify-between items-center px-4 py-1.5
+              text-sm font-mono
+              text-gray-800 dark:text-white/80
+              bg-white/30 dark:bg-black/20
+              backdrop-blur-md
+              border-b border-black/10 dark:border-white/10">
+
+      <!-- Left -->
+      <div class="flex items-center gap-3">
+        <span class="tracking-widest">[ jimmygarcia.dev ]</span>
+        <span class="text-green-600 dark:text-green-400 animate-pulse">
+          ● ONLINE
+        </span>
+      </div>
+
+      <!-- Center -->
+      <div>
+        <span id="hudClock">00:00</span>
+      </div>
+
+      <!-- Right -->
+      <div class="flex items-center gap-2 pointer-events-auto">
+
+        <button id="quickProjects" class="px-3 py-1 uppercase text-[10px]
+    border border-black/20 dark:border-white/20
+    bg-white/40 dark:bg-white/5
+    hover:bg-white/70 dark:hover:bg-white/10
+    transition cursor-pointer">
+          projects
+        </button>
+
+        <button id="quickCV" class="px-3 py-1 uppercase text-[10px]
+    border border-black/20 dark:border-white/20
+    bg-white/40 dark:bg-white/5
+    hover:bg-white/70 dark:hover:bg-white/10
+    transition cursor-pointer">
+          cv
+        </button>
+
+        <button id="themeToggle" class="px-3 py-1 uppercase text-[10px]
+    border border-black/20 dark:border-white/20
+    bg-white/40 dark:bg-white/5
+    hover:bg-white/70 dark:hover:bg-white/10
+    transition cursor-pointer">
+          theme
+        </button>
+
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center relative overflow-hidden">
+
+    <div class="mouse-light"></div>
+    <div id="terminal-fullscreen-view" class="hidden"></div>
+
+    <div class="room-container" id="room">
+
+      <!-- Background video placeholder -->
+      <video class="background-video opacity-70 dark:opacity-40 transition" autoplay muted loop id="bgVideo">
+        <source src="assets/video/bg-light.webm" type="video/webm">
+      </video>
+
+      <!-- Room images -->
+      <img class="room-image" data-light="./assets/images/room-light.png" data-dark="./assets/images/room-dark.png"
+        src="./assets/images/room-light.png" id="roomImage" />
+
+      <!-- Intro message -->
+      <div class="intro-message">
+        <div class="intro-window">
+          <div class="intro-header">system_message.exe</div>
+          <div class="intro-body">
+            <p>Welcome to Jimmy's workspace.</p>
+            <br>
+            <p>Tip:</p>
+            <p>Power on the computer</p>
+            <p>or explore the room.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ambient light -->
+      <div class="room-ambient-light"></div>
+
+      <!-- Ambient sound overlay -->
+      <div class="ambient-audio-toggle" id="audioToggle">
+        🔊 Ambient
+      </div>
+
+      <!-- Monitor -->
+      <div class="monitor">
+        <div class="monitor-overlay" id="monitor">
+
+          <div id="monitor-boot">
+            system ready<span class="blink">_</span>
+          </div>
+
+          <div id="terminal" class="terminal hidden">
+            <button id="terminal-fullscreen">⛶</button>
+
+            <div id="terminal-output"></div>
+
+            <div class="terminal-input-line">
+              <span>$</span>
+              <input id="terminal-input" autocomplete="off">
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+
+
+      <div id="monitor-app" class="hidden"></div>
+
+
+      <!-- Shelf -->
+      <div class="shelf">
+
+        <div id="deskClock" class="digital-clock hidden">
+          <span id="clockTime">00:00</span>
+        </div>
+
+        <div id="gameboy-slot">
+          <img id="gameboy" class="locked" src="assets/images/gameboy.png" alt="Gameboy" />
+          <div id="gameboyBadge" class="memory-badge">
+            Memory Unlocked
+          </div>
+        </div>
+
+      </div>
+
+      <div class="poster">
+        <!-- Base -->
+        <img class="poster-img base" data-light="assets/posters/zelda-breath-of-the-wild.webp"
+          data-dark="assets/posters/the-last-of-us.webp" src="assets/posters/zelda-breath-of-the-wild.webp" />
+
+        <!-- Hover -->
+        <img class="poster-img hover" data-light="assets/posters/zelda.gif"
+          data-dark="assets/posters/the-last-of-us-2.webp" src="assets/posters/zelda.gif" />
+      </div>
+
+      <!-- Hotspots -->
+      <div class="hotspot hotspot-about" data-action="about"></div>
+      <div class="hotspot hotspot-monitor" data-action="monitor"></div>
+      <div class="hotspot hotspot-projects" data-action="projects"></div>
+      <div class="hotspot hotspot-skills" data-action="skills"></div>
+      <div class="hotspot hotspot-education" data-action="education"></div>
+      <div class="hotspot hotspot-resume" data-action="resume"></div>
+
+      <!-- Story Overlay -->
+      <div id="storyOverlay" class="story-overlay">
+
+        <div class="story-overlay-content">
+
+          <span id="closeStoryOverlay" class="story-close">&times;</span>
+
+          <video id="storyVideo" class="story-video" preload="metadata" controls>
+            <source src="assets/video/about-story.mp4" type="video/mp4">
+          </video>
+
+        </div>
+
+      </div>
+      <!-- Overlay for Gameboy camera -->
+      <div id="overlay" class="overlay">
+        <div class="overlay-content">
+          <span id="closeOverlay">&times;</span>
+          <img src="assets/images/gameboy-camera.webp" alt="Mi recuerdo" />
+        </div>
+      </div>
+
+    </div>
+
+
+    <div id="vscode">
+
+      <button id="exitEditor"
+        class="absolute top-4 right-6 text-sm bg-neutral-800 px-3 py-1 rounded hover:bg-neutral-700">
+        ← Back to Room
+      </button>
+
+      <div class="activity-bar">
+        <div class="icon active">📁</div>
+      </div>
+
+      <div class="sidebar">
+
+        <div class="sidebar-title">EXPLORER</div>
+
+        <ul class="file-tree">
+
+          <!--  <li data-file="about">
+            <span class="file-icon">📄</span>
+            About.md
+          </li> -->
+
+          <li data-file="experience">
+            <span class="file-icon">💼</span>
+            Experience.md
+          </li>
+
+          <li data-file="projects"></li>
+
+          <!--  <li data-file="skills">
+            <span class="file-icon">🧠</span>
+            Skills.md
+          </li> -->
+
+
+          <!-- <li class="folder">
+
+            Projects.md
+            <ul>
+              <li data-file="projects">
+                <span class="file-icon">🚀</span>
+                featured.ts
+              </li>
+              <li data-file="event">event-saas.ts</li>
+              <li data-file="attendance">attendance-system.ts</li>
+            </ul>
+          </li>
+
+<li data-file="education">
+            <span class="file-icon">🎓</span>
+            Education.md
+          </li>
+
+          <li data-file="awards">
+            <span class="file-icon">🏆</span>
+            Awards.md
+          </li> -->
+        </ul>
+
+      </div>
+
+      <div class="editor">
+
+        <!--   <div class="fixed bottom-0 left-0 w-full bg-neutral-800 text-xs px-4 py-1 flex justify-between">
+
+            <span>About.md</span>
+
+            <div class="flex gap-4 text-neutral-400">
+              <span>UTF-8</span>
+              <span>Tailwind</span>
+              <span>Portfolio OS</span>
+            </div>
+
+          </div> -->
+
+        <div class="tabs" id="editorTabs"></div>
+
+        <div class="editor-body">
+          <div id="editorContent"></div>
+        </div>
+
+        <!-- STATUS BAR -->
+        <div class="status-bar">
+
+          <div class="status-left">
+            <span>main</span>
+            <span>UTF-8</span>
+          </div>
+
+          <div class="status-right">
+            <span>JavaScript</span>
+            <span>Ln 1, Col 1</span>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <div id="tooltip"></div>
+
+  <footer class="relative z-40 
+               text-[11px] font-mono
+               text-gray-700 dark:text-white/50 pointer-events-auto
+               mt-auto">
+
+    <div class="space-y-1 px-3 py-2
+              bg-white/30 dark:bg-black/20
+              backdrop-blur-md
+              rounded-md
+              border border-black/10 dark:border-white/10">
+
+      <p>> Jimmy García · Full Stack Developer</p>
+
+      <div class="flex gap-3">
+
+        <a href="https://github.com/jimmyegc" target="_blank"
+          class="hover:text-black dark:hover:text-white transition cursor-pointer">
+          github
+        </a>
+
+        <a href="https://linkedin.com/in/jimmyegc" target="_blank"
+          class="hover:text-black dark:hover:text-white transition cursor-pointer">
+          linkedin
+        </a>
+
+        <!--  <a href="#contact-section" class="hover:text-black dark:hover:text-white transition">
+          contact
+        </a> -->
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!--   <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <p class="footer-copy">
+        © 2026 Jimmy García · Full Stack Developer
+      </p>
+
+      <div class="footer-social">
+
+        <a href="https://github.com/jimmyegc" target="_blank" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" class="social-icon">
+            <path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03
+          c-3.34.73-4.04-1.61-4.04-1.61
+          a3.18 3.18 0 0 0-1.34-1.76
+          c-1.09-.74.08-.73.08-.73
+          a2.52 2.52 0 0 1 1.84 1.24
+          2.56 2.56 0 0 0 3.5 1
+          2.56 2.56 0 0 1 .76-1.61
+          c-2.66-.3-5.46-1.33-5.46-5.93
+          a4.65 4.65 0 0 1 1.24-3.22
+          4.32 4.32 0 0 1 .12-3.18
+          s1-.32 3.3 1.23
+          a11.42 11.42 0 0 1 6 0
+          c2.3-1.55 3.3-1.23 3.3-1.23
+          a4.32 4.32 0 0 1 .12 3.18
+          4.65 4.65 0 0 1 1.24 3.22
+          c0 4.61-2.8 5.63-5.47 5.92
+          a2.87 2.87 0 0 1 .82 2.23v3.3
+          c0 .32.22.69.82.57A12 12 0 0 0 12 .5z" />
+          </svg>
+        </a>
+
+        <a href="https://linkedin.com/in/jimmygarcia" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" class="social-icon">
+            <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6
+          A2.49 2.49 0 0 1 0 3.5
+          2.49 2.49 0 0 1 2.49 1
+          c1.38 0 2.49 1.12 2.49 2.5zM.5 8h4v12h-4z
+          M8 8h3.8v1.64h.05
+          c.53-1 1.82-2.05 3.75-2.05
+          4 0 4.74 2.63 4.74 6.05V20h-4v-5.5
+          c0-1.31-.02-3-1.83-3
+          -1.83 0-2.11 1.43-2.11 2.9V20H8z" />
+          </svg>
+        </a>
+
+        <a href="#contact-section" class="footer-contact-link">
+          ✉ Contact
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer> -->
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+
+  <script type="module" src="./js/main.js"></script>
+
+</body>
+
+</html>

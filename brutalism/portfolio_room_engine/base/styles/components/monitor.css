@@ -1,0 +1,35 @@
+
+.monitor-overlay{
+
+position:absolute;
+
+top:45.75%;
+left:36.35%;
+
+width:28.25%;
+height:20.65%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-family:monospace;
+
+color:#8be9fd;
+
+background:#000000cc;
+
+}
+
+.blink{
+
+animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+0%,50%,100%{opacity:1}
+25%,75%{opacity:0}
+
+}

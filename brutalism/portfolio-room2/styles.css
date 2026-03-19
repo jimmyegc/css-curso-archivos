@@ -596,7 +596,7 @@ body.light-mode .ambient-audio-toggle{
 
   display: flex;
   align-items: flex-end;
-  gap: 16px;
+  gap: 8px;
 
   z-index: 10;
   /*background-color: red; */
@@ -948,6 +948,7 @@ transform:translateY(-10px);
 .digital-clock{
   filter:drop-shadow(0 4px 4px rgba(0,0,0,.35));
 }
+
 .site-footer{
 
 margin-top:80px;

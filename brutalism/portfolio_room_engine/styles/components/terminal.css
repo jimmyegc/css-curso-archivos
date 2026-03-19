@@ -1,0 +1,196 @@
+.terminal{
+  position: relative;
+  flex:1;
+
+  background:#0b0b0b;
+  color:#00ff9c;
+
+  font-family:monospace;
+  font-size:14px;
+
+  padding:16px;
+
+  display:flex;
+  flex-direction:column;
+
+  width: 100%;
+  height: 100%;
+
+  line-height:1.6;
+  letter-spacing:0.5px;
+  text-shadow:0 0 4px #00ff9c88;
+  overflow:hidden;
+  pointer-events: none;
+}
+
+#terminal-output {
+  margin-bottom: 6px;
+  padding-right: 4px;
+  flex:1;
+  overflow-y:auto;
+  mask-image: linear-gradient(
+to bottom,
+black 85%,
+transparent
+);
+}
+
+
+
+.terminal-input-line{
+  display:flex;
+  gap:6px;
+}
+
+.terminal-prompt{
+  color:#00ff9c;
+}
+
+#terminal-input{
+  flex:1;
+  background:none;
+  border:none;
+  outline:none;
+  color:#00ff9c;
+font-family:inherit;
+font-size:13px;
+}
+
+.hidden{
+  display:none !important;
+}
+
+#terminal-fullscreen{
+
+position:absolute;
+top:8px;
+right:10px;
+
+background:none;
+border:none;
+
+color:#00ff9c;
+
+font-size:14px;
+
+cursor:pointer;
+
+opacity:.7;
+z-index: 5;
+
+}
+
+#terminal-fullscreen:hover{
+opacity:1;
+}
+
+#terminal-fullscreen-view{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100vw;
+height:100vh;
+
+background:black;
+
+z-index:9999;
+
+display:flex;
+flex-direction:column;
+animation: terminal-enter .25s ease;
+}
+
+@keyframes terminal-enter{
+  from{
+    opacity:0;
+    transform:scale(.98);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+#terminal-fullscreen-view .terminal {
+  flex: 1;
+  min-height: 0; /* 🔥 ESTE ES EL FIX */
+}
+
+#terminal-fullscreen-view.hidden {
+  display: none;
+}
+
+
+/* Scrollbar*/
+#terminal-output::-webkit-scrollbar{
+width:6px;
+}
+
+#terminal-output::-webkit-scrollbar-track{
+background:transparent;
+}
+
+#terminal-output::-webkit-scrollbar-thumb{
+background:#00ff9c55;
+border-radius:10px;
+}
+
+#terminal-output::-webkit-scrollbar-thumb:hover{
+background:#00ff9c;
+}
+
+#terminal-output{  
+  scrollbar-width:thin;
+  scrollbar-color:#00ff9c55 transparent;
+}
+/* End Scrollbar */
+
+.os-window{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 260px;
+
+  background:#0b0b0b;
+  border:1px solid #2a2a2a;
+  color:#eaeaea;
+  font-family: monospace;
+
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.window-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:#1a1a1a;
+  padding:6px 10px;
+  cursor:default;
+}
+
+.window-body{
+  padding:12px;
+  white-space:pre-line;
+}
+
+.window-header button{
+  background:none;
+  border:none;
+  color:white;
+  cursor:pointer;
+}
+
+.monitor-overlay {
+  pointer-events: none;
+}
+
+.hotspot,
+.monitor,
+.terminal,
+.os-window {
+  pointer-events: auto;
+}

@@ -469,6 +469,8 @@ function stopAllSpatialSounds() {
       sound.pause();
     }, 300);
   });
+  forestAmbience.stop();
+  rainAmbience.stop();
 }
 
 function startAllSpatialSounds() {

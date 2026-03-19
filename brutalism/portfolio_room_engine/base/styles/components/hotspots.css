@@ -1,0 +1,17 @@
+
+.hotspot{
+
+position:absolute;
+
+cursor:pointer;
+
+z-index:var(--z-hotspots);
+
+}
+
+.hotspot:hover{
+
+outline:2px solid rgba(255,255,255,.5);
+border-radius:8px;
+
+}

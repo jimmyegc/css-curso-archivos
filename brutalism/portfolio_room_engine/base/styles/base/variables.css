@@ -1,0 +1,15 @@
+
+:root{
+
+--color-text-primary:#111;
+--color-text-secondary:#555;
+
+--color-border:#ddd;
+
+--nav-bg:rgba(255,255,255,.35);
+
+--z-room:1;
+--z-hotspots:4;
+--z-overlay:9000;
+
+}
