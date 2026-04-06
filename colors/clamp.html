@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    :root {
+      --surface: #5f3ed6;
+      --text: #ececec;
+    }
+
+    .container {
+      width: min(50em, 95%);
+      margin: 0 auto;
+      background-color: var(--surface);
+      color: var(--text);
+      border-radius: 1em;
+      padding: 2em;
+    }
+
+    h1 {
+      color: white;
+      /*font-size: max(min(5vw, 1em), 1rem); */
+      font-size: clamp(1.8rem, 7vw + 1rem, 5rem);
+      text-align: center;
+      margin: 2em 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Hello</h1>
+  </div>
+</body>
+
+</html>
